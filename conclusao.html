@@ -1,0 +1,1454 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Introdução ao Python 3 e ao framework web Flask através de exemplos">
+      
+      
+        <meta name="author" content="Serge Tahé">
+      
+      
+        <link rel="canonical" href="https://stahe.github.io/pt-python-flask-sept-2020/conclusao.html">
+      
+      
+        <link rel="prev" href="exercicio-pratico-versao-18-.html">
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.0">
+    
+    
+      
+        <title>39. Conclusão - Introdução ao Python 3 e ao framework web Flask através de exemplos</title>
+      
+    
+    
+      <link rel="stylesheet" href="assets/stylesheets/main.618322db.min.css">
+      
+        
+        <link rel="stylesheet" href="assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="stylesheets/focus.css">
+    
+    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-EBZC3JVJNR"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    var siteName = "Introdução ao Python 3 e ao framework web Flask através de exemplos";
+    gtag('config', 'G-EBZC3JVJNR', {
+        'page_title': siteName
+    });
+  </script>
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="purple">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#39-conclusao" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="index.html" title="Introdução ao Python 3 e ao framework web Flask através de exemplos" class="md-header__button md-logo" aria-label="Introdução ao Python 3 e ao framework web Flask através de exemplos" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Introdução ao Python 3 e ao framework web Flask através de exemplos
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              39. Conclusão
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="purple"  aria-label="Mudar para modo escuro"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Mudar para modo escuro" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="purple"  aria-label="Mudar para modo claro"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Mudar para modo claro" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://stahe.github.io/pt-python-flask-sept-2020" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="index.html" title="Introdução ao Python 3 e ao framework web Flask através de exemplos" class="md-nav__button md-logo" aria-label="Introdução ao Python 3 e ao framework web Flask através de exemplos" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Introdução ao Python 3 e ao framework web Flask através de exemplos
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://stahe.github.io/pt-python-flask-sept-2020" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Bem-vindos
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="prefacio.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. Prefácio
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="configurar-um-ambiente-de-desenvolvimento.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. Configurar um ambiente de desenvolvimento
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="nocoes-basicas-de-python.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. Noções básicas de Python
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="cadeias-de-caracteres.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. Cadeias de caracteres
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="excecoes.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. Exceções
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="funcoes.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6. Funções
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="ficheiros-de-texto.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    7. Ficheiros de texto
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="exercicio-pratico---versao-1.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    8. Exercício prático – versão 1
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="importacoes.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    9. Importações
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="exercicio-pratico-versao-2.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    10. Exercício Prático: Versão 2
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="exercicio-pratico-versao-3.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    11. Exercício prático: Versão 3
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="classes-e-objetos.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    12. Classes e objetos
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="as-classes-genericas-baseentity-e-myexception.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    13. As classes genéricas [BaseEntity] e [MyException]
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="arquitetura-em-camadas-e-programacao-baseada-em-interfaces.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    14. Arquitetura em camadas e programação baseada em interfaces
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="exercicio-de-aplicacao---versao-4.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    15. Exercício de aplicação - Versão 4
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="utilizando-o-sgbd-mysql.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    16. Utilizando o SGBD MySQL
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="utilizacao-do-sgbd-postgresql.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    17. Utilização do SGBD PostgreSQL
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="escrever-codigo-independente-do-sgbd.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    18. Escrever código independente do SGBD
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="utilizacao-do-orm-sqlalchemy.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    19. Utilização do ORM SQLAlchemy
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="exercicio-de-aplicacao-versao-5.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    20. Exercício de aplicação: versão 5
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="funcoes-de-internet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    21. Funções de Internet
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="servicos-web-com-o-framework-flask.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    22. Serviços web com o framework Flask
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="exercicio-pratico-versao-6.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    23. Exercício prático: Versão 6
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="exercicio-pratico-versao-7.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    24. Exercício prático: Versão 7
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="-exercicio-de-aplicacao-versao-8.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    25.  Exercício de aplicação: Versão 8
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="do-dicionario-para-xml-e-vice-versa.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    26. Do dicionário para XML e vice-versa
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="exercicio-de-aplicacao-versao-9.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    27. Exercício de aplicação: Versão 9
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="exercicio-da-aplicacao-versao-10.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    28. Exercício da aplicação: versão 10
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="exercicio-pratico-versao-11.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    29. Exercício prático: versão 11
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="exercicio-pratico-versao-12.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    30. Exercício prático: Versão 12
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="clientes-web-para-os-servicos-json-e-xml-da-versao-12.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    31. Clientes web para os serviços JSON e XML da versão 12
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="modo-html-na-versao-12.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    32. Modo HTML na versão 12
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="exercicio-pratico-versao-13.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    33. Exercício prático: Versão 13
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="exercicio-pratico-versao-14.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    34. Exercício prático: Versão 14
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="exercicio-pratico-versao-15.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    35. Exercício prático: versão 15
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="exercicio-da-aplicacao-versao-16.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    36. Exercício da Aplicação: Versão 16
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="exercicio-pratico-versao-17.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    37. Exercício prático: Versão 17
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="exercicio-pratico-versao-18-.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    38. Exercício prático: Versão 18 
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="conclusao.html" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    39. Conclusão
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<p><a id="toc48549354"></a></p>
+<h1 id="39-conclusao">39. <span style="color: #365f91">Conclusão</span></h1>
+<p>Vamos rever o trabalho realizado neste documento:</p>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0"><b>Capítulo</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0"><b>Repositório de código</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0"><b>Índice</b></div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0"><a href="https://stahe.github.io/en-python-flask-sept-2020/foreword.html"><u><span style="color: #0563c1">Capítulo 1</span></u></a></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">Visão geral do curso</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0"><a href="https://stahe.github.io/en-python-flask-sept-2020/setting-up-a-development-environment.html"><u><span style="color: #0563c1">Capítulo 2</span></u></a></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">Configurar um ambiente de trabalho</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0"><a href="https://stahe.github.io/en-python-flask-sept-2020/the-basics-of-python.html"><u><span style="color: #0563c1">Capítulo 3</span></u></a></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0"><b>[Noções básicas]</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">Noções básicas da linguagem Python</div><div style="margin:0 0 0.5em 0"> – estruturas da linguagem – tipos de dados</div><div style="margin:0 0 0.5em 0"> – funções – saída da consola –</div><div style="margin:0 0 0.5em 0">cadeias de formatação – conversão de tipos</div><div style="margin:0 0 0.5em 0"> – listas – dicionários – expressões</div><div style="margin:0 0 0.5em 0"> expressões</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0"><a href="https://stahe.github.io/en-python-flask-sept-2020/strings.html"><u><span style="color: #0563c1">Capítulo 4</span></u></a></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0"><b>[cadeias de caracteres]</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">Notação de cadeias – métodos da</div><div style="margin:0 0 0.5em 0">classe &lt;str&gt; – codificação/decodificação</div><div style="margin:0 0 0.5em 0">cadeias de caracteres em UTF-8</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0"><a href="https://stahe.github.io/en-python-flask-sept-2020/exceptions.html"><u><span style="color: #0563c1">Capítulo 5</span></u></a></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0"><b>[exceções]</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">Tratamento de exceções</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0"><a href="https://stahe.github.io/en-python-flask-sept-2020/functions.html"><u><span style="color: #0563c1">Capítulo 6</span></u></a></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0"><b>[funções]</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">Âmbito das variáveis – Parâmetros</div><div style="margin:0 0 0.5em 0">Passagem – Utilização de módulos – O</div><div style="margin:0 0 0.5em 0">caminho do Python – Parâmetros</div><div style="margin:0 0 0.5em 0">– Funções</div><div style="margin:0 0 0.5em 0"> Funções</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0"><a href="https://stahe.github.io/en-python-flask-sept-2020/text-files.html"><u><span style="color: #0563c1">Capítulo 7</span></u></a></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0"><b>[ficheiros]</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">Ler/escrever um ficheiro de texto –</div><div style="margin:0 0 0.5em 0">trabalhar com ficheiros codificados em UTF-8 –</div><div style="margin:0 0 0.5em 0"> trabalho com ficheiros JSON</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0"><a href="https://stahe.github.io/en-python-flask-sept-2020/application-exercise---version-1.html"><u><span style="color: #0563c1">Capítulo 8</span></u></a></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0"><b>[taxes/v01]</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">Versão 1 da aplicação</div><div style="margin:0 0 0.5em 0">Exercício: cálculo do imposto sobre o rendimento</div><div style="margin:0 0 0.5em 0">. A aplicação está disponível em 18</div><div style="margin:0 0 0.5em 0">versões – A Versão 1 implementa</div><div style="margin:0 0 0.5em 0"> uma solução procedural</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0"><a href="https://stahe.github.io/en-python-flask-sept-2020/imports.html"><u><span style="color: #0563c1">Capítulo 9</span></u></a></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0"><b>[importações]</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">Gerir as</div><div style="margin:0 0 0.5em 0">importando</div><div style="margin:0 0 0.5em 0">módulos – um método de</div><div style="margin:0 0 0.5em 0">é apresentado</div><div style="margin:0 0 0.5em 0"> – é utilizado ao longo de todo o</div><div style="margin:0 0 0.5em 0">documento – gestão do</div><div style="margin:0 0 0.5em 0"> caminho do Python</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0"><a href="https://stahe.github.io/en-python-flask-sept-2020/practical-exercise-version-2.html"><u><span style="color: #0563c1">Capítulo 10</span></u></a></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0"><b>[impots/v02]</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">A versão 2 da aplicação</div><div style="margin:0 0 0.5em 0">baseia-se na versão 1, reunindo</div><div style="margin:0 0 0.5em 0">todas as constantes de configuração num</div><div style="margin:0 0 0.5em 0">ficheiro de configuração que também</div><div style="margin:0 0 0.5em 0">gerencia o caminho do Python</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0"><a href="https://stahe.github.io/en-python-flask-sept-2020/practical-exercise-version-3.html"><u><span style="color: #0563c1">Capítulo 11</span></u></a></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0"><b>[impots/v03]</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">A versão 3 da aplicação</div><div style="margin:0 0 0.5em 0">baseia-se na versão 2, utilizando</div><div style="margin:0 0 0.5em 0">funções encapsuladas num</div><div style="margin:0 0 0.5em 0">módulo — a</div><div style="margin:0 0 0.5em 0">é gerida através da</div><div style="margin:0 0 0.5em 0">configuração — introdução de um</div><div style="margin:0 0 0.5em 0">ficheiro JSON para ler os dados necessários</div><div style="margin:0 0 0.5em 0">para o cálculo de impostos e gravar os</div><div style="margin:0 0 0.5em 0">resultados do cálculo</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0"><a href="https://stahe.github.io/en-python-flask-sept-2020/classes-and-objects.html"><u><span style="color: #0563c1">Capítulo 12</span></u></a></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0"><b>[classes/01]</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">Classes – herança – métodos</div><div style="margin:0 0 0.5em 0">e propriedades – getters/setters –</div><div style="margin:0 0 0.5em 0">construtor – <b>[__dict__]</b></div><div style="margin:0 0 0.5em 0"><b> </b>propriedade</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0"><a href="https://stahe.github.io/en-python-flask-sept-2020/the-generic-classes-baseentity-and-myexception.html"><u><span style="color: #0563c1">Capítulo 13</span></u></a></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0"><b>[classes/02]</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">Introdução às classes <b>[BaseEntity]</b></div><div style="margin:0 0 0.5em 0">e <b>[MyException] </b>utilizadas</div><div style="margin:0 0 0.5em 0">ao longo do resto do</div><div style="margin:0 0 0.5em 0">documento – <b>[BaseEntity]</b></div><div style="margin:0 0 0.5em 0">facilita as conversões objeto/dicionário</div><div style="margin:0 0 0.5em 0"> .</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0"><a href="https://stahe.github.io/en-python-flask-sept-2020/layered-architecture-and-interface-based-programming.html"><u><span style="color: #0563c1">Capítulo 14</span></u></a></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0"><b>[três camadas]</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">Arquitetura em camadas e</div><div style="margin:0 0 0.5em 0">programação baseada em interfaces.</div><div style="margin:0 0 0.5em 0">Este capítulo apresenta os</div><div style="margin:0 0 0.5em 0">métodos de programação utilizados</div><div style="margin:0 0 0.5em 0">ao longo do resto do</div><div style="margin:0 0 0.5em 0"> documento</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0"><a href="https://stahe.github.io/en-python-flask-sept-2020/application-exercise---version-4.html"><u><span style="color: #0563c1">Capítulo 15</span></u></a></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0"><b>[taxes/v04]</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">Versão 4 da aplicação – esta</div><div style="margin:0 0 0.5em 0">versão implementa uma solução</div><div style="margin:0 0 0.5em 0">com uma arquitetura em camadas,</div><div style="margin:0 0 0.5em 0">programação baseada em interfaces e</div><div style="margin:0 0 0.5em 0">o uso de classes derivadas de</div><div style="margin:0 0 0.5em 0"><b>[BaseEntity] </b>e</div><div style="margin:0 0 0.5em 0"> <b>[MyException]</b></div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0"><a href="https://stahe.github.io/en-python-flask-sept-2020/using-the-mysql-dbms.html"><u><span style="color: #0563c1">Capítulo 16</span></u></a></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0"><b>[bases de dados/mysql]</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">Instalação do SGBD MySQL –</div><div style="margin:0 0 0.5em 0">ligar a uma base de dados –</div><div style="margin:0 0 0.5em 0">criar uma tabela – executar</div><div style="margin:0 0 0.5em 0">SELECT, UPDATE, DELETE,</div><div style="margin:0 0 0.5em 0">e INSERT –</div><div style="margin:0 0 0.5em 0">transações – consultas SQL</div><div style="margin:0 0 0.5em 0"> SQL</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0"><a href="https://stahe.github.io/en-python-flask-sept-2020/using-the-postgresql-dbms.html"><u><span style="color: #0563c1">Capítulo 17</span></u></a></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0"><b>[bases de dados/postgresql]</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">Instalação do SGBD PostgreSQL</div><div style="margin:0 0 0.5em 0"> – ligar-se a uma base de dados –</div><div style="margin:0 0 0.5em 0">criar uma tabela – executar</div><div style="margin:0 0 0.5em 0">SELECT, UPDATE, DELETE,</div><div style="margin:0 0 0.5em 0">e INSERT –</div><div style="margin:0 0 0.5em 0">transações – consultas SQL</div><div style="margin:0 0 0.5em 0"> SQL</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0"><a href="https://stahe.github.io/en-python-flask-sept-2020/writing-dbms-independent-code.html"><u><span style="color: #0563c1">Capítulo 18</span></u></a></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0"><b>[bases de dados/qualquer SGBD]</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">Escrever código independente do SGBD</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0"><a href="https://stahe.github.io/en-python-flask-sept-2020/using-the-sqlalchemy-orm.html"><u><span style="color: #0563c1">Capítulo 19</span></u></a></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0"><b>[bases de dados/sqlalchemy]</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">O ORM (Object-</div><div style="margin:0 0 0.5em 0">) – um ORM</div><div style="margin:0 0 0.5em 0">permite uma abordagem unificada para</div><div style="margin:0 0 0.5em 0">trabalhar com diferentes SGBDs –</div><div style="margin:0 0 0.5em 0">mapeamento de classes para tabelas SQL –</div><div style="margin:0 0 0.5em 0">operações em classes</div><div style="margin:0 0 0.5em 0"> que representam tabelas SQL</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0"><a href="https://stahe.github.io/en-python-flask-sept-2020/application-exercise-version-5.html"><u><span style="color: #0563c1">Capítulo 20</span></u></a></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0"><b>[taxes/v05]</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">Versão 5 da aplicação de cálculo de impostos</div><div style="margin:0 0 0.5em 0">– Utilizando a arquitetura em camadas</div><div style="margin:0 0 0.5em 0">da versão 04 e</div><div style="margin:0 0 0.5em 0">o ORM SqlAlchemy para funcionar</div><div style="margin:0 0 0.5em 0">com os SGBDs MySQL e PostgreSQL</div><div style="margin:0 0 0.5em 0"> .</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0"><a href="https://stahe.github.io/en-python-flask-sept-2020/internet-functions.html"><u><span style="color: #0563c1">Capítulo 21</span></u></a></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0"><b>[inet]</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">Programação Web – Protocolo TCP/IP</div><div style="margin:0 0 0.5em 0">(Protocolo de Controlo de Transmissão</div><div style="margin:0 0 0.5em 0">/ Protocolo de Internet) –</div><div style="margin:0 0 0.5em 0">Protocolos HTTP (Protocolo de</div><div style="margin:0 0 0.5em 0">) – SMTP</div><div style="margin:0 0 0.5em 0">(Protocolo Simples de Transferência de Correio)</div><div style="margin:0 0 0.5em 0">– POP (Protocolo de Correio) –</div><div style="margin:0 0 0.5em 0">IMAP (Protocolo de Acesso a Mensagens na Internet</div><div style="margin:0 0 0.5em 0"> )</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0"><a href="https://stahe.github.io/en-python-flask-sept-2020/web-services-with-the-flask-framework.html"><u><span style="color: #0563c1">Capítulo 22</span></u></a></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0"><b>[flask]</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">Serviços Web com o framework Flask</div><div style="margin:0 0 0.5em 0">– exibição de uma</div><div style="margin:0 0 0.5em 0">página HTML – serviço web JSON</div><div style="margin:0 0 0.5em 0">– Pedidos GET e POST –</div><div style="margin:0 0 0.5em 0"> gerir uma sessão web</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0"><a href="https://stahe.github.io/en-python-flask-sept-2020/practice-exercise-version-6.html"><u><span style="color: #0563c1">Capítulo 23</span></u></a></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0"><b>[impostos/servidores-http/01]</b></div><div style="margin:0 0 0.5em 0"><b>[impostos/clientes-http/01]</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">Versão 6 da aplicação</div><div style="margin:0 0 0.5em 0">Exercício – Criação de um serviço web JSON</div><div style="margin:0 0 0.5em 0">para cálculo de impostos com uma</div><div style="margin:0 0 0.5em 0">arquitetura multicamadas – Escrever</div><div style="margin:0 0 0.5em 0">um cliente web para este servidor com uma</div><div style="margin:0 0 0.5em 0">arquitetura multicamadas –</div><div style="margin:0 0 0.5em 0">programação cliente/servidor –</div><div style="margin:0 0 0.5em 0"> utilizando o módulo<b> [requests]</b></div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0"><a href="https://stahe.github.io/en-python-flask-sept-2020/practice-exercise-version-7.html"><u><span style="color: #0563c1">Capítulo 24</span></u></a></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0"><b>[taxes/http-servers/02]</b></div><div style="margin:0 0 0.5em 0"><b>[impostos/clientes-http/02]</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">Versão 7 da aplicação</div><div style="margin:0 0 0.5em 0">exercício – A versão 6 foi melhorada:</div><div style="margin:0 0 0.5em 0">o cliente e o servidor são</div><div style="margin:0 0 0.5em 0">multithreaded – <b>[Logger]</b></div><div style="margin:0 0 0.5em 0">utilitários para registar as trocas cliente/servidor</div><div style="margin:0 0 0.5em 0">– <b>[SendMail] </b>para enviar</div><div style="margin:0 0 0.5em 0">um e-mail ao administrador da aplicação</div><div style="margin:0 0 0.5em 0"> administrador</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0"><a href="https://stahe.github.io/en-python-flask-sept-2020/-application-exercise-version-8.html"><u><span style="color: #0563c1">Capítulo 25</span></u></a></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0"><b>[taxes/http-servers/03]</b></div><div style="margin:0 0 0.5em 0"><b>[taxas/clientes-http/03]</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">Versão 8 da aplicação</div><div style="margin:0 0 0.5em 0">exercício – A versão 7 foi melhorada</div><div style="margin:0 0 0.5em 0"> através da utilização de uma sessão web</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0"><a href="https://stahe.github.io/en-python-flask-sept-2020/from-dictionary-to-xml-and-vice-versa.html"><u><span style="color: #0563c1">Capítulo 26</span></u></a></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0"><b>[xml]</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">Gestão de XML (eXtended Markup</div><div style="margin:0 0 0.5em 0">) com o</div><div style="margin:0 0 0.5em 0"> módulo<b> [xmltodict]</b></div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0"><a href="https://stahe.github.io/en-python-flask-sept-2020/application-exercise-version-9.html"><u><span style="color: #0563c1">Capítulo 27</span></u></a></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0"><b>[taxes/http-servers/04]</b></div><div style="margin:0 0 0.5em 0"><b>[impostos/clientes-http/04]</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">Versão 9 do aplicativo</div><div style="margin:0 0 0.5em 0">exercício – a versão 8 é modificada</div><div style="margin:0 0 0.5em 0">para incluir trocas cliente/servidor</div><div style="margin:0 0 0.5em 0"> em XML;</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0"><a href="https://stahe.github.io/en-python-flask-sept-2020/application-exercise-version-9.html"><u><span style="color: #0563c1">Capítulo 28</span></u></a></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0"><b>[taxes/http-servers/05]</b></div><div style="margin:0 0 0.5em 0"><b>[impostos/clientes-http/05]</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">Versão 10 da aplicação</div><div style="margin:0 0 0.5em 0">exercício – em vez de processar N</div><div style="margin:0 0 0.5em 0">contribuintes através de N pedidos GET, é utilizada uma</div><div style="margin:0 0 0.5em 0">única solicitação POST é utilizada com</div><div style="margin:0 0 0.5em 0">os N contribuintes no corpo da solicitação POST</div><div style="margin:0 0 0.5em 0"> corpo</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0"><a href="https://stahe.github.io/en-python-flask-sept-2020/application-exercise-version-11.html"><u><span style="color: #0563c1">Capítulo 29</span></u></a></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0"><b>[impostos/servidores-http/06]</b></div><div style="margin:0 0 0.5em 0"><b>[impostos/clientes-http/06]</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">Versão 11 do exercício da aplicação</div><div style="margin:0 0 0.5em 0">exercício – a</div><div style="margin:0 0 0.5em 0">arquitetura cliente/servidor do aplicativo é</div><div style="margin:0 0 0.5em 0">modificada: a camada<b> [de negócios]</b></div><div style="margin:0 0 0.5em 0">passa do servidor para o</div><div style="margin:0 0 0.5em 0"> cliente</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0"><a href="https://stahe.github.io/en-python-flask-sept-2020/practical-exercise-version-12.html"><u><span style="color: #0563c1">Capítulo 30</span></u></a></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0"><b>[impostos/servidores-http/07]</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">Versão 12 do aplicativo</div><div style="margin:0 0 0.5em 0">exercício – esta versão implementa</div><div style="margin:0 0 0.5em 0">um servidor MVC (Modelo–Visão–</div><div style="margin:0 0 0.5em 0">Controller) que fornece</div><div style="margin:0 0 0.5em 0">JSON, XML e HTML</div><div style="margin:0 0 0.5em 0">de forma intercambiável, dependendo</div><div style="margin:0 0 0.5em 0">da solicitação do cliente. Este capítulo</div><div style="margin:0 0 0.5em 0">implementa as versões JSON e XML</div><div style="margin:0 0 0.5em 0"> do servidor</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0"><a href="https://stahe.github.io/en-python-flask-sept-2020/web-clients-for-the-json-and-xml-services-of-version-12.html"><u><span style="color: #0563c1">Capítulo 31</span></u></a></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0"><b>[impots/http-clients/07]</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">Implementação dos clientes JSON e</div><div style="margin:0 0 0.5em 0">XML para o servidor MVC</div><div style="margin:0 0 0.5em 0">na Versão 12</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0"><a href="https://stahe.github.io/en-python-flask-sept-2020/html-mode-in-version-12.html"><u><span style="color: #0563c1">Capítulo 32</span></u></a></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0"><b>[impots/http-servers/07]</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">Implementação do servidor HTML</div><div style="margin:0 0 0.5em 0">na versão 12 – utilizando o</div><div style="margin:0 0 0.5em 0">framework CSS Bootstrap –</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0"><a href="https://stahe.github.io/en-python-flask-sept-2020/application-exercise-version-13.html"><u><span style="color: #0563c1">Capítulo 33</span></u></a></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0"><b>[impots/http-servers/08]</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">Versão 13 da aplicação</div><div style="margin:0 0 0.5em 0">exercício – Refatoração do código</div><div style="margin:0 0 0.5em 0">da versão 12 – gestão de</div><div style="margin:0 0 0.5em 0">utilizando o</div><div style="margin:0 0 0.5em 0">módulo<b> [flask_session] </b>e um</div><div style="margin:0 0 0.5em 0">servidor Redis – utilizando</div><div style="margin:0 0 0.5em 0"> senhas</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0"><a href="https://stahe.github.io/en-python-flask-sept-2020/practical-exercise-version-14.html"><u><span style="color: #0563c1">Capítulo 34</span></u></a></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0"><b>[import/http-servers/09]</b></div><div style="margin:0 0 0.5em 0"><b>[importações/clientes-http/09]</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">Versão 14 da aplicação</div><div style="margin:0 0 0.5em 0">exercício – implementação de URLs</div><div style="margin:0 0 0.5em 0">com um token CSRF (Cross-Site Request</div><div style="margin:0 0 0.5em 0"> )</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0"><a href="https://stahe.github.io/en-python-flask-sept-2020/application-exercise-version-15.html"><u><span style="color: #0563c1">Capítulo 35</span></u></a></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0"><b>[impots/http-servers/10]</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">Versão 15 da aplicação</div><div style="margin:0 0 0.5em 0">exercício – refatoração do código</div><div style="margin:0 0 0.5em 0">da versão 14 para lidar com dois</div><div style="margin:0 0 0.5em 0">tipos de ações: ASV (Ação</div><div style="margin:0 0 0.5em 0">Mostrar Vista), que são usadas apenas</div><div style="margin:0 0 0.5em 0">para exibir uma vista sem</div><div style="margin:0 0 0.5em 0">alterar o estado do servidor, e</div><div style="margin:0 0 0.5em 0">ADS (Action Do Something),</div><div style="margin:0 0 0.5em 0">que executam uma ação que</div><div style="margin:0 0 0.5em 0">altera o estado do servidor — todas estas</div><div style="margin:0 0 0.5em 0">ações terminam todas com um redirecionamento para</div><div style="margin:0 0 0.5em 0">uma ação ASV — isto permite</div><div style="margin:0 0 0.5em 0">o tratamento adequado das atualizações de página</div><div style="margin:0 0 0.5em 0"> no navegador do cliente</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0"><a href="https://stahe.github.io/en-python-flask-sept-2020/application-exercise-version-16.html"><u><span style="color: #0563c1">Capítulo 36</span></u></a></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0"><b>[impots/http-servers/11]</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">Versão 16 da aplicação –</div><div style="margin:0 0 0.5em 0"> Gestão de URLs com prefixos</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0"><a href="https://stahe.github.io/en-python-flask-sept-2020/practical-exercise-version-17.html"><u><span style="color: #0563c1">Capítulo 37</span></u></a></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0"><b>[importações/servidores-http/12]</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">Versão 17 da aplicação –</div><div style="margin:0 0 0.5em 0">portando a versão 16 para um</div><div style="margin:0 0 0.5em 0"> servidor Apache/Windows</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0"><a href="https://stahe.github.io/en-python-flask-sept-2020/practical-exercise-version-18-.html"><u><span style="color: #0563c1">Capítulo 38</span></u></a></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0"><b>[impots/http-servers/13]</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">Versão 18 da aplicação –</div><div style="margin:0 0 0.5em 0"> corrige um bug na versão 17</div></td></tr></table>
+
+<p>As aplicações de cálculo de impostos cliente/servidor implementaram a seguinte arquitetura:</p>
+<p><img src="images/10000000000003BC0000053607429669.png" width="418" height="583" style="width:11.053cm;height:15.423cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000003BC0000053607429669.png" /></p>
+<p>A camada <strong>[web]</strong> acima foi implementada utilizando uma arquitetura MVC:</p>
+<p><img src="images/100000010000033200000102272A12E0.png" width="523" height="165" style="width:13.831cm;height:4.362cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000010000033200000102272A12E0.png" /></p>
+<p>O conteúdo deste documento é denso. Os leitores que chegarem ao fim irão adquirir uma compreensão sólida da programação web MVC em Python/Flask e, além disso, uma compreensão sólida da programação web MVC noutras linguagens.</p>
+<p>É possível encontrar informações adicionais sobre o framework Flask no documento [<a href="https://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-i-hello-world"><u><span style="color: #0563c1">https://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-i-hello-world</span></u></a>], da autoria de Miguel Grinberg. Li algumas secções do seu curso e achei-as muito instrutivas. O autor aborda muitos conceitos que não são tratados neste documento.</p>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner">
+
+      <div>
+        <a href="https://stahe.github.io" target="_blank">
+          https://stahe.github.io
+        </a>
+        <br>
+        Este tutorial, escrito por <strong>Serge Tahé</strong>, é disponibilizado ao público sob os termos da
+<em>Creative Commons Atribuição – Não comercial –
+Partilha igual 3.0 Unported</em>.
+      </div>
+
+    </div>
+  </div>
+
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": ".", "features": ["navigation.sections", "navigation.indexes", "navigation.expand", "toc.integrate", "navigation.top"], "search": "assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="assets/javascripts/bundle.e71a0d61.min.js"></script>
+      
+        <script src="javascripts/focus.js"></script>
+      
+    
+  </body>
+</html>
