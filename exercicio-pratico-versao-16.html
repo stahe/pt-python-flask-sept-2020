@@ -1,0 +1,2054 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Introdução ao Python 3 e ao framework web Flask através de exemplos">
+      
+      
+        <meta name="author" content="Serge Tahé">
+      
+      
+        <link rel="canonical" href="https://stahe.github.io/pt-python-flask-sept-2020/exercicio-pratico-versao-16.html">
+      
+      
+        <link rel="prev" href="exercicio-pratico-versao-15.html">
+      
+      
+        <link rel="next" href="exercicio-pratico-versao-17.html">
+      
+      
+        
+      
+      
+      <link rel="icon" href="assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.0">
+    
+    
+      
+        <title>36. Exercício prático: versão 16 - Introdução ao Python 3 e ao framework web Flask através de exemplos</title>
+      
+    
+    
+      <link rel="stylesheet" href="assets/stylesheets/main.618322db.min.css">
+      
+        
+        <link rel="stylesheet" href="assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="stylesheets/focus.css">
+    
+      <link rel="stylesheet" href="stylesheets/bidi.css">
+    
+    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-EBZC3JVJNR"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    var siteName = "Introdução ao Python 3 e ao framework web Flask através de exemplos";
+    gtag('config', 'G-EBZC3JVJNR', {
+        'page_title': siteName
+    });
+  </script>
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="purple">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#36-exercicio-pratico-versao-16" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="index.html" title="Introdução ao Python 3 e ao framework web Flask através de exemplos" class="md-header__button md-logo" aria-label="Introdução ao Python 3 e ao framework web Flask através de exemplos" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Introdução ao Python 3 e ao framework web Flask através de exemplos
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              36. Exercício prático: versão 16
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="purple"  aria-label="Mudar para modo escuro"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Mudar para modo escuro" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="purple"  aria-label="Mudar para modo claro"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Mudar para modo claro" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://stahe.github.io/pt-python-flask-sept-2020" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="index.html" title="Introdução ao Python 3 e ao framework web Flask através de exemplos" class="md-nav__button md-logo" aria-label="Introdução ao Python 3 e ao framework web Flask através de exemplos" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Introdução ao Python 3 e ao framework web Flask através de exemplos
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://stahe.github.io/pt-python-flask-sept-2020" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Bem-vindos
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="prefacio.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. Prefácio
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="instalacao-de-um-ambiente-de-trabalho.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. Instalação de um ambiente de trabalho
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="nocoes-basicas-de-python.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. Noções básicas de Python
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="as-cadeias-de-caracteres.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. As cadeias de caracteres
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="as-excecoes.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. As exceções
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="as-funcoes.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6. As funções
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="os-ficheiros-de-texto.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    7. Os ficheiros de texto
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="exercicio-pratico---versao-1.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    8. Exercício prático – versão 1
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="as-importacoes.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    9. As importações
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="exercicio-pratico-versao-2.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    10. Exercício prático: versão 2
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="exercicio-pratico-versao-3.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    11. Exercício prático: versão 3
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="as-classes-e-os-objetos.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    12. As classes e os objetos
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="as-classes-genericas-baseentity-e-myexception.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    13. As classes genéricas [BaseEntity] e [MyException]
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="arquitetura-em-camadas-e-programacao-por-interfaces.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    14. Arquitetura em camadas e programação por interfaces
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="exercicio-pratico---versao-4.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    15. Exercício prático - versão 4
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="utilizacao-do-sgbd-mysql.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    16. Utilização do SGBD MySQL
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="utilizacao-do-sgbd-postgresql.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    17. Utilização do SGBD PostgreSQL
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="escrever-codigo-independente-do-sgbd.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    18. Escrever código independente do SGBD
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="utilizacao-do-orm-sqlalchemy.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    19. Utilização do ORM SQLALCHEMY
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="exercicio-pratico-versao-5.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    20. Exercício prático: versão 5
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="funcoes-de-internet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    21. Funções de Internet
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="servicos-web-com-o-framework-flask.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    22. Serviços web com o framework Flask
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="exercicio-pratico-versao-6.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    23. Exercício prático: versão 6
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="exercicio-pratico-versao-7.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    24. Exercício prático: versão 7
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="-exercicio-pratico-versao-8.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    25.  Exercício prático: versão 8
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="do-dicionario-para-xml-e-vice-versa.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    26. Do dicionário para XML e vice-versa
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="exercicio-pratico-versao-9.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    27. Exercício prático: versão 9
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="exercicio-pratico-versao-10.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    28. Exercício prático: versão 10
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="exercicio-pratico-versao-11.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    29. Exercício prático: versão 11
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="exercicio-pratico-versao-12.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    30. Exercício prático: versão 12
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="clientes-web-para-os-servicos-json-e-xml-da-versao-12.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    31. Clientes web para os serviços jSON e XML da versão 12
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="o-modo-html-da-versao-12.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    32. O modo HTML da versão 12
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="exercicio-pratico-versao-13.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    33. Exercício prático: versão 13
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="exercicio-pratico-versao-14.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    34. Exercício prático: versão 14
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="exercicio-pratico-versao-15.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    35. Exercício prático: versão 15
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    36. Exercício prático: versão 16
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="exercicio-pratico-versao-16.html" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    36. Exercício prático: versão 16
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#361-introducao" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        36.1. Introdução
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#362-a-nova-configuracao-das-rotas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        36.2. A nova configuração das rotas
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#363-os-novos-controladores" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        36.3. Os novos controladores
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#364-os-novos-modelos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        36.4. Os novos modelos
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#365-os-novos-fragmentos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        36.5. Os novos fragmentos
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#366-a-nova-resposta-html" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        36.6. A nova resposta HTML
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#367-testes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        36.7. Testes
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="exercicio-pratico-versao-17.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    37. Exercício prático: versão 17
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="exercicio-pratico-versao-18-.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    38. Exercício prático: versão 18 
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="conclusao.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    39. Conclusão
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<p><span id="exercicedapplication12" name="exercicedapplication12" class="odt-bookmark-anchor"></span>
+<span id="toc48549334" name="toc48549334" class="odt-bookmark-anchor"></span></p>
+<h1 id="36-exercicio-pratico-versao-16">36. <span style="color: #365f91">Exercício prático: versão 16</span></h1>
+<p><img src="images/10000000000001100000012E4F46BBF8.png" width="119" height="132" style="width:3.14cm;height:3.485cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000001100000012E4F46BBF8.png" /></p>
+<p><span id="toc48549335" name="toc48549335" class="odt-bookmark-anchor"></span></p>
+<h2 id="361-introducao">36.1. <span style="color: #4f81bd">Introdução</span></h2>
+<p>Os URL da nossa aplicação têm, por enquanto, o formato <strong>[/action/param1/param2/…]</strong>. Gostaríamos de poder adicionar um prefixo a estes URL. Por exemplo, com o prefixo <strong>[/do]</strong>, teríamos URL com o formato <strong>[/do/action/param1/param2/…]</strong>.</p>
+<p><span id="toc48549336" name="toc48549336" class="odt-bookmark-anchor"></span></p>
+<h2 id="362-a-nova-configuracao-das-rotas">36.2. <span style="color: #4f81bd">A nova configuração das rotas</span></h2>
+<p><img src="images/100000000000033F000001903ED52661.png" width="362" height="174" style="width:9.58cm;height:4.611cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000033F000001903ED52661.png" /></p>
+<ul>
+  <li>para <b>[2]</b>, o cálculo das rotas será alterado;
+  </li>
+  <li>em <b>[1]</b>, o ficheiro <b>[config] </b>é alterado para refletir esta alteração;
+  </li>
+</ul>
+
+<p>A configuração <strong>[config]</strong> passa a ser a seguinte:</p>
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">def</span> configure(config: dict) -&gt; dict:</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#008000"># configuração do syspath</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#0000ff">import</span> syspath</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    config<span style="font-weight:bold">[</span><span style="font-weight:bold;color:#a31515">&#x27;syspath&#x27;</span><span style="font-weight:bold">]</span> = syspath.configure(config)</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#008000"># configuração da aplicação</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#0000ff">import</span> parameters</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    config<span style="font-weight:bold">[</span><span style="font-weight:bold;color:#a31515">&#x27;parameters&#x27;</span><span style="font-weight:bold">]</span> = parameters.configure(config)</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#008000"># configuração da base de dados</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#0000ff">import</span> database</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    config<span style="font-weight:bold">[</span><span style="font-weight:bold;color:#a31515">&quot;database&quot;</span><span style="font-weight:bold">]</span> = database.configure(config)</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#008000"># instanciação das camadas da aplicação</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#0000ff">import</span> layers</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    config<span style="font-weight:bold">[</span><span style="font-weight:bold;color:#a31515">&#x27;layers&#x27;</span><span style="font-weight:bold">]</span> = layers.configure(config)</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#008000"># configuração da camada MVC</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    config<span style="font-weight:bold">[</span><span style="font-weight:bold;color:#a31515">&#x27;mvc&#x27;</span><span style="font-weight:bold">]</span> = {}</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#008000"># configuração dos controladores da camada [web]</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#0000ff">import</span> controllers</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    config<span style="font-weight:bold">[</span><span style="font-weight:bold;color:#a31515">&#x27;mvc&#x27;</span><span style="font-weight:bold">]</span>.update(controllers.configure(config))</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#008000"># ações ASV (Ação Mostrar Vista)</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#0000ff">import</span> asv_actions</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    config<span style="font-weight:bold">[</span><span style="font-weight:bold;color:#a31515">&#x27;mvc&#x27;</span><span style="font-weight:bold">]</span>.update(asv_actions.configure(config))</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#008000"># ações ADS (Ação «Do Something»)</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#0000ff">import</span> ads_actions</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    config<span style="font-weight:bold">[</span><span style="font-weight:bold;color:#a31515">&#x27;mvc&#x27;</span><span style="font-weight:bold">]</span>.update(ads_actions.configure(config))</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#008000"># configuração das respostas HTTP</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#0000ff">import</span> responses</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    config<span style="font-weight:bold">[</span><span style="font-weight:bold;color:#a31515">&#x27;mvc&#x27;</span><span style="font-weight:bold">]</span>.update(responses.configure(config))</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#008000"># configuração das rotas</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#0000ff">import</span> routes</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    routes.configure(config)</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#008000"># aplicar a configuração</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#0000ff">return</span> config</span></span>
+</code></pre></div>
+
+<ul>
+  <li>linhas 37-39: o módulo <b>[routes] </b>(linha 38) encarrega-se de configurar as rotas (linha 39);
+  </li>
+</ul>
+
+<p>O ficheiro das rotas sem token CSRF <strong>[configs/routes_without_csrftoken]</strong> sofre as seguintes alterações:</p>
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
+<span class="odt-code-line"><span class="odt-code-line-content"># dependências</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">from</span><span style="color:#000000"> flask </span><span style="color:#0000ff">import</span><span style="color:#000000"> redirect, request, session, url_for</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">from</span><span style="color:#000000"> flask_api </span><span style="color:#0000ff">import</span><span style="color:#000000"> status</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"># configuração da aplicação</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">config = {}</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"># o controlador frontal</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">def</span><span style="color:#000000"> front_controller() -&gt; tuple:</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span># encaminhamos o pedido para o controlador principal</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    main_controller = config</span><span style="font-weight:bold;color:#000000">[</span><span style="font-weight:bold;color:#a31515">&#x27;mvc&#x27;</span><span style="font-weight:bold;color:#000000">][</span><span style="font-weight:bold;color:#a31515">&#x27;controllers&#x27;</span><span style="font-weight:bold;color:#000000">][</span><span style="font-weight:bold;color:#a31515">&#x27;main-controller&#x27;</span><span style="font-weight:bold;color:#000000">]</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="color:#0000ff">return</span><span style="color:#000000"> main_controller.execute(request, session, config)</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"># raiz da aplicação</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">def</span><span style="color:#000000"> index() -&gt; tuple:</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span># redirecionamento para /init-session/html</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="color:#0000ff">return</span><span style="color:#000000"> redirect(url_for(</span><span style="color:#a31515">&quot;init_session&quot;</span><span style="color:#000000">, type_response=</span><span style="color:#a31515">&quot;html&quot;</span><span style="color:#000000">), status.HTTP_302_FOUND)</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"># inicialização da sessão</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">def</span><span style="color:#000000"> init_session(type_response: str) -&gt; tuple:</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span># executa-se o controlador associado à ação</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="color:#0000ff">return</span><span style="color:#000000"> front_controller()</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"># autenticar-utilizador</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">def</span><span style="color:#000000"> authentifier_utilisateur() -&gt; tuple:</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span># executa-se o controlador associado à ação</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="color:#0000ff">return</span><span style="color:#000000"> front_controller()</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"># calcular-imposto</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">def</span><span style="color:#000000"> calculer_impot() -&gt; tuple:</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span># executa-se o controlador associado à ação</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="color:#0000ff">return</span><span style="color:#000000"> front_controller()</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">…</span></span>
+</code></pre></div>
+
+<p>O ficheiro foi despojado das suas rotas. Restam apenas as funções associadas às mesmas.</p>
+<p>Os ficheiros de rotas com token CSRF e <strong>[configs/routes_with_csrftoken]</strong> sofrem o mesmo destino:</p>
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
+<span class="odt-code-line"><span class="odt-code-line-content"># dependências</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">from</span><span style="color:#000000"> flask </span><span style="color:#0000ff">import</span><span style="color:#000000"> redirect, request, session, url_for</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">from</span><span style="color:#000000"> flask_api </span><span style="color:#0000ff">import</span><span style="color:#000000"> status</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">from</span><span style="color:#000000"> flask_wtf.csrf </span><span style="color:#0000ff">import</span><span style="color:#000000"> generate_csrf</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"># configuração</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">config = {}</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"># o controlador frontal</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">def</span><span style="color:#000000"> front_controller() -&gt; tuple:</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span># a solicitação é encaminhada para o controlador principal</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    main_controller = config</span><span style="font-weight:bold;color:#000000">[</span><span style="font-weight:bold;color:#a31515">&#x27;mvc&#x27;</span><span style="font-weight:bold;color:#000000">][</span><span style="font-weight:bold;color:#a31515">&#x27;controllers&#x27;</span><span style="font-weight:bold;color:#000000">][</span><span style="font-weight:bold;color:#a31515">&#x27;main-controller&#x27;</span><span style="font-weight:bold;color:#000000">]</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="color:#0000ff">return</span><span style="color:#000000"> main_controller.execute(request, session, config)</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"># raiz da aplicação</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">def</span><span style="color:#000000"> index() -&gt; tuple:</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span># redirecionamento para /init-session/html</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="color:#0000ff">return</span><span style="color:#000000"> redirect(url_for(</span><span style="color:#a31515">&quot;init_session&quot;</span><span style="color:#000000">, type_response=</span><span style="color:#a31515">&quot;html&quot;</span><span style="color:#000000">, </span><span style="background-color:#fff2cc;color:#000000">csrf_token=generate_csrf()</span><span style="color:#000000">), status.HTTP_302_FOUND)</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"># init-session</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">def</span><span style="color:#000000"> init_session(type_response: str, </span><span style="background-color:#fff2cc;color:#000000">csrf_token: str</span><span style="color:#000000">) -&gt; tuple:</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span># é executado o controlador associado à ação</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="color:#0000ff">return</span><span style="color:#000000"> front_controller()</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"># autenticar-utilizador</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">def</span><span style="color:#000000"> authentifier_utilisateur(</span><span style="background-color:#fff2cc;color:#000000">csrf_token: str</span><span style="color:#000000">) -&gt; tuple:</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span># executa-se o controlador associado à ação</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="color:#0000ff">return</span><span style="color:#000000"> front_controller()</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">…</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"># inicializar sessão sem token CSRF para clientes JSON e XML</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">def</span><span style="color:#000000"> </span><span style="background-color:#fff2cc;color:#000000">init_session_without_csrftoken</span><span style="color:#000000">(type_response: str) -&gt; tuple:</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span># redirecionamento para /init-session/type_response</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="color:#0000ff">return</span><span style="color:#000000"> redirect(url_for(</span><span style="color:#a31515">&quot;init_session&quot;</span><span style="color:#000000">, type_response=type_response, csrf_token=generate_csrf()),</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">                    status.HTTP_302_FOUND)</span></span>
+</code></pre></div>
+
+<p>As rotas são calculadas pelo seguinte módulo <strong>[configs/routes]</strong>:</p>
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">from</span> flask <span style="color:#0000ff">import</span> Flask</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">def</span> configure(config: dict):</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#008000"># configuração das rotas</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#008000"># aplicação Flask</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    app = Flask(__name__, template_folder=<span style="color:#a31515">&quot;../flask/templates&quot;</span>, static_folder=<span style="color:#a31515">&quot;../flask/static&quot;</span>)</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    config<span style="font-weight:bold">[</span><span style="font-weight:bold;color:#a31515">&#x27;app&#x27;</span><span style="font-weight:bold">]</span> = app</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#008000"># importação das rotas da aplicação web</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#0000ff">if</span> config<span style="font-weight:bold">[</span><span style="font-weight:bold;color:#a31515">&#x27;parameters&#x27;</span><span style="font-weight:bold">][</span><span style="font-weight:bold;color:#a31515">&#x27;with_csrftoken&#x27;</span><span style="font-weight:bold">]</span>:</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#0000ff">import</span> routes_with_csrftoken <span style="color:#0000ff">as</span> routes</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#0000ff">else</span>:</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#0000ff">import</span> routes_without_csrftoken <span style="color:#0000ff">as</span> routes</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#008000"># injetamos a configuração nas rotas</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    routes.config = config</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#008000"># o prefixo das URL da aplicação</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    prefix_url = config<span style="font-weight:bold">[</span><span style="font-weight:bold;color:#a31515">&quot;parameters&quot;</span><span style="font-weight:bold">][</span><span style="font-weight:bold;color:#a31515">&quot;prefix_url&quot;</span><span style="font-weight:bold">]</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#008000"># token CSRF</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    with_csrftoken = config<span style="font-weight:bold">[</span><span style="font-weight:bold;color:#a31515">&quot;parameters&quot;</span><span style="font-weight:bold">][</span><span style="font-weight:bold;color:#a31515">&#x27;with_csrftoken&#x27;</span><span style="font-weight:bold">]</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#0000ff">if</span> with_csrftoken:</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        csrftoken_param = <span style="color:#0000ff">f</span><span style="color:#a31515">&quot;/&lt;string:csrf_token&gt;&quot;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#0000ff">else</span>:</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        csrftoken_param = <span style="color:#a31515">&quot;&quot;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#008000"># as rotas da aplicação Flask</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#008000"># raiz da aplicação</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    app.add_url_rule(<span style="color:#0000ff">f</span><span style="color:#a31515">&#x27;</span>{prefix_url}<span style="color:#a31515">/&#x27;</span>, methods=<span style="font-weight:bold">[</span><span style="font-weight:bold;color:#a31515">&#x27;GET&#x27;</span><span style="font-weight:bold">]</span>,</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">                     view_func=routes.index)</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#008000"># inicialização da sessão</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    app.add_url_rule(<span style="color:#0000ff">f</span><span style="color:#a31515">&#x27;</span>{prefix_url}<span style="color:#a31515">/init-session/&lt;string:type_response&gt;</span>{csrftoken_param}<span style="color:#a31515">&#x27;</span>, methods=<span style="font-weight:bold">[</span><span style="font-weight:bold;color:#a31515">&#x27;GET&#x27;</span><span style="font-weight:bold">]</span>,</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">                     view_func=routes.init_session)</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#008000"># inicialização da sessão sem token CSRF</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#0000ff">if</span> with_csrftoken:</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        app.add_url_rule(<span style="color:#0000ff">f</span><span style="color:#a31515">&#x27;</span>{prefix_url}<span style="color:#a31515">/init-session-without-csrftoken/&lt;string:type_response&gt;&#x27;</span>,</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">                         methods=<span style="font-weight:bold">[</span><span style="font-weight:bold;color:#a31515">&#x27;GET&#x27;</span><span style="font-weight:bold">]</span>,</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">                         view_func=routes.init_session_without_csrftoken)</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#008000"># autenticar-utilizador</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    app.add_url_rule(<span style="color:#0000ff">f</span><span style="color:#a31515">&#x27;</span>{prefix_url}<span style="color:#a31515">/authentifier-utilisateur</span>{csrftoken_param}<span style="color:#a31515">&#x27;</span>, methods=<span style="font-weight:bold">[</span><span style="font-weight:bold;color:#a31515">&#x27;POST&#x27;</span><span style="font-weight:bold">]</span>,</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">                     view_func=routes.authentifier_utilisateur)</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#008000"># cálculo-do-imposto</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    app.add_url_rule(<span style="color:#0000ff">f</span><span style="color:#a31515">&#x27;</span>{prefix_url}<span style="color:#a31515">/calculer-impot</span>{csrftoken_param}<span style="color:#a31515">&#x27;</span>, methods=<span style="font-weight:bold">[</span><span style="font-weight:bold;color:#a31515">&#x27;POST&#x27;</span><span style="font-weight:bold">]</span>,</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">                     view_func=routes.calculer_impot)</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#008000"># cálculo do imposto em lotes</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    app.add_url_rule(<span style="color:#0000ff">f</span><span style="color:#a31515">&#x27;</span>{prefix_url}<span style="color:#a31515">/calculer-impots</span>{csrftoken_param}<span style="color:#a31515">&#x27;</span>, methods=<span style="font-weight:bold">[</span><span style="font-weight:bold;color:#a31515">&#x27;POST&#x27;</span><span style="font-weight:bold">]</span>,</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">                     view_func=routes.calculer_impots)</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#008000"># listar-simulações</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    app.add_url_rule(<span style="color:#0000ff">f</span><span style="color:#a31515">&#x27;</span>{prefix_url}<span style="color:#a31515">/lister-simulations</span>{csrftoken_param}<span style="color:#a31515">&#x27;</span>, methods=<span style="font-weight:bold">[</span><span style="font-weight:bold;color:#a31515">&#x27;GET&#x27;</span><span style="font-weight:bold">]</span>,</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">                     view_func=routes.lister_simulations)</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#008000"># eliminar-simulação</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    app.add_url_rule(<span style="color:#0000ff">f</span><span style="color:#a31515">&#x27;</span>{prefix_url}<span style="color:#a31515">/supprimer-simulation/&lt;int:numero&gt;</span>{csrftoken_param}<span style="color:#a31515">&#x27;</span>, methods=<span style="font-weight:bold">[</span><span style="font-weight:bold;color:#a31515">&#x27;GET&#x27;</span><span style="font-weight:bold">]</span>,</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">                     view_func=routes.supprimer_simulation)</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#008000"># fim-sessão</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    app.add_url_rule(<span style="color:#0000ff">f</span><span style="color:#a31515">&#x27;</span>{prefix_url}<span style="color:#a31515">/fin-session</span>{csrftoken_param}<span style="color:#a31515">&#x27;</span>, methods=<span style="font-weight:bold">[</span><span style="font-weight:bold;color:#a31515">&#x27;GET&#x27;</span><span style="font-weight:bold">]</span>,</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">                     view_func=routes.fin_session)</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#008000"># exibir-cálculo-imposto</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    app.add_url_rule(<span style="color:#0000ff">f</span><span style="color:#a31515">&#x27;</span>{prefix_url}<span style="color:#a31515">/afficher-calcul-impot</span>{csrftoken_param}<span style="color:#a31515">&#x27;</span>, methods=<span style="font-weight:bold">[</span><span style="font-weight:bold;color:#a31515">&#x27;GET&#x27;</span><span style="font-weight:bold">]</span>,</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">                     view_func=routes.afficher_calcul_impot)</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#008000"># obter-dados-de-administrador</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    app.add_url_rule(<span style="color:#0000ff">f</span><span style="color:#a31515">&#x27;</span>{prefix_url}<span style="color:#a31515">/get-admindata</span>{csrftoken_param}<span style="color:#a31515">&#x27;</span>, methods=<span style="font-weight:bold">[</span><span style="font-weight:bold;color:#a31515">&#x27;GET&#x27;</span><span style="font-weight:bold">]</span>,</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">                     view_func=routes.get_admindata)</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#008000"># exibir-visão-cálculo-impostos</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    app.add_url_rule(<span style="color:#0000ff">f</span><span style="color:#a31515">&#x27;</span>{prefix_url}<span style="color:#a31515">/afficher-vue-calcul-impot</span>{csrftoken_param}<span style="color:#a31515">&#x27;</span>, methods=<span style="font-weight:bold">[</span><span style="font-weight:bold;color:#a31515">&#x27;GET&#x27;</span><span style="font-weight:bold">]</span>,</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">                     view_func=routes.afficher_vue_calcul_impot)</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#008000"># exibir-vista-autenticação</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    app.add_url_rule(<span style="color:#0000ff">f</span><span style="color:#a31515">&#x27;</span>{prefix_url}<span style="color:#a31515">/afficher-vue-authentification</span>{csrftoken_param}<span style="color:#a31515">&#x27;</span>, methods=<span style="font-weight:bold">[</span><span style="font-weight:bold;color:#a31515">&#x27;GET&#x27;</span><span style="font-weight:bold">]</span>,</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">                     view_func=routes.afficher_vue_authentification)</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#008000"># exibir-vista-lista-simulações</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    app.add_url_rule(<span style="color:#0000ff">f</span><span style="color:#a31515">&#x27;</span>{prefix_url}<span style="color:#a31515">/afficher-vue-liste-simulations</span>{csrftoken_param}<span style="color:#a31515">&#x27;</span>, methods=<span style="font-weight:bold">[</span><span style="font-weight:bold;color:#a31515">&#x27;GET&#x27;</span><span style="font-weight:bold">]</span>,</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">                     view_func=routes.afficher_vue_liste_simulations)</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#008000"># exibir-vista-lista_erros</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    app.add_url_rule(<span style="color:#0000ff">f</span><span style="color:#a31515">&#x27;</span>{prefix_url}<span style="color:#a31515">/afficher-vue-liste-erreurs</span>{csrftoken_param}<span style="color:#a31515">&#x27;</span>, methods=<span style="font-weight:bold">[</span><span style="font-weight:bold;color:#a31515">&#x27;GET&#x27;</span><span style="font-weight:bold">]</span>,</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">                     view_func=routes.afficher_vue_liste_erreurs)</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#008000"># caso específico</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#0000ff">if</span> with_csrftoken:</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#008000"># iniciar-sessão-sem-token-csrf para clientes json e xml</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        app.add_url_rule(<span style="color:#0000ff">f</span><span style="color:#a31515">&#x27;</span>{prefix_url}<span style="color:#a31515">/init-session-without-csrftoken&#x27;</span>, methods=<span style="font-weight:bold">[</span><span style="font-weight:bold;color:#a31515">&#x27;GET&#x27;</span><span style="font-weight:bold">]</span>,</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">                         view_func=routes.init_session_without_csrftoken)</span></span>
+</code></pre></div>
+
+<ul>
+  <li>linhas 6-8: a aplicação Flask é criada e incluída na configuração;
+  </li>
+  <li>linhas 10-14: importa-se o ficheiro de rotas adequado à situação. Recorde-se que o ficheiro importado, na verdade, não contém rotas. Contém apenas as funções associadas às mesmas;
+  </li>
+  <li>linha 17: as funções associadas às rotas precisam de conhecer a configuração da aplicação;
+  </li>
+  <li>linha 20: observa-se o prefixo URL. Este pode estar vazio;
+  </li>
+  <li>linhas 22-27: as rotas com o token CSRF têm um parâmetro adicional em relação às que não o possuem. Para gerir esta diferença, utiliza-se a variável <b>[csrftoken_param]</b>:
+    <ul>
+      <li>contém a cadeia vazia se não houver nenhum token CSRF nas rotas;
+      </li>
+      <li>contém a cadeia <b>[/&lt;string:csrf_token&gt;] </b>se houver um token CSRF;
+      </li>
+    </ul>
+  </li>
+  <li>linhas 29-96: cada rota da aplicação está associada a uma função do ficheiro de rotas importado nas linhas 10-14;
+  </li>
+</ul>
+
+<p><span id="toc48549337" name="toc48549337" class="odt-bookmark-anchor"></span></p>
+<h2 id="363-os-novos-controladores">36.3. <span style="color: #4f81bd">Os novos controladores</span></h2>
+<p><img src="images/1000000000000214000002728224C811.png" width="232" height="274" style="width:6.151cm;height:7.237cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/1000000000000214000002728224C811.png" /></p>
+<p>Na versão anterior, todos os controladores obtinham a ação em processamento da seguinte forma:</p>
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#0000ff">def</span> execute(self, request: LocalProxy, session: LocalProxy, config: dict) -&gt; (dict, int):</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        </span># recuperar os elementos do caminho</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        params = request.path.split(<span style="color:#a31515">&#x27;/&#x27;</span>)</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        action = params<span style="font-weight:bold">[</span><span style="font-weight:bold;color:#098658">1</span><span style="font-weight:bold">]</span></span></span>
+</code></pre></div>
+
+<p>Este código deixa de funcionar se houver um prefixo, por exemplo, <strong>[/do/lister-simulations]</strong>. Neste caso, a ação, na linha 3, seria <strong>[do]</strong> e, portanto, estaria incorreta.</p>
+<p>Transformamos este código da seguinte forma:</p>
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#0000ff">def</span> execute(self, request: LocalProxy, session: LocalProxy, config: dict) -&gt; (dict, int):</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        </span># recuperam-se os elementos do caminho</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        prefix_url = config<span style="font-weight:bold">[</span><span style="font-weight:bold;color:#a31515">&quot;parameters&quot;</span><span style="font-weight:bold">][</span><span style="font-weight:bold;color:#a31515">&quot;prefix_url&quot;</span><span style="font-weight:bold">]</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        params = request.path<span style="font-weight:bold">[len(prefix_url):]</span>.split(<span style="color:#a31515">&#x27;/&#x27;</span>)</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        action = params<span style="font-weight:bold">[</span><span style="font-weight:bold;color:#098658">1</span><span style="font-weight:bold">]</span></span></span>
+</code></pre></div>
+
+<p>Faz-se isto em todos os controladores.</p>
+<p><span id="toc48549338" name="toc48549338" class="odt-bookmark-anchor"></span></p>
+<h2 id="364-os-novos-modelos">36.4. <span style="color: #4f81bd">Os novos modelos</span></h2>
+<p><img src="images/10000000000001A40000012C345863EA.png" width="183" height="131" style="width:4.842cm;height:3.457cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000001A40000012C345863EA.png" /></p>
+<p>Na versão anterior, cada classe de modelo gerava um modelo da seguinte forma:</p>
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">def</span> get_model_for_view(self, request: Request, session: LocalProxy, config: dict, résultat: dict) -&gt; dict:</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#008000"># encapsulamos os dados da página num modelo</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        modèle = {}</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#008000"># estado da aplicação</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        état = résultat<span style="font-weight:bold">[</span><span style="font-weight:bold;color:#a31515">&quot;état&quot;</span><span style="font-weight:bold">]</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#008000"># o modelo depende do estado</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#0000ff">…</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#008000"># token CSRF</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        modèle<span style="font-weight:bold">[</span><span style="font-weight:bold;color:#a31515">&#x27;csrf_token&#x27;</span><span style="font-weight:bold">]</span> = super().get_csrftoken(config)</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#008000"># ações possíveis a partir da vista</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        modèle<span style="font-weight:bold">[</span><span style="font-weight:bold;color:#a31515">&#x27;actions_possibles&#x27;</span><span style="font-weight:bold">]</span> = <span style="font-weight:bold">[</span><span style="font-weight:bold;color:#a31515">…</span><span style="font-weight:bold">]</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#008000"># renderiza-se o modelo</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#0000ff">return</span> modèle</span></span>
+</code></pre></div>
+
+<p>A partir de agora, o modelo terá uma chave adicional, o prefixo URL:</p>
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">def</span> get_model_for_view(self, request: Request, session: LocalProxy, config: dict, résultat: dict) -&gt; dict:</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#008000"># encapsulamos os dados da página no modelo</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        modèle = {}</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#008000"># estado da aplicação</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        état = résultat<span style="font-weight:bold">[</span><span style="font-weight:bold;color:#a31515">&quot;état&quot;</span><span style="font-weight:bold">]</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#008000"># o modelo depende do estado</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#0000ff">…</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#008000"># token CSRF</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        modèle<span style="font-weight:bold">[</span><span style="font-weight:bold;color:#a31515">&#x27;csrf_token&#x27;</span><span style="font-weight:bold">]</span> = super().get_csrftoken(config)</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#008000"># ações possíveis a partir da vista</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        modèle<span style="font-weight:bold">[</span><span style="font-weight:bold;color:#a31515">&#x27;actions_possibles&#x27;</span><span style="font-weight:bold">]</span> = <span style="font-weight:bold">[</span><span style="font-weight:bold;color:#a31515">…</span><span style="font-weight:bold">]</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#000000"># prefixo dos URL</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        </span><span style="background-color:#fff2cc;color:#000000">modèle</span><span style="font-weight:bold;background-color:#fff2cc;color:#000000">[</span><span style="font-weight:bold;background-color:#fff2cc">&quot;prefix_url&quot;</span><span style="font-weight:bold;background-color:#fff2cc;color:#000000">]</span><span style="color:#000000"> = config</span><span style="font-weight:bold;color:#000000">[</span><span style="font-weight:bold">&quot;parameters&quot;</span><span style="font-weight:bold;color:#000000">][</span><span style="font-weight:bold">&quot;prefix_url&quot;</span><span style="font-weight:bold;color:#000000">]</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#008000"># envia-se o modelo</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#0000ff">return</span> modèle</span></span>
+</code></pre></div>
+
+<p><span id="toc48549339" name="toc48549339" class="odt-bookmark-anchor"></span></p>
+<h2 id="365-os-novos-fragmentos">36.5. <span style="color: #4f81bd">Os novos fragmentos</span></h2>
+<p><img src="images/100000000000017B00000163077FE754.png" width="166" height="155" style="width:4.382cm;height:4.105cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000017B00000163077FE754.png" /></p>
+<p>Todos os fragmentos que contenham URL devem ser alterados.</p>
+<p><strong>O fragmento [v-authentification]</strong></p>
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-html">
+<span class="odt-code-line"><span class="odt-code-line-content">&lt;!-- formulário HTML - enviamos os seus valores com a ação [authentifier-utilisateur] --&gt;</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#800000">&lt;form</span><span style="color:#000000"> </span><span style="color:#ff0000">method</span><span style="color:#000000">=</span><span style="color:#0000ff">&quot;post&quot;</span><span style="color:#000000"> </span><span style="color:#ff0000">action</span><span style="color:#000000">=</span><span style="color:#0000ff">&quot;</span><span style="background-color:#fff2cc;color:#0000ff">{{modèle.prefix_url}}</span><span style="color:#0000ff">/authentifier-utilisateur{{modèle.csrf_token}}&quot;</span><span style="color:#800000">&gt;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span>&lt;!-- título --&gt;</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="color:#800000">&lt;div</span><span style="color:#000000"> </span><span style="color:#ff0000">class</span><span style="color:#000000">=</span><span style="color:#0000ff">&quot;alert alert-primary&quot;</span><span style="color:#000000"> </span><span style="color:#ff0000">role</span><span style="color:#000000">=</span><span style="color:#0000ff">&quot;alert&quot;</span><span style="color:#800000">&gt;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        </span><span style="color:#800000">&lt;h4&gt;</span><span style="color:#000000">Veuillez vous authentifier</span><span style="color:#800000">&lt;/h4&gt;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="color:#800000">&lt;/div&gt;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">…</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">&lt;/form&gt;</span></span>
+</code></pre></div>
+
+<p><strong>O fragmento [v-calcul-impot]</strong></p>
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-html">
+<span class="odt-code-line"><span class="odt-code-line-content">&lt;!-- formulário HTML enviado --&gt;</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#800000">&lt;form</span><span style="color:#000000"> </span><span style="color:#ff0000">method</span><span style="color:#000000">=</span><span style="color:#0000ff">&quot;post&quot;</span><span style="color:#000000"> </span><span style="color:#ff0000">action</span><span style="color:#000000">=</span><span style="color:#0000ff">&quot;</span><span style="background-color:#fff2cc;color:#0000ff">{{modèle.prefix_url}}</span><span style="color:#0000ff">/calculer-impot{{modèle.csrf_token}}&quot;</span><span style="color:#800000">&gt;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span>&lt;!-- mensagem em 12 colunas sobre fundo azul --&gt;</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="color:#800000">…</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">&lt;/form&gt;</span></span>
+</code></pre></div>
+
+<p><strong>O fragmento [v-liste-simulations]</strong></p>
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-html">
+<span class="odt-code-line"><span class="odt-code-line-content">…</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">{% if modèle.simulations is defined and modèle.simulations|length!=0 %}</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">…</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">&lt;!-- tabela de simulações --&gt;</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#800000">&lt;table</span> <span style="color:#ff0000">class</span>=<span style="color:#0000ff">&quot;table table-sm table-hover table-striped&quot;</span><span style="color:#800000">&gt;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#008000">…</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#800000">&lt;tr&gt;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#800000">&lt;th</span> <span style="color:#ff0000">scope</span>=<span style="color:#0000ff">&quot;row&quot;</span><span style="color:#800000">&gt;</span>{{simulation.id}}<span style="color:#800000">&lt;/th&gt;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#800000">&lt;td&gt;</span>{{simulation.marié}}<span style="color:#800000">&lt;/td&gt;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#800000">&lt;td&gt;</span>{{simulation.enfants}}<span style="color:#800000">&lt;/td&gt;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#800000">&lt;td&gt;</span>{{simulation.salaire}}<span style="color:#800000">&lt;/td&gt;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#800000">&lt;td&gt;</span>{{simulation.impôt}}<span style="color:#800000">&lt;/td&gt;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#800000">&lt;td&gt;</span>{{simulation.surcôte}}<span style="color:#800000">&lt;/td&gt;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#800000">&lt;td&gt;</span>{{simulation.décôte}}<span style="color:#800000">&lt;/td&gt;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#800000">&lt;td&gt;</span>{{simulation.réduction}}<span style="color:#800000">&lt;/td&gt;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#800000">&lt;td&gt;</span>{{simulation.taux}}<span style="color:#800000">&lt;/td&gt;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#800000">&lt;td&gt;&lt;a</span> <span style="color:#ff0000">href</span>=<span style="color:#0000ff">&quot;</span><span style="background-color:#fff2cc;color:#0000ff">{{modèle.prefix_url}}</span><span style="color:#0000ff">/supprimer-simulation/{{simulation.id}}{{modèle.csrf_token}}&quot;</span><span style="color:#800000">&gt;</span>Supprimer<span style="color:#800000">&lt;/a&gt;&lt;/td&gt;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#800000">&lt;/tr&gt;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    {% endfor %}</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#800000">&lt;/tr&gt;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#800000">&lt;/tbody&gt;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">&lt;/table&gt;</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">{% endif %}</span></span>
+</code></pre></div>
+
+<p><strong>O fragmento [v-menu]</strong></p>
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-html">
+<span class="odt-code-line"><span class="odt-code-line-content">&lt;!-- menu Bootstrap --&gt;</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#800000">&lt;nav</span><span style="color:#000000"> </span><span style="color:#ff0000">class</span><span style="color:#000000">=</span><span style="color:#0000ff">&quot;nav flex-column&quot;</span><span style="color:#800000">&gt;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span>&lt;!-- exibição de uma lista de links HTML --&gt;</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    {% for optionMenu in modèle.optionsMenu %}</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="color:#800000">&lt;a</span><span style="color:#000000"> </span><span style="color:#ff0000">class</span><span style="color:#000000">=</span><span style="color:#0000ff">&quot;nav-link&quot;</span><span style="color:#000000"> </span><span style="color:#ff0000">href</span><span style="color:#000000">=</span><span style="color:#0000ff">&quot;</span><span style="background-color:#fff2cc;color:#0000ff">{{modèle.prefix_url}}</span><span style="color:#0000ff">{{optionMenu.url}}{{modèle.csrf_token}}&quot;</span><span style="color:#800000">&gt;</span><span style="color:#000000">{{optionMenu.text}}</span><span style="color:#800000">&lt;/a&gt;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    {% endfor %}</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">&lt;/nav&gt;</span></span>
+</code></pre></div>
+
+<p><span id="toc48549340" name="toc48549340" class="odt-bookmark-anchor"></span></p>
+<h2 id="366-a-nova-resposta-html">36.6. <span style="color: #4f81bd">A nova resposta HTML</span></h2>
+<p><img src="images/100000000000014C000000E8E20F0D10.png" width="145" height="101" style="width:3.842cm;height:2.685cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000014C000000E8E20F0D10.png" /></p>
+<p>Na versão anterior, o código da resposta HTML terminava com um redirecionamento:</p>
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">class</span> HtmlResponse(InterfaceResponse):</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#0000ff">def</span> build_http_response(self, request: LocalProxy, session: LocalProxy, config: dict, status_code: int,</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">                            résultat: dict) -&gt; (Response, int):</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#008000"># a resposta HTML depende do código de estado devolvido pelo controlador</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        état = résultat<span style="font-weight:bold">[</span><span style="font-weight:bold;color:#a31515">&quot;état&quot;</span><span style="font-weight:bold">]</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#008000">…</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#008000"># agora é necessário gerar o URL de redirecionamento, sem esquecer o token CSRF, caso seja solicitado</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#0000ff">if</span> config<span style="font-weight:bold">[</span><span style="font-weight:bold;color:#a31515">&#x27;parameters&#x27;</span><span style="font-weight:bold">][</span><span style="font-weight:bold;color:#a31515">&#x27;with_csrftoken&#x27;</span><span style="font-weight:bold">]</span>:</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">            csrf_token = <span style="color:#0000ff">f</span><span style="color:#a31515">&quot;/</span>{generate_csrf()}<span style="color:#a31515">&quot;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#0000ff">else</span>:</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">            csrf_token = <span style="color:#a31515">&quot;&quot;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#008000"># resposta de redirecionamento</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#0000ff">return</span> <span style="background-color:#fff2cc">redirect</span>(<span style="color:#0000ff">f</span><span style="color:#a31515">&quot;</span>{ads<span style="font-weight:bold">[</span><span style="font-weight:bold;color:#a31515">&#x27;to&#x27;</span><span style="font-weight:bold">]</span>}{csrf_token}<span style="color:#a31515">&quot;</span>), status.HTTP_302_FOUND</span></span>
+</code></pre></div>
+
+<p>Este código passa agora a ser o seguinte:</p>
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">def</span> build_http_response(self, request: LocalProxy, session: LocalProxy, config: dict, status_code: int,</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">                            résultat: dict) -&gt; (Response, int):</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#008000">…</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#008000"># agora é necessário gerar o URL de redirecionamento, sem esquecer o token CSRF, caso seja solicitado</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#0000ff">if</span> config<span style="font-weight:bold">[</span><span style="font-weight:bold;color:#a31515">&#x27;parameters&#x27;</span><span style="font-weight:bold">][</span><span style="font-weight:bold;color:#a31515">&#x27;with_csrftoken&#x27;</span><span style="font-weight:bold">]</span>:</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">            csrf_token = <span style="color:#0000ff">f</span><span style="color:#a31515">&quot;/</span>{generate_csrf()}<span style="color:#a31515">&quot;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#0000ff">else</span>:</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">            csrf_token = <span style="color:#a31515">&quot;&quot;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#008000"># resposta de redirecionamento</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#0000ff">return</span> <span style="background-color:#fff2cc">redirect</span>(<span style="color:#0000ff">f</span><span style="color:#a31515">&quot;</span>{<span style="background-color:#fff2cc">config</span><span style="font-weight:bold;background-color:#fff2cc">[</span><span style="font-weight:bold;background-color:#fff2cc;color:#a31515">&#x27;parameters&#x27;</span><span style="font-weight:bold;background-color:#fff2cc">][</span><span style="font-weight:bold;background-color:#fff2cc;color:#a31515">&#x27;prefix_url&#x27;</span><span style="font-weight:bold;background-color:#fff2cc">]</span><span style="background-color:#fff2cc">}</span>{ads<span style="font-weight:bold">[</span><span style="font-weight:bold;color:#a31515">&#x27;to&#x27;</span><span style="font-weight:bold">]</span>}{csrf_token}<span style="color:#a31515">&quot;</span>), status.HTTP_302_FOUND</span></span>
+</code></pre></div>
+
+<p><span id="toc48549341" name="toc48549341" class="odt-bookmark-anchor"></span></p>
+<h2 id="367-testes">36.7. <span style="color: #4f81bd">Testes</span></h2>
+<p><img src="images/100000000000018F0000015F12F2CE26.png" width="174" height="153" style="width:4.6cm;height:4.046cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000018F0000015F12F2CE26.png" /></p>
+<p>Vamos inserir o seguinte prefixo no ficheiro de configuração <strong>[parameters]</strong>:</p>
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
+<span class="odt-code-line"><span class="odt-code-line-content">…</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        </span># token CSRF</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        </span><span style="color:#a31515">&quot;with_csrftoken&quot;</span><span style="color:#000000">: </span><span style="color:#0000ff">True</span><span style="color:#000000">,</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        </span># bases de dados geridas: MySQL (MySQL), PostgreSQL (PostgreSQL)</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        </span><span style="color:#a31515">&quot;databases&quot;</span><span style="color:#000000">: </span><span style="font-weight:bold;color:#000000">[</span><span style="font-weight:bold;color:#a31515">&quot;mysql&quot;</span><span style="font-weight:bold;color:#000000">, </span><span style="font-weight:bold;color:#a31515">&quot;pgres&quot;</span><span style="font-weight:bold;color:#000000">]</span><span style="color:#000000">,</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        </span># prefixo dos URL da aplicação</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        </span># definir a cadeia como vazia se não se pretender um prefixo ou /prefixo caso contrário</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        </span><span style="background-color:#fff2cc;color:#a31515">&quot;prefix_url&quot;</span><span style="background-color:#fff2cc;color:#000000">: </span><span style="background-color:#fff2cc;color:#a31515">&quot;/do&quot;</span><span style="color:#000000">,</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">…</span></span>
+</code></pre></div>
+
+<p>Vamos iniciar a aplicação e, em seguida, solicitar o URL <strong>[http://localhost:5000/do]</strong>; a resposta é a seguinte:</p>
+<p><img src="images/10000000000004740000029706EFC5D1.png" width="497" height="289" style="width:13.16cm;height:7.654cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000004740000029706EFC5D1.png" /></p>
+<ul>
+  <li>em <b>[1]</b>, o prefixo do URL;
+  </li>
+  <li>em <b>[2]</b>, o token CSRF;
+  </li>
+</ul>
+
+<p>A aplicação também pode ser testada com os testes de consola do <strong>[http-clients/09]</strong>:</p>
+<p><img src="images/10000000000001BD000001DFD5ABF2D8.png" width="194" height="209" style="width:5.142cm;height:5.533cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000001BD000001DFD5ABF2D8.png" /></p>
+<p>Nos ficheiros de configuração <strong>[1]</strong> e <strong>[2]</strong>, o prefixo de URL deve ser incluído no URL do servidor:</p>
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-markdown">
+<span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#a31515">&quot;server&quot;</span>: {</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">            <span style="color:#008000"># «urlServer»: «http://127.0.0.1:5000»,</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">            <span style="background-color:#fff2cc;color:#a31515">&quot;urlServer&quot;</span><span style="background-color:#fff2cc">: </span><span style="background-color:#fff2cc;color:#a31515">&quot;http://127.0.0.1:5000/do&quot;</span>,</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">            <span style="color:#a31515">&quot;user&quot;</span>: {</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">                <span style="color:#a31515">&quot;login&quot;</span>: <span style="color:#a31515">&quot;admin&quot;</span>,</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">                <span style="color:#a31515">&quot;password&quot;</span>: <span style="color:#a31515">&quot;admin&quot;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">            },</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">            <span style="color:#a31515">&quot;url_services&quot;</span>: {</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">                <span style="color:#a31515">…</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">            }</span></span>
+</code></pre></div>
+
+<ul>
+  <li> linha 3: o URL do servidor inclui agora o prefixo do URL;
+  </li>
+</ul>
+
+<p>Após esta alteração, todos os testes da consola devem funcionar.</p>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner">
+
+      <div>
+        <a href="https://stahe.github.io" target="_blank">
+          https://stahe.github.io
+        </a>
+        <br>
+        Este tutorial, escrito por <strong>Serge Tahé</strong>, é disponibilizado ao público sob os termos da
+<em>Creative Commons Atribuição – Não comercial –
+Partilha igual 3.0 Unported</em>.
+      </div>
+
+    </div>
+  </div>
+
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": ".", "features": ["navigation.sections", "navigation.indexes", "navigation.expand", "toc.integrate", "navigation.top"], "search": "assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="assets/javascripts/bundle.e71a0d61.min.js"></script>
+      
+        <script src="javascripts/focus.js"></script>
+      
+    
+  </body>
+</html>

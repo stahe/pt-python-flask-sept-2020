@@ -1,0 +1,1835 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Introdução ao Python 3 e ao framework web Flask através de exemplos">
+      
+      
+        <meta name="author" content="Serge Tahé">
+      
+      
+        <link rel="canonical" href="https://stahe.github.io/pt-python-flask-sept-2020/as-cadeias-de-caracteres.html">
+      
+      
+        <link rel="prev" href="nocoes-basicas-de-python.html">
+      
+      
+        <link rel="next" href="as-excecoes.html">
+      
+      
+        
+      
+      
+      <link rel="icon" href="assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.0">
+    
+    
+      
+        <title>4. As cadeias de caracteres - Introdução ao Python 3 e ao framework web Flask através de exemplos</title>
+      
+    
+    
+      <link rel="stylesheet" href="assets/stylesheets/main.618322db.min.css">
+      
+        
+        <link rel="stylesheet" href="assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="stylesheets/focus.css">
+    
+      <link rel="stylesheet" href="stylesheets/bidi.css">
+    
+    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-EBZC3JVJNR"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    var siteName = "Introdução ao Python 3 e ao framework web Flask através de exemplos";
+    gtag('config', 'G-EBZC3JVJNR', {
+        'page_title': siteName
+    });
+  </script>
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="purple">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#4-as-cadeias-de-caracteres" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="index.html" title="Introdução ao Python 3 e ao framework web Flask através de exemplos" class="md-header__button md-logo" aria-label="Introdução ao Python 3 e ao framework web Flask através de exemplos" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Introdução ao Python 3 e ao framework web Flask através de exemplos
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              4. As cadeias de caracteres
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="purple"  aria-label="Mudar para modo escuro"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Mudar para modo escuro" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="purple"  aria-label="Mudar para modo claro"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Mudar para modo claro" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://stahe.github.io/pt-python-flask-sept-2020" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="index.html" title="Introdução ao Python 3 e ao framework web Flask através de exemplos" class="md-nav__button md-logo" aria-label="Introdução ao Python 3 e ao framework web Flask através de exemplos" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Introdução ao Python 3 e ao framework web Flask através de exemplos
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://stahe.github.io/pt-python-flask-sept-2020" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Bem-vindos
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="prefacio.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. Prefácio
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="instalacao-de-um-ambiente-de-trabalho.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. Instalação de um ambiente de trabalho
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="nocoes-basicas-de-python.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. Noções básicas de Python
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. As cadeias de caracteres
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="as-cadeias-de-caracteres.html" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. As cadeias de caracteres
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#41-script-str_01-notacao-das-cadeias-de-caracteres" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.1. Script [str_01]: notação das cadeias de caracteres
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#42-script-str_02-os-metodos-da-classe-str" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.2. Script [str_02]: os métodos da classe &lt;str&gt;
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#43-script-str_03-codificacao-de-cadeias-de-caracteres-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.3. Script [str_03]: codificação de cadeias de caracteres (1)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#44-script-str_04-codificacao-de-cadeias-de-caracteres-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.4. Script [str_04]: codificação de cadeias de caracteres (2)
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="as-excecoes.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. As exceções
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="as-funcoes.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6. As funções
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="os-ficheiros-de-texto.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    7. Os ficheiros de texto
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="exercicio-pratico---versao-1.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    8. Exercício prático – versão 1
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="as-importacoes.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    9. As importações
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="exercicio-pratico-versao-2.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    10. Exercício prático: versão 2
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="exercicio-pratico-versao-3.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    11. Exercício prático: versão 3
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="as-classes-e-os-objetos.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    12. As classes e os objetos
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="as-classes-genericas-baseentity-e-myexception.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    13. As classes genéricas [BaseEntity] e [MyException]
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="arquitetura-em-camadas-e-programacao-por-interfaces.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    14. Arquitetura em camadas e programação por interfaces
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="exercicio-pratico---versao-4.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    15. Exercício prático - versão 4
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="utilizacao-do-sgbd-mysql.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    16. Utilização do SGBD MySQL
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="utilizacao-do-sgbd-postgresql.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    17. Utilização do SGBD PostgreSQL
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="escrever-codigo-independente-do-sgbd.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    18. Escrever código independente do SGBD
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="utilizacao-do-orm-sqlalchemy.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    19. Utilização do ORM SQLALCHEMY
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="exercicio-pratico-versao-5.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    20. Exercício prático: versão 5
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="funcoes-de-internet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    21. Funções de Internet
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="servicos-web-com-o-framework-flask.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    22. Serviços web com o framework Flask
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="exercicio-pratico-versao-6.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    23. Exercício prático: versão 6
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="exercicio-pratico-versao-7.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    24. Exercício prático: versão 7
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="-exercicio-pratico-versao-8.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    25.  Exercício prático: versão 8
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="do-dicionario-para-xml-e-vice-versa.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    26. Do dicionário para XML e vice-versa
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="exercicio-pratico-versao-9.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    27. Exercício prático: versão 9
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="exercicio-pratico-versao-10.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    28. Exercício prático: versão 10
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="exercicio-pratico-versao-11.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    29. Exercício prático: versão 11
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="exercicio-pratico-versao-12.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    30. Exercício prático: versão 12
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="clientes-web-para-os-servicos-json-e-xml-da-versao-12.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    31. Clientes web para os serviços jSON e XML da versão 12
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="o-modo-html-da-versao-12.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    32. O modo HTML da versão 12
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="exercicio-pratico-versao-13.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    33. Exercício prático: versão 13
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="exercicio-pratico-versao-14.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    34. Exercício prático: versão 14
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="exercicio-pratico-versao-15.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    35. Exercício prático: versão 15
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="exercicio-pratico-versao-16.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    36. Exercício prático: versão 16
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="exercicio-pratico-versao-17.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    37. Exercício prático: versão 17
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="exercicio-pratico-versao-18-.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    38. Exercício prático: versão 18 
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="conclusao.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    39. Conclusão
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<p><span id="toc48548934" name="toc48548934" class="odt-bookmark-anchor"></span>
+<span id="leschainesde" name="leschainesde" class="odt-bookmark-anchor"></span>
+<span id="refheadingtoc3282143081319169" name="refheadingtoc3282143081319169" class="odt-bookmark-anchor"></span></p>
+<h1 id="4-as-cadeias-de-caracteres">4. <span style="color: #365f91">As cadeias de caracteres</span></h1>
+<p><img src="images/1000000100000105000000B67894934F.png" width="92" height="64" style="width:2.431cm;height:1.695cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/1000000100000105000000B67894934F.png" /></p>
+<p><span id="toc48548935" name="toc48548935" class="odt-bookmark-anchor"></span>
+<span id="refheadingtoc3282163081319169" name="refheadingtoc3282163081319169" class="odt-bookmark-anchor"></span></p>
+<h2 id="41-script-str_01-notacao-das-cadeias-de-caracteres">4.1. <span style="color: #4f81bd"><strong>Script</strong> [str_01]<strong>: notação das cadeias de caracteres</strong></span></h2>
+<p>O script <strong>[str_01]</strong> é o seguinte:</p>
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
+<span class="odt-code-line"><span class="odt-code-line-content"># cadeias de caracteres</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"># três forma de representação possíveis</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">chaine1 = </span><span style="color:#a31515">&quot;un&quot;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">chaine2 = </span><span style="color:#a31515">&#x27;deux&#x27;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">chaine3 = </span><span style="color:#a31515">&quot;&quot;&quot;hélène va au</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"> marché acheter des légumes&quot;&quot;&quot;</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"># exibição</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">print(</span><span style="color:#a31515">f&quot;chaine1=</span><span style="font-weight:bold;color:#a31515">[{chaine1}]</span><span style="color:#a31515">, chaine2=</span><span style="font-weight:bold;color:#a31515">[{chaine2}]</span><span style="color:#a31515">, chaine3=</span><span style="font-weight:bold;color:#a31515">[{chaine3}]</span><span style="color:#a31515">&quot;</span><span style="color:#000000">)</span></span></span>
+</code></pre></div>
+
+<p><strong>Comentários</strong></p>
+<ul>
+<li>linha 3: uma cadeia delimitada por aspas &quot;;</li>
+<li>linha 4: uma cadeia delimitada por apóstrofos &#x27;;</li>
+<li>linha 5: uma cadeia delimitada por aspas triplas &quot;&quot;&quot;. Neste caso, a cadeia pode estender-se por várias linhas;</li>
+</ul>
+<p>Os resultados são os seguintes:</p>
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-text">
+<span class="odt-code-line"><span class="odt-code-line-content">C:\Data\st-2020\dev\python\cours-2020\python3-flask-2020\venv\Scripts\python.exe C:/Data/st-2020/dev/python/cours-2020/python3-flask-2020/strings/str_01.py</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">chaine1=<span style="font-weight:bold">[un]</span>, chaine2=<span style="font-weight:bold">[deux]</span>, chaine3=<span style="font-weight:bold">[hélène va au</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"> marché acheter des légumes]</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">Process finished with exit code 0</span></span>
+</code></pre></div>
+
+<p><span id="toc48548936" name="toc48548936" class="odt-bookmark-anchor"></span>
+<span id="refheadingtoc3282183081319169" name="refheadingtoc3282183081319169" class="odt-bookmark-anchor"></span></p>
+<h2 id="42-script-str_02-os-metodos-da-classe-str">4.2. <span style="color: #4f81bd"><strong>Script</strong> [str_02]<strong>: os métodos da classe &lt;str&gt;</strong></span></h2>
+<p>O script <strong>[str_02]</strong> apresenta alguns dos métodos da classe &lt;str&gt;, que é a classe das cadeias de caracteres:</p>
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
+<span class="odt-code-line"><span class="odt-code-line-content"># funções sobre cadeias de caracteres</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"># cadeia de caracteres em minúsculas</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">print(</span><span style="color:#a31515">f&quot;&#x27;ABCD&#x27;.lower()={&#x27;ABCD&#x27;.lower()}&quot;</span><span style="color:#000000">)</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"># cadeia de caracteres em maiúsculas</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">print(</span><span style="color:#a31515">f&quot;&#x27;abcd&#x27;.upper()={&#x27;abcd&#x27;.upper()}&quot;</span><span style="color:#000000">)</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"># caractere n.º 2</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">print(</span><span style="color:#a31515">f&quot;&#x27;cheval</span><span style="font-weight:bold;color:#a31515">[2]</span><span style="color:#a31515">={&#x27;cheval&#x27;</span><span style="font-weight:bold;color:#a31515">[2]</span><span style="color:#a31515">}&quot;</span><span style="color:#000000">)</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"># subcadeia com os caracteres 5 e 6</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">print(</span><span style="color:#a31515">f&quot;&#x27;caractères accentués&#x27;</span><span style="font-weight:bold;color:#a31515">[5:7]</span><span style="color:#a31515">={&#x27;caractères accentués&#x27;</span><span style="font-weight:bold;color:#a31515">[5:7]</span><span style="color:#a31515">}&quot;</span><span style="color:#000000">)</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"># subcadeia a partir do caractere 4, inclusive</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">print(</span><span style="color:#a31515">f&quot;&#x27;caractères accentués&#x27;</span><span style="font-weight:bold;color:#a31515">[4:]</span><span style="color:#a31515">={&#x27;caractères accentués&#x27;</span><span style="font-weight:bold;color:#a31515">[4:]</span><span style="color:#a31515">}&quot;</span><span style="color:#000000">)</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"># subcadeia até ao carácter 6, excluído</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">print(</span><span style="color:#a31515">f&quot;&#x27;caractères accentués&#x27;</span><span style="font-weight:bold;color:#a31515">[:5]</span><span style="color:#a31515">={&#x27;caractères accentués&#x27;</span><span style="font-weight:bold;color:#a31515">[:5]</span><span style="color:#a31515">}&quot;</span><span style="color:#000000">)</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"># comprimento da cadeia</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">print(</span><span style="color:#a31515">f&quot;len(&#x27;123&#x27;)={len(&#x27;123&#x27;)}&quot;</span><span style="color:#000000">)</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"># eliminação dos espaços antes e depois da cadeia</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">print(</span><span style="color:#a31515">f&quot;&#x27;  abcd &#x27;.strip()=</span><span style="font-weight:bold;color:#a31515">[{&#x27;  abcd &#x27;.strip()}]</span><span style="color:#a31515">&quot;</span><span style="color:#000000">)</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"># remoção dos espaços a seguir à cadeia</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">print(</span><span style="color:#a31515">f&quot;&#x27;  abcd &#x27;.rstrip()=</span><span style="font-weight:bold;color:#a31515">[{&#x27;  abcd &#x27;.rstrip()}]</span><span style="color:#a31515">&quot;</span><span style="color:#000000">)</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"># remoção dos espaços à esquerda da cadeia</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">print(</span><span style="color:#a31515">f&quot;&#x27;  abcd &#x27;.lstrip()=</span><span style="font-weight:bold;color:#a31515">[{&#x27;  abcd &#x27;.lstrip()}]</span><span style="color:#a31515">&quot;</span><span style="color:#000000">)</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"># o termo «espaço» abrange, na verdade, diferentes caracteres</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">str = </span><span style="color:#a31515">&#x27;  \r\nabcd \t\f&#x27;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">print(</span><span style="color:#a31515">f&quot;str.strip()=</span><span style="font-weight:bold;color:#a31515">[{str.strip()}]</span><span style="color:#a31515">&quot;</span><span style="color:#000000">)</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"># substituição de uma subcadeia por outra</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">print(</span><span style="color:#a31515">f&quot;&#x27;abcd&#x27;.replace(&#x27;a&#x27;,&#x27;x&#x27;)={&#x27;abcd&#x27;.replace(&#x27;a&#x27;, &#x27;x&#x27;)}&quot;</span><span style="color:#000000">)</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">print(</span><span style="color:#a31515">f&quot;&#x27;abcd&#x27;.replace(&#x27;ab&#x27;,&#x27;xy&#x27;)={&#x27;abcd&#x27;.replace(&#x27;ab&#x27;, &#x27;xy&#x27;)}&quot;</span><span style="color:#000000">)</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"># procura de uma subcadeia: devolve a posição ou -1 se a subcadeia não for encontrada</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">print(</span><span style="color:#a31515">f&quot;&#x27;abcd&#x27;.find(&#x27;bc&#x27;)={&#x27;abcd&#x27;.find(&#x27;bc&#x27;)}&quot;</span><span style="color:#000000">)</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">print(</span><span style="color:#a31515">f&quot;&#x27;abcd&#x27;.find(&#x27;bc&#x27;)={&#x27;abcd&#x27;.find(&#x27;Bc&#x27;)}&quot;</span><span style="color:#000000">)</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"># início de uma cadeia</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">print(</span><span style="color:#a31515">f&quot;&#x27;abcd&#x27;.startswith(&#x27;ab&#x27;)={&#x27;abcd&#x27;.startswith(&#x27;ab&#x27;)}&quot;</span><span style="color:#000000">)</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">print(</span><span style="color:#a31515">f&quot;&#x27;abcd&#x27;.startswith(&#x27;x&#x27;)={&#x27;abcd&#x27;.startswith(&#x27;x&#x27;)}&quot;</span><span style="color:#000000">)</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"># fim de uma cadeia</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">print(</span><span style="color:#a31515">f&quot;&#x27;abcd&#x27;.endswith(&#x27;cd&#x27;)={&#x27;abcd&#x27;.endswith(&#x27;cd&#x27;)}&quot;</span><span style="color:#000000">)</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">print(</span><span style="color:#a31515">f&quot;&#x27;abcd&#x27;.endswith(&#x27;x&#x27;)={&#x27;abcd&#x27;.endswith(&#x27;x&#x27;)}&quot;</span><span style="color:#000000">)</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"># conversão de uma lista de cadeias numa cadeia</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">print(</span><span style="color:#a31515">f&quot;&#x27;</span><span style="font-weight:bold;color:#a31515">[X]</span><span style="color:#a31515">&#x27;.join(</span><span style="font-weight:bold;color:#a31515">[&#x27;abcd&#x27;, &#x27;123&#x27;, &#x27;èéà&#x27;]</span><span style="color:#a31515">)={&#x27;</span><span style="font-weight:bold;color:#a31515">[X]</span><span style="color:#a31515">&#x27;.join(</span><span style="font-weight:bold;color:#a31515">[&#x27;abcd&#x27;, &#x27;123&#x27;, &#x27;èéà&#x27;]</span><span style="color:#a31515">)}&quot;</span><span style="color:#000000">)</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">print(</span><span style="color:#a31515">f&quot;&#x27;&#x27;.join(</span><span style="font-weight:bold;color:#a31515">[&#x27;abcd&#x27;, &#x27;123&#x27;, &#x27;èéà&#x27;]</span><span style="color:#a31515">)={&#x27;&#x27;.join(</span><span style="font-weight:bold;color:#a31515">[&#x27;abcd&#x27;, &#x27;123&#x27;, &#x27;èéà&#x27;]</span><span style="color:#a31515">)}&quot;</span><span style="color:#000000">)</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"># passagem de uma cadeia para uma lista de cadeias</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">print(</span><span style="color:#a31515">f&quot;&#x27;abcd 123 cdXY&#x27;.split(&#x27;cd&#x27;)={&#x27;abcd 123 cdXY&#x27;.split(&#x27;cd&#x27;)}&quot;</span><span style="color:#000000">)</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"># recuperar as palavras de uma cadeia</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">print(</span><span style="color:#a31515">f&quot;&#x27;abcd 123 cdXY&#x27;.split(None)={&#x27;abcd 123 cdXY&#x27;.split(None)}&quot;</span><span style="color:#000000">)</span></span></span>
+</code></pre></div>
+
+<p>Os comentários, juntamente com os resultados obtidos, são suficientes para compreender o script. Os resultados são os seguintes:</p>
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-text">
+<span class="odt-code-line"><span class="odt-code-line-content">C:\Data\st-2020\dev\python\cours-2020\python3-flask-2020\venv\Scripts\python.exe C:/Data/st-2020/dev/python/cours-2020/python3-flask-2020/strings/str_02.py</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">&#x27;ABCD&#x27;.lower()=abcd</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">&#x27;abcd&#x27;.upper()=ABCD</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">&#x27;cavalo[2]=e</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">&#x27;caracteres acentuados&#x27;[5:7]=tè</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">&#x27;caracteres acentuados&#x27;[4:]=caracteres acentuados</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">&#x27;caracteres acentuados&#x27;[:5]=carac</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">len(&#x27;123&#x27;)=3</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">&#x27;  abcd &#x27;.strip()=[abcd]</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">&#x27;  abcd &#x27;.rstrip()=[  abcd]</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">&#x27;  abcd &#x27;.lstrip()=[abcd ]</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">str.strip()=<span style="font-weight:bold">[abcd]</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">&#x27;abcd&#x27;.replace(&#x27;a&#x27;,&#x27;x&#x27;)=xbcd</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">&#x27;abcd&#x27;.replace(&#x27;ab&#x27;,&#x27;xy&#x27;)=xycd</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">&#x27;abcd&#x27;.find(&#x27;bc&#x27;)=1</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">&#x27;abcd&#x27;.find(&#x27;bc&#x27;)=-1</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">&#x27;abcd&#x27;.startswith(&#x27;ab&#x27;)=True</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">&#x27;abcd&#x27;.startswith(&#x27;x&#x27;)=False</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">&#x27;abcd&#x27;.endswith(&#x27;cd&#x27;)=True</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">&#x27;abcd&#x27;.endswith(&#x27;x&#x27;)=False</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">&#x27;[X]&#x27;.join([&#x27;abcd&#x27;, &#x27;123&#x27;, &#x27;èéà&#x27;])=abcdQZXW2HTMLBW1hdZQX123QZXW2HTMLBW1hdZQXèéà</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">&#x27;&#x27;.join([&#x27;abcd&#x27;, &#x27;123&#x27;, &#x27;èéà&#x27;])=abcd123èéà</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">&#x27;abcd 123 cdXY&#x27;.split(&#x27;cd&#x27;)=[&#x27;ab&#x27;, &#x27; 123 &#x27;, &#x27;XY&#x27;]</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">&#x27;abcd 123 cdXY&#x27;.split(None)=[&#x27;abcd&#x27;, &#x27;123&#x27;, &#x27;cdXY&#x27;]</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">Process finished with exit code 0</span></span>
+</code></pre></div>
+
+<p><span id="toc48548937" name="toc48548937" class="odt-bookmark-anchor"></span>
+<span id="refheadingtoc3282203081319169" name="refheadingtoc3282203081319169" class="odt-bookmark-anchor"></span></p>
+<h2 id="43-script-str_03-codificacao-de-cadeias-de-caracteres-1">4.3. <span style="color: #4f81bd"><strong>Script</strong> [str_03]<strong>: codificação de cadeias de caracteres (1)</strong></span></h2>
+<p>O script <strong>[str_03]</strong> apresenta noções sobre a codificação de cadeias de caracteres:</p>
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
+<span class="odt-code-line"><span class="odt-code-line-content"># codificação de caracteres</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"># cadeia de caracteres do tipo str</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">str = </span><span style="color:#a31515">&quot;hélène va au marché acheter des légumes&quot;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">print(</span><span style="color:#a31515">f&quot;str=</span><span style="font-weight:bold;color:#a31515">[{str}, type={type(str)}]</span><span style="color:#a31515">&quot;</span><span style="color:#000000">)</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"># codificação utf-8</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">print(</span><span style="color:#a31515">&quot;--- utf-8&quot;</span><span style="color:#000000">)</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">bytes1 = str.encode(</span><span style="color:#a31515">&#x27;utf-8&#x27;</span><span style="color:#000000">)</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">print(</span><span style="color:#a31515">f&quot;bytes1={bytes1}, type={type(bytes1)}&quot;</span><span style="color:#000000">)</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">bytes2 = </span><span style="color:#2b91af">bytes</span><span style="color:#000000">(str, </span><span style="color:#a31515">&#x27;utf-8&#x27;</span><span style="color:#000000">)</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">print(</span><span style="color:#a31515">f&quot;bytes2={bytes2}, type={type(bytes2)}&quot;</span><span style="color:#000000">)</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"># codificação iso-8859-1</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">print(</span><span style="color:#a31515">&quot;--- iso-8859-1&quot;</span><span style="color:#000000">)</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">bytes1 = str.encode(</span><span style="color:#a31515">&#x27;iso-8859-1&#x27;</span><span style="color:#000000">)</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">print(</span><span style="color:#a31515">f&quot;bytes1={bytes1}, type={type(bytes1)}&quot;</span><span style="color:#000000">)</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">bytes2 = </span><span style="color:#2b91af">bytes</span><span style="color:#000000">(str, </span><span style="color:#a31515">&#x27;iso-8859-1&#x27;</span><span style="color:#000000">)</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">print(</span><span style="color:#a31515">f&quot;bytes2={bytes2}, type={type(bytes2)}&quot;</span><span style="color:#000000">)</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"># codificação latin1=iso-8859-1</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">print(</span><span style="color:#a31515">&quot;--- latin1&quot;</span><span style="color:#000000">)</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">bytes1 = str.encode(</span><span style="color:#a31515">&#x27;latin1&#x27;</span><span style="color:#000000">)</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">print(</span><span style="color:#a31515">f&quot;bytes1={bytes1}, type={type(bytes1)}&quot;</span><span style="color:#000000">)</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">bytes2 = </span><span style="color:#2b91af">bytes</span><span style="color:#000000">(str, </span><span style="color:#a31515">&#x27;latin1&#x27;</span><span style="color:#000000">)</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">print(</span><span style="color:#a31515">f&quot;bytes2={bytes2}, type={type(bytes2)}&quot;</span><span style="color:#000000">)</span></span></span>
+</code></pre></div>
+
+<p>A codificação de uma cadeia de caracteres do tipo &lt;str&gt; produz uma cadeia binária em que cada caractere da cadeia é representado por um ou mais octetos. Existem diferentes tipos de codificação. O script acima apresenta os dois mais comuns no Ocidente: «utf-8» e «iso-8859-1», também conhecido como «latin1».</p>
+<p>O princípio da codificação/decodificação é ilustrado abaixo (ref. |<a href="https://realpython.com/python-encodings-guide/"><u><span style="color: #0563c1">https://realpython.com/python-encodings-guide/</span></u></a> |):</p>
+<p><img src="images/1000000000000595000004BDAC9DD9C8.png" width="429" height="364" style="width:11.342cm;height:9.627cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/1000000000000595000004BDAC9DD9C8.png" /></p>
+<p>Comentários</p>
+<ul>
+<li>linhas 4-5: a cadeia de caracteres inicial que vai ser codificada. As instâncias do tipo &lt;str&gt; são cadeias Unicode |<a href="https://docs.python.org/3/howto/unicode.html"><u><span style="color: #0563c1">https://docs.python.org/3/howto/unicode.html</span></u></a>|, |<a href="https://realpython.com/python-encodings-guide/"><u><span style="color: #0563c1">https://realpython.com/python-encodings-guide/</span></u></a> |;</li>
+<li>linhas 6-11: duas formas de codificar uma cadeia de caracteres em UTF68:<ul>
+<li>linha 8: str.encode(&#x27;utf-8);</li>
+<li>linha 10: bytes(str, &#x27;utf-8&#x27;);</li>
+</ul>
+</li>
+<li>linhas 12-17: repetimos o mesmo procedimento com a codificação «iso-8859-1»;</li>
+<li>linhas 18-23: «latin1» é outro nome para a codificação «iso-8859-1»;</li>
+</ul>
+<p>Os resultados são os seguintes:</p>
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-text">
+<span class="odt-code-line"><span class="odt-code-line-content">C:\Data\st-2020\dev\python\cours-2020\python3-flask-2020\venv\Scripts\python.exe C:/Data/st-2020/dev/python/cours-2020/python3-flask-2020/strings/str_03.py</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">str=<span style="font-weight:bold">[hélène va au marché acheter des légumes, type=&lt;class &#x27;str&#x27;&gt;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">--- utf-8</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">bytes1=b&#x27;h\xc3\xa9l\xc3\xa8ne va au march\xc3\xa9 acheter des l\xc3\xa9gumes&#x27;, type=&lt;class &#x27;bytes&#x27;&gt;</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">bytes2=b&#x27;h\xc3\xa9l\xc3\xa8ne va au march\xc3\xa9 acheter des l\xc3\xa9gumes&#x27;, type=&lt;class &#x27;bytes&#x27;&gt;</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">--- iso-8859-1</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">bytes1=b&#x27;h\xe9l\xe8ne va au march\xe9 acheter des l\xe9gumes&#x27;, type=&lt;class &#x27;bytes&#x27;&gt;</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">bytes2=b&#x27;h\xe9l\xe8ne va au march\xe9 acheter des l\xe9gumes&#x27;, type=&lt;class &#x27;bytes&#x27;&gt;</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">--- latin1</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">bytes1=b&#x27;h\xe9l\xe8ne va au march\xe9 acheter des l\xe9gumes&#x27;, type=&lt;class &#x27;bytes&#x27;&gt;</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">bytes2=b&#x27;h\xe9l\xe8ne va au march\xe9 acheter des l\xe9gumes&#x27;, type=&lt;class &#x27;bytes&#x27;&gt;</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">Process finished with exit code 0</span></span>
+</code></pre></div>
+
+<p><strong>Comentários</strong></p>
+<ul>
+<li><strong>linha 4: verifica-se que os caracteres acentuados foram codificados em dois bytes:</strong><ul>
+<li><strong>é: [\xc3\xa9],</strong> que corresponde à sequência binária 11000011 10101001;</li>
+<li>è: <strong>[\xc3\xa8],</strong> que corresponde à sequência binária 11000011 10101000;</li>
+</ul>
+</li>
+<li>linhas 7: com a codificação ISO-8859-1, estes dois caracteres acentuados são codificados de forma diferente:<ul>
+<li>é: <strong>[\xe9],</strong> que corresponde à sequência binária 11101001;</li>
+<li>è: <strong>[\xe8],</strong> que corresponde à sequência binária 11101000;</li>
+</ul>
+</li>
+</ul>
+<p><span id="toc48548938" name="toc48548938" class="odt-bookmark-anchor"></span>
+<span id="refheadingtoc3282223081319169" name="refheadingtoc3282223081319169" class="odt-bookmark-anchor"></span></p>
+<h2 id="44-script-str_04-codificacao-de-cadeias-de-caracteres-2">4.4. <span style="color: #4f81bd"><strong>Script</strong> [str_04]<strong>: codificação de cadeias de caracteres (2)</strong></span></h2>
+<p>O script <strong>[str_04]</strong> apresenta dois outros tipos de codificação: «base64» e «quoted-printable». Estas duas codificações não codificam cadeias de caracteres Unicode, mas sim objetos binários. Por exemplo, quando se anexa um documento do Word a um e-mail, este será submetido a uma destas duas codificações, dependendo do programa de e-mail utilizado. Este será o caso da maioria dos ficheiros anexados.</p>
+<p>O script é o seguinte:</p>
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
+<span class="odt-code-line"><span class="odt-code-line-content"># codificação/descodificação</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">import</span><span style="color:#000000"> </span><span style="color:#6f008a">codecs</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"># cadeia</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">print(</span><span style="color:#a31515">&quot;---- chaîne unicode&quot;</span><span style="color:#000000">)</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">str1 = </span><span style="color:#a31515">&quot;hélène va au marché acheter des légumes&quot;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">print(</span><span style="color:#a31515">f&quot;str1=</span><span style="font-weight:bold;color:#a31515">[{str1}]</span><span style="color:#a31515">, type(str1)={type(str1)}&quot;</span><span style="color:#000000">)</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"># codificação utf-8</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">print(</span><span style="color:#a31515">&quot;---- chaîne unicode -&gt; binaire utf-8&quot;</span><span style="color:#000000">)</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">bytes1 = </span><span style="color:#2b91af">bytes</span><span style="color:#000000">(str1, </span><span style="color:#a31515">&quot;utf-8&quot;</span><span style="color:#000000">)</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">print(</span><span style="color:#a31515">f&quot;bytes1=</span><span style="font-weight:bold;color:#a31515">[{bytes1}]</span><span style="color:#a31515">, type(bytes1)={type(bytes1)}&quot;</span><span style="color:#000000">)</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"># descodificação utf-8</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">print(</span><span style="color:#a31515">&quot;---- binaire utf-8 -&gt; chaîne unicode&quot;</span><span style="color:#000000">)</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">str2 = bytes1.decode(</span><span style="color:#a31515">&quot;utf-8&quot;</span><span style="color:#000000">)</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">print(</span><span style="color:#a31515">f&quot;str2=</span><span style="font-weight:bold;color:#a31515">[{str2}]</span><span style="color:#a31515">, type(str2)={type(str2)}&quot;</span><span style="color:#000000">)</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">print(</span><span style="color:#a31515">f&quot;str2==str1={str2 == str1}&quot;</span><span style="color:#000000">)</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"># codificação iso-8859-1</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">print(</span><span style="color:#a31515">&quot;---- chaîne unicode -&gt; binaire iso-8859-1&quot;</span><span style="color:#000000">)</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">bytes2 = </span><span style="color:#2b91af">bytes</span><span style="color:#000000">(str1, </span><span style="color:#a31515">&quot;iso-8859-1&quot;</span><span style="color:#000000">)</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">print(</span><span style="color:#a31515">f&quot;bytes2=</span><span style="font-weight:bold;color:#a31515">[{bytes2}]</span><span style="color:#a31515">, type(bytes2)={type(bytes2)}&quot;</span><span style="color:#000000">)</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"># descodificação iso-8859-1</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">print(</span><span style="color:#a31515">&quot;---- binaire iso-8859-1 -&gt; chaîne unicode&quot;</span><span style="color:#000000">)</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">str3 = bytes2.decode(</span><span style="color:#a31515">&quot;iso-8859-1&quot;</span><span style="color:#000000">)</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">print(</span><span style="color:#a31515">f&quot;str3=</span><span style="font-weight:bold;color:#a31515">[{str3}]</span><span style="color:#a31515">, type(str3)={type(str3)}&quot;</span><span style="color:#000000">)</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">print(</span><span style="color:#a31515">f&quot;str3==str1={str3 == str1}&quot;</span><span style="color:#000000">)</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"># erro de descodificação - bytes1 está em UTF-8 - está a ser descodificado em ISO-8859-1</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">print(</span><span style="color:#a31515">&quot;--- binaire utf-8 (décodage iso-8859-1) --&gt; chaîne unicode&quot;</span><span style="color:#000000">)</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">str4 = bytes1.decode(</span><span style="color:#a31515">&quot;iso-8859-1&quot;</span><span style="color:#000000">)</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">print(</span><span style="color:#a31515">f&quot;str4=</span><span style="font-weight:bold;color:#a31515">[{str4}]</span><span style="color:#a31515">, type(str4)={type(str4)}&quot;</span><span style="color:#000000">)</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"># codificação UTF-8 de uma cadeia Unicode</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">print(</span><span style="color:#a31515">&quot;---- chaîne unicode -&gt; binaire utf-8&quot;</span><span style="color:#000000">)</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">bytes3 = </span><span style="color:#6f008a">codecs</span><span style="color:#000000">.encode(str1, </span><span style="color:#a31515">&quot;utf-8&quot;</span><span style="color:#000000">)</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">print(</span><span style="color:#a31515">f&quot;bytes3=</span><span style="font-weight:bold;color:#a31515">[{bytes3}]</span><span style="color:#a31515">, type(bytes3)={type(bytes3)}&quot;</span><span style="color:#000000">)</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"># codificação de uma cadeia binária UTF-8 em base64</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">print(</span><span style="color:#a31515">&quot;---- binaire utf-8 -&gt; binaire base64&quot;</span><span style="color:#000000">)</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">bytes4 = </span><span style="color:#6f008a">codecs</span><span style="color:#000000">.encode(bytes1, </span><span style="color:#a31515">&quot;base64&quot;</span><span style="color:#000000">)</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">print(</span><span style="color:#a31515">f&quot;bytes4=</span><span style="font-weight:bold;color:#a31515">[{bytes4}]</span><span style="color:#a31515">, type(bytes4)={type(bytes4)}&quot;</span><span style="color:#000000">)</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"># reversão para a cadeia Unicode original</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">print(</span><span style="color:#a31515">&quot;---- binaire base64 -&gt; binaire utf-8 -&gt; chaîne unicode&quot;</span><span style="color:#000000">)</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">str6 = </span><span style="color:#6f008a">codecs</span><span style="color:#000000">.decode(bytes4, </span><span style="color:#a31515">&quot;base64&quot;</span><span style="color:#000000">).decode(</span><span style="color:#a31515">&quot;utf-8&quot;</span><span style="color:#000000">)</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">print(</span><span style="color:#a31515">f&quot;str6=</span><span style="font-weight:bold;color:#a31515">[{str6}]</span><span style="color:#a31515">, type(str6)={type(str6)}&quot;</span><span style="color:#000000">)</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"># codificação de uma cadeia binária em quoted-printable</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">print(</span><span style="color:#a31515">&quot;---- binaire utf-8 -&gt; binaire quoted-printable&quot;</span><span style="color:#000000">)</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">str7 = </span><span style="color:#6f008a">codecs</span><span style="color:#000000">.encode(bytes1, </span><span style="color:#a31515">&quot;quoted-printable&quot;</span><span style="color:#000000">)</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">print(</span><span style="color:#a31515">f&quot;str7=</span><span style="font-weight:bold;color:#a31515">[{str7}]</span><span style="color:#a31515">, type(str7)={type(str7)}&quot;</span><span style="color:#000000">)</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"># reversão para a cadeia Unicode original</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">print(</span><span style="color:#a31515">&quot;---- binaire quoted-printable -&gt; binaire utf-8 -&gt; chaîne unicode&quot;</span><span style="color:#000000">)</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">str8 = </span><span style="color:#6f008a">codecs</span><span style="color:#000000">.decode(str7, </span><span style="color:#a31515">&quot;quoted-printable&quot;</span><span style="color:#000000">).decode(</span><span style="color:#a31515">&quot;utf-8&quot;</span><span style="color:#000000">)</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">print(</span><span style="color:#a31515">f&quot;str8=</span><span style="font-weight:bold;color:#a31515">[{str8}]</span><span style="color:#a31515">, type(str8)={type(str8)}&quot;</span><span style="color:#000000">)</span></span></span>
+</code></pre></div>
+
+<p><strong>Comentários</strong></p>
+<ul>
+<li>linha 2: o módulo <strong>[codecs]</strong> permite efetuar as codificações «base64» e «quoted-printable». Pode efetuar muitas outras;</li>
+<li>linhas 4-7: a cadeia Unicode que será submetida a várias codificações;</li>
+<li>linhas 9-12: codificação UTF-8. Obtém-se um ficheiro binário;</li>
+<li>linhas 14-18: descodificação UTF-8 para voltar à cadeia Unicode original;</li>
+<li>linhas 20-29: repete-se o mesmo processo com a codificação «iso-8859-1»;</li>
+<li>linhas 31-34: mostra-se um erro de descodificação:</li>
+<li>linha 33: bytes1 é uma cadeia binária codificada em «utf-8». Decodifica-se em «iso-8859-1»;</li>
+<li>linhas 36-39: outra forma de codificar uma cadeia de caracteres em utf-8 com o módulo <strong>[codecs]</strong>;</li>
+<li>linhas 41-44: uma cadeia binária «utf-8» é codificada em «base64»;</li>
+<li>linhas 46-49: mostram como passar da cadeia binária «base64» para a cadeia Unicode original;</li>
+<li>linhas 51-59: repete-se este processo com uma codificação «quoted-printable» em vez de «base64»;</li>
+</ul>
+<p>Os resultados são os seguintes:</p>
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-text">
+<span class="odt-code-line"><span class="odt-code-line-content">C:\Data\st-2020\dev\python\cours-2020\python3-flask-2020\venv\Scripts\python.exe C:/Data/st-2020/dev/python/cours-2020/python3-flask-2020/strings/str_04.py</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">---- chaîne unicode</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">str1=<span style="font-weight:bold">[hélène va au marché acheter des légumes]</span>, type(str1)=&lt;class &#x27;str&#x27;&gt;</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">---- chaîne unicode -&gt; binaire utf-8</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">bytes1=<span style="font-weight:bold">[b&#x27;h\xc3\xa9l\xc3\xa8ne va au march\xc3\xa9 acheter des l\xc3\xa9gumes&#x27;]</span>, type(bytes1)=&lt;class &#x27;bytes&#x27;&gt;</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">---- binaire utf-8 -&gt; chaîne unicode</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">str2=<span style="font-weight:bold">[hélène va au marché acheter des légumes]</span>, type(str2)=&lt;class &#x27;str&#x27;&gt;</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">str2==str1=True</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">---- chaîne unicode -&gt; binaire iso-8859-1</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">bytes2=<span style="font-weight:bold">[b&#x27;h\xe9l\xe8ne va au march\xe9 acheter des l\xe9gumes&#x27;]</span>, type(bytes2)=&lt;class &#x27;bytes&#x27;&gt;</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">---- binaire iso-8859-1 -&gt; chaîne unicode</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">str3=<span style="font-weight:bold">[hélène va au marché acheter des légumes]</span>, type(str3)=&lt;class &#x27;str&#x27;&gt;</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">str3==str1=True</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">--- binaire utf-8 (décodage iso-8859-1) --&gt; chaîne unicode</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">str4=<span style="font-weight:bold">[hÃ©lÃ¨ne va au marchÃ© acheter des lÃ©gumes]</span>, type(str4)=&lt;class &#x27;str&#x27;&gt;</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">---- chaîne unicode -&gt; binaire utf-8</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">bytes3=<span style="font-weight:bold">[b&#x27;h\xc3\xa9l\xc3\xa8ne va au march\xc3\xa9 acheter des l\xc3\xa9gumes&#x27;]</span>, type(bytes3)=&lt;class &#x27;bytes&#x27;&gt;</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">---- binaire utf-8 -&gt; binaire base64</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">bytes4=<span style="font-weight:bold">[b&#x27;aMOpbMOobmUgdmEgYXUgbWFyY2jDqSBhY2hldGVyIGRlcyBsw6lndW1lcw==\n&#x27;]</span>, type(bytes4)=&lt;class &#x27;bytes&#x27;&gt;</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">---- binaire base64 -&gt; binaire utf-8 -&gt; chaîne unicode</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">str6=<span style="font-weight:bold">[hélène va au marché acheter des légumes]</span>, type(str6)=&lt;class &#x27;str&#x27;&gt;</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">---- binaire utf-8 -&gt; binaire quoted-printable</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">str7=<span style="font-weight:bold">[b&#x27;h=C3=A9l=C3=A8ne=20va=20au=20march=C3=A9=20acheter=20des=20l=C3=A9gumes&#x27;]</span>, type(str7)=&lt;class &#x27;bytes&#x27;&gt;</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">---- binaire quoted-printable -&gt; binaire utf-8 -&gt; chaîne unicode</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">str8=<span style="font-weight:bold">[hélène va au marché acheter des légumes]</span>, type(str8)=&lt;class &#x27;str&#x27;&gt;</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">Process finished with exit code 0</span></span>
+</code></pre></div>
+
+<ul>
+<li>linhas 14-15: um binário UTF-8 é descodificado para uma cadeia Unicode com o descodificador errado «iso-8859-1». Por isso, alguns caracteres Unicode gerados estão incorretos, neste caso os caracteres acentuados;</li>
+<li>linhas 18-19: a codificação «base64» consiste em utilizar 64 caracteres ASCII (codificados em 7 bits) para codificar qualquer ficheiro binário. Isto aumenta, como se pode ver, o tamanho do ficheiro binário da cadeia;</li>
+<li>linhas 22-23: a codificação «quoted-printable» consiste também em utilizar os caracteres ASCII (codificados em 7 bits) para codificar qualquer dado binário;</li>
+</ul>
+<p>Recorde-se que, quando se recebe um ficheiro binário — da Internet, por exemplo — que representa um texto, para o recuperar é necessário conhecer as codificações a que foi submetido.</p>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner">
+
+      <div>
+        <a href="https://stahe.github.io" target="_blank">
+          https://stahe.github.io
+        </a>
+        <br>
+        Este tutorial, escrito por <strong>Serge Tahé</strong>, é disponibilizado ao público sob os termos da
+<em>Creative Commons Atribuição – Não comercial –
+Partilha igual 3.0 Unported</em>.
+      </div>
+
+    </div>
+  </div>
+
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": ".", "features": ["navigation.sections", "navigation.indexes", "navigation.expand", "toc.integrate", "navigation.top"], "search": "assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="assets/javascripts/bundle.e71a0d61.min.js"></script>
+      
+        <script src="javascripts/focus.js"></script>
+      
+    
+  </body>
+</html>

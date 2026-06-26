@@ -1,0 +1,2591 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Introdução ao Python 3 e ao framework web Flask através de exemplos">
+      
+      
+        <meta name="author" content="Serge Tahé">
+      
+      
+        <link rel="canonical" href="https://stahe.github.io/pt-python-flask-sept-2020/exercicio-pratico-versao-5.html">
+      
+      
+        <link rel="prev" href="utilizacao-do-orm-sqlalchemy.html">
+      
+      
+        <link rel="next" href="funcoes-de-internet.html">
+      
+      
+        
+      
+      
+      <link rel="icon" href="assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.0">
+    
+    
+      
+        <title>20. Exercício prático: versão 5 - Introdução ao Python 3 e ao framework web Flask através de exemplos</title>
+      
+    
+    
+      <link rel="stylesheet" href="assets/stylesheets/main.618322db.min.css">
+      
+        
+        <link rel="stylesheet" href="assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="stylesheets/focus.css">
+    
+      <link rel="stylesheet" href="stylesheets/bidi.css">
+    
+    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-EBZC3JVJNR"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    var siteName = "Introdução ao Python 3 e ao framework web Flask através de exemplos";
+    gtag('config', 'G-EBZC3JVJNR', {
+        'page_title': siteName
+    });
+  </script>
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="purple">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#20-exercicio-pratico-versao-5" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="index.html" title="Introdução ao Python 3 e ao framework web Flask através de exemplos" class="md-header__button md-logo" aria-label="Introdução ao Python 3 e ao framework web Flask através de exemplos" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Introdução ao Python 3 e ao framework web Flask através de exemplos
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              20. Exercício prático: versão 5
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="purple"  aria-label="Mudar para modo escuro"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Mudar para modo escuro" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="purple"  aria-label="Mudar para modo claro"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Mudar para modo claro" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://stahe.github.io/pt-python-flask-sept-2020" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="index.html" title="Introdução ao Python 3 e ao framework web Flask através de exemplos" class="md-nav__button md-logo" aria-label="Introdução ao Python 3 e ao framework web Flask através de exemplos" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Introdução ao Python 3 e ao framework web Flask através de exemplos
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://stahe.github.io/pt-python-flask-sept-2020" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Bem-vindos
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="prefacio.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. Prefácio
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="instalacao-de-um-ambiente-de-trabalho.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. Instalação de um ambiente de trabalho
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="nocoes-basicas-de-python.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. Noções básicas de Python
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="as-cadeias-de-caracteres.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. As cadeias de caracteres
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="as-excecoes.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. As exceções
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="as-funcoes.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6. As funções
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="os-ficheiros-de-texto.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    7. Os ficheiros de texto
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="exercicio-pratico---versao-1.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    8. Exercício prático – versão 1
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="as-importacoes.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    9. As importações
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="exercicio-pratico-versao-2.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    10. Exercício prático: versão 2
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="exercicio-pratico-versao-3.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    11. Exercício prático: versão 3
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="as-classes-e-os-objetos.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    12. As classes e os objetos
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="as-classes-genericas-baseentity-e-myexception.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    13. As classes genéricas [BaseEntity] e [MyException]
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="arquitetura-em-camadas-e-programacao-por-interfaces.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    14. Arquitetura em camadas e programação por interfaces
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="exercicio-pratico---versao-4.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    15. Exercício prático - versão 4
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="utilizacao-do-sgbd-mysql.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    16. Utilização do SGBD MySQL
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="utilizacao-do-sgbd-postgresql.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    17. Utilização do SGBD PostgreSQL
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="escrever-codigo-independente-do-sgbd.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    18. Escrever código independente do SGBD
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="utilizacao-do-orm-sqlalchemy.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    19. Utilização do ORM SQLALCHEMY
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    20. Exercício prático: versão 5
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="exercicio-pratico-versao-5.html" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    20. Exercício prático: versão 5
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#201-aplicacao-1-inicializacao-da-base-de-dados" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        20.1. Aplicação 1: inicialização da base de dados
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="20.1. Aplicação 1: inicialização da base de dados">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#2011-o-ficheiro-admindatajson" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        20.1.1. O ficheiro [admindata.json]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2012-criacao-das-bases-de-dados" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        20.1.2. Criação das bases de dados
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2013-as-entidades-mapeadas-pelo-sqlalchemy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        20.1.3. As entidades mapeadas pelo [sqlalchemy]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2014-o-ficheiro-de-configuracao-do-sqlalchemy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        20.1.4. O ficheiro de configuração do [sqlalchemy]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2015-a-camada-dao" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        20.1.5. A camada [dao]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2016-configuracao-da-aplicacao" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        20.1.6. Configuração da aplicação
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2017-o-script-main-da-aplicacao" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        20.1.7. O script [main] da aplicação
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#202-aplicacao-2-calculo-do-imposto-em-modo-batch" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        20.2. Aplicação 2: cálculo do imposto em modo batch
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="20.2. Aplicação 2: cálculo do imposto em modo batch">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#2021-arquitetura" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        20.2.1. Arquitetura
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2022-configuracao-da-aplicacao" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        20.2.2. Configuração da aplicação
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2023-a-camada-dao" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        20.2.3. A camada [dao]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2024-teste-da-camada-dao" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        20.2.4. Teste da camada [dao]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2025-o-script-principal" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        20.2.5. O script principal
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#203-aplicacao-3-calculo-do-imposto-em-modo-interativo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        20.3. Aplicação 3: cálculo do imposto em modo interativo
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="funcoes-de-internet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    21. Funções de Internet
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="servicos-web-com-o-framework-flask.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    22. Serviços web com o framework Flask
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="exercicio-pratico-versao-6.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    23. Exercício prático: versão 6
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="exercicio-pratico-versao-7.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    24. Exercício prático: versão 7
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="-exercicio-pratico-versao-8.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    25.  Exercício prático: versão 8
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="do-dicionario-para-xml-e-vice-versa.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    26. Do dicionário para XML e vice-versa
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="exercicio-pratico-versao-9.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    27. Exercício prático: versão 9
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="exercicio-pratico-versao-10.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    28. Exercício prático: versão 10
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="exercicio-pratico-versao-11.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    29. Exercício prático: versão 11
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="exercicio-pratico-versao-12.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    30. Exercício prático: versão 12
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="clientes-web-para-os-servicos-json-e-xml-da-versao-12.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    31. Clientes web para os serviços jSON e XML da versão 12
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="o-modo-html-da-versao-12.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    32. O modo HTML da versão 12
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="exercicio-pratico-versao-13.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    33. Exercício prático: versão 13
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="exercicio-pratico-versao-14.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    34. Exercício prático: versão 14
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="exercicio-pratico-versao-15.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    35. Exercício prático: versão 15
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="exercicio-pratico-versao-16.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    36. Exercício prático: versão 16
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="exercicio-pratico-versao-17.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    37. Exercício prático: versão 17
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="exercicio-pratico-versao-18-.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    38. Exercício prático: versão 18 
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="conclusao.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    39. Conclusão
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<p><span id="exercicedapplication-copie-1" name="exercicedapplication-copie-1" class="odt-bookmark-anchor"></span>
+<span id="toc48549090" name="toc48549090" class="odt-bookmark-anchor"></span></p>
+<h1 id="20-exercicio-pratico-versao-5">20. <span style="color: #365f91">Exercício prático: versão 5</span></h1>
+<p><img src="images/100000000000016E0000029AE558FCD0.png" width="144" height="262" style="width:3.812cm;height:6.936cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000016E0000029AE558FCD0.png" /></p>
+<p>Vamos desenvolver três aplicações:</p>
+<ul>
+<li>a aplicação 1 irá inicializar a base de dados que substituirá o ficheiro <strong>[admindata.json]</strong> da versão 4;</li>
+<li>a aplicação 2 fará o cálculo dos impostos em modo batch;</li>
+<li>a aplicação 3 fará o cálculo dos impostos em modo interativo;</li>
+</ul>
+<p><span id="toc48549091" name="toc48549091" class="odt-bookmark-anchor"></span></p>
+<h2 id="201-aplicacao-1-inicializacao-da-base-de-dados">20.1. <span style="color: #4f81bd"><strong><span style="color: #4f81bd">Aplicação 1: inicialização da base de dados</span></strong></span></h2>
+<p>A aplicação 1 terá a seguinte arquitetura:</p>
+<p><img src="images/1000000000000474000002D64D661730.png" width="497" height="316" style="width:13.139cm;height:8.368cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/1000000000000474000002D64D661730.png" /></p>
+<p>Trata-se de uma evolução da arquitetura da versão 4 (parágrafo <a href="exercicio-pratico---versao-1.html#exercicedapplication-"><u><span style="color: #0563c1">|Versão</span></u></a> 4|): os dados fiscais serão encontrados numa base de dados, em vez de se encontrarem num ficheiro jSON. A camada <strong>[dao]</strong> será atualizada para implementar esta alteração.</p>
+<p><span id="toc48549092" name="toc48549092" class="odt-bookmark-anchor"></span></p>
+<h3 id="2011-o-ficheiro-admindatajson">20.1.1. <span style="color: #4f81bd"><strong>O ficheiro</strong> [admindata.json]</span></h3>
+<p><img src="images/100000000000017B00000129792FF6BF.png" width="166" height="130" style="width:4.382cm;height:3.433cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000017B00000129792FF6BF.png" /></p>
+<p>O ficheiro <strong>[admindata.json]</strong> é o mesmo que existia na versão 4:</p>
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-text">
+<span class="odt-code-line"><span class="odt-code-line-content">{</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#2e75b6">&quot;limites&quot;</span>: <span style="font-weight:bold">[9964, 27519, 73779, 156244, 0]</span>,</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#2e75b6">&quot;coeffr&quot;</span>: <span style="font-weight:bold">[0, 0.14, 0.3, 0.41, 0.45]</span>,</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#2e75b6">&quot;coeffn&quot;</span>: <span style="font-weight:bold">[0, 1394.96, 5798, 13913.69, 20163.45]</span>,</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#2e75b6">&quot;plafond_qf_demi_part&quot;</span>: 1551,</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#2e75b6">&quot;plafond_revenus_celibataire_pour_reduction&quot;</span>: 21037,</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#2e75b6">&quot;plafond_revenus_couple_pour_reduction&quot;</span>: 42074,</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#2e75b6">&quot;valeur_reduc_demi_part&quot;</span>: 3797,</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#2e75b6">&quot;plafond_decote_celibataire&quot;</span>: 1196,</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#2e75b6">&quot;plafond_decote_couple&quot;</span>: 1970,</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#2e75b6">&quot;plafond_impot_couple_pour_decote&quot;</span>: 2627,</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#2e75b6">&quot;plafond_impot_celibataire_pour_decote&quot;</span>: 1595,</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#2e75b6">&quot;abattement_dixpourcent_max&quot;</span>: 12502,</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#2e75b6">&quot;abattement_dixpourcent_min&quot;</span>: 437</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">}</span></span>
+</code></pre></div>
+
+<p>Vamos utilizar como colunas da base de dados as chaves deste dicionário.</p>
+<p><span id="toc48549093" name="toc48549093" class="odt-bookmark-anchor"></span></p>
+<h3 id="2012-criacao-das-bases-de-dados">20.1.2. <span style="color: #4f81bd">Criação das bases de dados</span></h3>
+<p>Tal como foi demonstrado no parágrafo <a href="utilizacao-do-sgbd-mysql.html#creationdunebase"><u><span style="color: #0563c1">|criação de uma base de dados</span></u></a> MySQL|, criamos uma base de dados MySQL denominada <strong>[dbimpots-2019],</strong> propriedade do utilizador <strong>[admimpots],</strong> com a palavra-passe <strong>[mdpimpots]</strong>. Em <strong>[phpMyAdmin],</strong> o resultado é o seguinte:</p>
+<p><img src="images/100000000000059B000001889F0F7712.png" width="627" height="171" style="width:16.581cm;height:4.53cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000059B000001889F0F7712.png" /></p>
+<p>Da mesma forma, tal como foi demonstrado no parágrafo <a href="utilizacao-do-sgbd-postgresql.html#administrerpostgresqlavec"><u><span style="color: #0563c1">|criação de uma base de dados</span></u></a> PostgreSQL|, criamos uma base de dados PostgreSQL denominada <strong>[dbimpots-2019],</strong> propriedade do utilizador <strong>[admimpots],</strong> com a palavra-passe <strong>[mdpimpots]</strong>. Em <strong>[pgAdmin],</strong> o resultado é o seguinte:</p>
+<p><img src="images/10000000000005540000021DD77E89EE.png" width="596" height="236" style="width:15.76cm;height:6.251cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000005540000021DD77E89EE.png" /></p>
+<p>As bases de dados são criadas, mas, por enquanto, não têm nenhuma tabela. Estas serão criadas pelo ORM e pelo <strong>[sqlalchemy]</strong>.</p>
+<p><span id="toc48549094" name="toc48549094" class="odt-bookmark-anchor"></span></p>
+<h3 id="2013-as-entidades-mapeadas-pelo-sqlalchemy">20.1.3. <span style="color: #4f81bd"><strong>As entidades mapeadas pelo</strong> [sqlalchemy]</span></h3>
+<p>Vamos criar duas tabelas para encapsular os dados do <strong>[admindata.json]</strong>:</p>
+<p>Definida por <strong>[sqlalchemy],</strong> a tabela <strong>[tbtranches]</strong> reunirá os dados das tabelas <strong>[limites, coeffr, coeffn]</strong> do dicionário <strong>[admindata.json]</strong>:</p>
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-markdown">
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#000000"># a tabela de escalões de imposto</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    tranches_table = Table(</span><span style="color:#a31515">&quot;tbtranches&quot;</span><span style="color:#000000">, metadata,</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">                           Column(</span><span style="color:#a31515">&#x27;id&#x27;</span><span style="color:#000000">, Integer, primary_key=</span><span style="color:#0000ff">True</span><span style="color:#000000">),</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">                           Column(</span><span style="color:#a31515">&#x27;limite&#x27;</span><span style="color:#000000">, Float, nullable=</span><span style="color:#0000ff">False</span><span style="color:#000000">),</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">                           Column(</span><span style="color:#a31515">&#x27;coeffr&#x27;</span><span style="color:#000000">, Float, nullable=</span><span style="color:#0000ff">False</span><span style="color:#000000">),</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">                           Column(</span><span style="color:#a31515">&#x27;coeffn&#x27;</span><span style="color:#000000">, Float, nullable=</span><span style="color:#0000ff">False</span><span style="color:#000000">)</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">                           )</span></span>
+</code></pre></div>
+
+<p>Definida pela tabela <strong>[sqlalchemy],</strong> a tabela <strong>[tbconstantes]</strong> irá reunir as constantes do dicionário <strong>[admindata.json]</strong>:</p>
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-markdown">
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#000000"># a tabela de constantes</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    constantes_table = Table(</span><span style="color:#a31515">&quot;tbconstantes&quot;</span><span style="color:#000000">, metadata,</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">                             Column(</span><span style="color:#a31515">&#x27;id&#x27;</span><span style="color:#000000">, Integer, primary_key=</span><span style="color:#0000ff">True</span><span style="color:#000000">),</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">                             Column(</span><span style="color:#a31515">&#x27;plafond_qf_demi_part&#x27;</span><span style="color:#000000">, Float, nullable=</span><span style="color:#0000ff">False</span><span style="color:#000000">),</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">                             Column(</span><span style="color:#a31515">&#x27;plafond_revenus_celibataire_pour_reduction&#x27;</span><span style="color:#000000">, Float, nullable=</span><span style="color:#0000ff">False</span><span style="color:#000000">),</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">                             Column(</span><span style="color:#a31515">&#x27;plafond_revenus_couple_pour_reduction&#x27;</span><span style="color:#000000">, Float, nullable=</span><span style="color:#0000ff">False</span><span style="color:#000000">),</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">                             Column(</span><span style="color:#a31515">&#x27;valeur_reduc_demi_part&#x27;</span><span style="color:#000000">, Float, nullable=</span><span style="color:#0000ff">False</span><span style="color:#000000">),</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">                             Column(</span><span style="color:#a31515">&#x27;plafond_decote_celibataire&#x27;</span><span style="color:#000000">, Float, nullable=</span><span style="color:#0000ff">False</span><span style="color:#000000">),</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">                             Column(</span><span style="color:#a31515">&#x27;plafond_decote_couple&#x27;</span><span style="color:#000000">, Float, nullable=</span><span style="color:#0000ff">False</span><span style="color:#000000">),</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">                             Column(</span><span style="color:#a31515">&#x27;plafond_impot_celibataire_pour_decote&#x27;</span><span style="color:#000000">, Float, nullable=</span><span style="color:#0000ff">False</span><span style="color:#000000">),</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">                             Column(</span><span style="color:#a31515">&#x27;plafond_impot_couple_pour_decote&#x27;</span><span style="color:#000000">, Float, nullable=</span><span style="color:#0000ff">False</span><span style="color:#000000">),</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">                             Column(</span><span style="color:#a31515">&#x27;abattement_dixpourcent_max&#x27;</span><span style="color:#000000">, Float, nullable=</span><span style="color:#0000ff">False</span><span style="color:#000000">),</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">                             Column(</span><span style="color:#a31515">&#x27;abattement_dixpourcent_min&#x27;</span><span style="color:#000000">, Float, nullable=</span><span style="color:#0000ff">False</span><span style="color:#000000">)</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">                             )</span></span>
+</code></pre></div>
+
+<p>As entidades que serão mapeadas com estas duas tabelas serão as seguintes:</p>
+<p><img src="images/100000000000013F0000014DF6407E52.png" width="139" height="145" style="width:3.679cm;height:3.84cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000013F0000014DF6407E52.png" /></p>
+<p>A entidade <strong>[Constantes]</strong> encapsula as constantes do dicionário <strong>[admindata.json]</strong>:</p>
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">from</span> <span style="color:#6f008a">BaseEntity</span> <span style="color:#0000ff">import</span> BaseEntity</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"># classe-recipiente dos dados da administração fiscal</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">class</span> <span style="color:#2b91af">Constantes</span>(BaseEntity):</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    # chaves excluídas do estado da classe</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    excluded_keys = <span style="font-weight:bold">[</span><span style="font-weight:bold;color:#a31515">&quot;_sa_instance_state&quot;</span><span style="font-weight:bold">]</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    # chaves autorizadas</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    @<span style="color:#2b91af">staticmethod</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#0000ff">def</span> get_allowed_keys() -&gt; <span style="color:#2b91af">list</span>:</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#0000ff">return</span> <span style="font-weight:bold">[</span><span style="font-weight:bold;color:#a31515">&quot;id&quot;</span><span style="font-weight:bold">,</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="font-weight:bold">                </span><span style="font-weight:bold;color:#a31515">&quot;plafond_qf_demi_part&quot;</span><span style="font-weight:bold">,</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="font-weight:bold">                </span><span style="font-weight:bold;color:#a31515">&quot;plafond_revenus_celibataire_pour_reduction&quot;</span><span style="font-weight:bold">,</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="font-weight:bold">                </span><span style="font-weight:bold;color:#a31515">&quot;plafond_revenus_couple_pour_reduction&quot;</span><span style="font-weight:bold">,</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="font-weight:bold">                </span><span style="font-weight:bold;color:#a31515">&quot;valeur_reduc_demi_part&quot;</span><span style="font-weight:bold">,</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="font-weight:bold">                </span><span style="font-weight:bold;color:#a31515">&quot;plafond_decote_celibataire&quot;</span><span style="font-weight:bold">,</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="font-weight:bold">                </span><span style="font-weight:bold;color:#a31515">&quot;plafond_decote_couple&quot;</span><span style="font-weight:bold">,</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="font-weight:bold">                </span><span style="font-weight:bold;color:#a31515">&quot;plafond_decote_couple&quot;</span><span style="font-weight:bold">,</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="font-weight:bold">                </span><span style="font-weight:bold;color:#a31515">&quot;plafond_impot_celibataire_pour_decote&quot;</span><span style="font-weight:bold">,</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="font-weight:bold">                </span><span style="font-weight:bold;color:#a31515">&quot;plafond_impot_couple_pour_decote&quot;</span><span style="font-weight:bold">,</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="font-weight:bold">                </span><span style="font-weight:bold;color:#a31515">&quot;abattement_dixpourcent_max&quot;</span><span style="font-weight:bold">,</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="font-weight:bold">                </span><span style="font-weight:bold;color:#a31515">&quot;abattement_dixpourcent_min&quot;</span><span style="font-weight:bold">]</span></span></span>
+</code></pre></div>
+
+<ul>
+<li>linha 5: a classe <strong>[Constantes]</strong> estende a classe <strong>[BaseEntity]</strong>;</li>
+<li>linha 7: através do mapeamento <strong>[sqlalchemy]</strong>, a classe <strong>[Constante]</strong> irá receber a propriedade <strong>[_sa_instance_state]</strong>. Excluímos-a do dicionário <strong>[asdict]</strong> da entidade;</li>
+<li>linhas 11-23: as propriedades da entidade. Retomámos os nomes utilizados no dicionário <strong>[admindata.json]</strong> para facilitar a escrita do código;</li>
+</ul>
+<p>A entidade <strong>[Tranche]</strong> encapsula uma linha das três tabelas <strong>[limites, coeffr, coeffn]</strong> do dicionário <strong>[admindata.json]</strong>:</p>
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">from</span> <span style="color:#6f008a">BaseEntity</span> <span style="color:#0000ff">import</span> BaseEntity</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"># classe-recipiente dos dados da administração fiscal</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">class</span> <span style="color:#2b91af">Tranche</span>(BaseEntity):</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    # chaves excluídas do estado da classe</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    excluded_keys = <span style="font-weight:bold">[</span><span style="font-weight:bold;color:#a31515">&quot;_sa_instance_state&quot;</span><span style="font-weight:bold">]</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    # chaves autorizadas</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    @<span style="color:#2b91af">staticmethod</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#0000ff">def</span> get_allowed_keys() -&gt; <span style="color:#2b91af">list</span>:</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#0000ff">return</span> <span style="font-weight:bold">[</span><span style="font-weight:bold;color:#a31515">&quot;id&quot;</span><span style="font-weight:bold">, </span><span style="font-weight:bold;color:#a31515">&quot;limite&quot;</span><span style="font-weight:bold">, </span><span style="font-weight:bold;color:#a31515">&quot;coeffr&quot;</span><span style="font-weight:bold">, </span><span style="font-weight:bold;color:#a31515">&quot;coeffn&quot;</span><span style="font-weight:bold">]</span></span></span>
+</code></pre></div>
+
+<ul>
+<li>linha 5: a classe <strong>[Tranche]</strong> estende a classe <strong>[BaseEntity]</strong>;</li>
+<li>linha 7: exclui-se das propriedades do dicionário <strong>[asdict]</strong> da entidade a propriedade <strong>[_sa_instance_state]</strong> adicionada por <strong>[sqlalchemy]</strong>;</li>
+<li>linhas 10-12: as propriedades da classe;</li>
+</ul>
+<p>O mapeamento entre as entidades <strong>[Constantes, Tranche]</strong> e as tabelas <strong>[constantes, tranches]</strong> será o seguinte:</p>
+<p><img src="images/10000000000001AB000002060FD6F2A5.png" width="167" height="203" style="width:4.429cm;height:5.375cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000001AB000002060FD6F2A5.png" /></p>
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
+<span class="odt-code-line"><span class="odt-code-line-content">…</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#000000"># a tabela de constantes</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    constantes_table = Table(</span><span style="color:#a31515">&quot;tbconstantes&quot;</span><span style="color:#000000">, metadata,</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">                             Column(</span><span style="color:#a31515">&#x27;id&#x27;</span><span style="color:#000000">, Integer, primary_key=</span><span style="color:#0000ff">True</span><span style="color:#000000">),</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">                             Column(</span><span style="color:#a31515">&#x27;plafond_qf_demi_part&#x27;</span><span style="color:#000000">, Float, nullable=</span><span style="color:#0000ff">False</span><span style="color:#000000">),</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">                             Column(</span><span style="color:#a31515">&#x27;plafond_revenus_celibataire_pour_reduction&#x27;</span><span style="color:#000000">, Float, nullable=</span><span style="color:#0000ff">False</span><span style="color:#000000">),</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">                             Column(</span><span style="color:#a31515">&#x27;plafond_revenus_couple_pour_reduction&#x27;</span><span style="color:#000000">, Float, nullable=</span><span style="color:#0000ff">False</span><span style="color:#000000">),</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">                             Column(</span><span style="color:#a31515">&#x27;valeur_reduc_demi_part&#x27;</span><span style="color:#000000">, Float, nullable=</span><span style="color:#0000ff">False</span><span style="color:#000000">),</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">                             Column(</span><span style="color:#a31515">&#x27;plafond_decote_celibataire&#x27;</span><span style="color:#000000">, Float, nullable=</span><span style="color:#0000ff">False</span><span style="color:#000000">),</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">                             Column(</span><span style="color:#a31515">&#x27;plafond_decote_couple&#x27;</span><span style="color:#000000">, Float, nullable=</span><span style="color:#0000ff">False</span><span style="color:#000000">),</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">                             Column(</span><span style="color:#a31515">&#x27;plafond_impot_celibataire_pour_decote&#x27;</span><span style="color:#000000">, Float, nullable=</span><span style="color:#0000ff">False</span><span style="color:#000000">),</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">                             Column(</span><span style="color:#a31515">&#x27;plafond_impot_couple_pour_decote&#x27;</span><span style="color:#000000">, Float, nullable=</span><span style="color:#0000ff">False</span><span style="color:#000000">),</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">                             Column(</span><span style="color:#a31515">&#x27;abattement_dixpourcent_max&#x27;</span><span style="color:#000000">, Float, nullable=</span><span style="color:#0000ff">False</span><span style="color:#000000">),</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">                             Column(</span><span style="color:#a31515">&#x27;abattement_dixpourcent_min&#x27;</span><span style="color:#000000">, Float, nullable=</span><span style="color:#0000ff">False</span><span style="color:#000000">)</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">                             )</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#000000"># a tabela das faixas de imposto</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    tranches_table = Table(</span><span style="color:#a31515">&quot;tbtranches&quot;</span><span style="color:#000000">, metadata,</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">                           Column(</span><span style="color:#a31515">&#x27;id&#x27;</span><span style="color:#000000">, Integer, primary_key=</span><span style="color:#0000ff">True</span><span style="color:#000000">),</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">                           Column(</span><span style="color:#a31515">&#x27;limite&#x27;</span><span style="color:#000000">, Float, nullable=</span><span style="color:#0000ff">False</span><span style="color:#000000">),</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">                           Column(</span><span style="color:#a31515">&#x27;coeffr&#x27;</span><span style="color:#000000">, Float, nullable=</span><span style="color:#0000ff">False</span><span style="color:#000000">),</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">                           Column(</span><span style="color:#a31515">&#x27;coeffn&#x27;</span><span style="color:#000000">, Float, nullable=</span><span style="color:#0000ff">False</span><span style="color:#000000">)</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">                           )</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#000000"># os mapeamentos</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="color:#0000ff">from</span><span style="color:#000000"> </span><span style="color:#6f008a">Tranche</span><span style="color:#000000"> </span><span style="color:#0000ff">import</span><span style="color:#000000"> Tranche</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    mapper(Tranche, tranches_table)</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="color:#0000ff">from</span><span style="color:#000000"> </span><span style="color:#6f008a">Constantes</span><span style="color:#000000"> </span><span style="color:#0000ff">import</span><span style="color:#000000"> Constantes</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    mapper(Constantes, constantes_table)</span></span>
+</code></pre></div>
+
+<ul>
+<li>os mapeamentos são definidos nas linhas 24-29. Nestas, omitiu-se estabelecer as correspondências entre as propriedades das entidades mapeadas e as tabelas da base de dados. Tal é possível quando os nomes das colunas das tabelas são idênticos aos das propriedades às quais devem ser associadas. Por este motivo, incluímos nas tabelas os nomes das propriedades das entidades mapeadas. Isto facilita a escrita do código e a sua compreensão;</li>
+</ul>
+<p><span id="refheadingtoc822323439697744" name="refheadingtoc822323439697744" class="odt-bookmark-anchor"></span>
+<span id="lefichierde" name="lefichierde" class="odt-bookmark-anchor"></span>
+<span id="toc48549095" name="toc48549095" class="odt-bookmark-anchor"></span></p>
+<h3 id="2014-o-ficheiro-de-configuracao-do-sqlalchemy">20.1.4. <span style="color: #4f81bd"><strong>O ficheiro de configuração do</strong> [sqlalchemy]</span></h3>
+<p><img src="images/10000000000001AB000002060FD6F2A5.png" width="167" height="203" style="width:4.429cm;height:5.375cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000001AB000002060FD6F2A5.png" /></p>
+<p>Acabámos de detalhar uma parte da configuração do <strong>[sqlalchemy]</strong>. O ficheiro <strong>[config_database]</strong> na sua totalidade é o seguinte:</p>
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">def</span> configure(<span style="color:#808080">config</span>: <span style="color:#2b91af">dict</span>) -&gt; <span style="color:#2b91af">dict</span>:</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    # configuração do SQLAlchemy</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#0000ff">from</span> <span style="color:#6f008a">sqlalchemy</span> <span style="color:#0000ff">import</span> create_engine, Table, Column, Integer, MetaData, Float</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#0000ff">from</span> <span style="color:#6f008a">sqlalchemy</span>.<span style="color:#6f008a">orm</span> <span style="color:#0000ff">import</span> mapper, sessionmaker</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    # cadeias de ligação às bases de dados utilizadas</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    connection_strings = {</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        &#x27;mysql&#x27;: &quot;mysql+mysqlconnector://admimpots:mdpimpots@localhost/dbimpots-2019&quot;,</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        &#x27;pgres&#x27;: &quot;postgresql+psycopg2://admimpots:mdpimpots@localhost/dbimpots-2019&quot;</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    }</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    # cadeia de ligação à base de dados utilizada</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    engine = create_engine(connection_strings<span style="font-weight:bold">[</span><span style="font-weight:bold;color:#808080">config</span><span style="font-weight:bold">[</span><span style="font-weight:bold;color:#a31515">&#x27;sgbd&#x27;</span><span style="font-weight:bold">]</span>])</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    # metadados</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    metadata = MetaData()</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    # a tabela de constantes</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    constantes_table = Table(<span style="color:#a31515">&quot;tbconstantes&quot;</span>, metadata,</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">                             Column(<span style="color:#a31515">&#x27;id&#x27;</span>, Integer, primary_key=<span style="color:#0000ff">True</span>),</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">                             Column(<span style="color:#a31515">&#x27;plafond_qf_demi_part&#x27;</span>, Float, nullable=<span style="color:#0000ff">False</span>),</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">                             Column(<span style="color:#a31515">&#x27;plafond_revenus_celibataire_pour_reduction&#x27;</span>, Float, nullable=<span style="color:#0000ff">False</span>),</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">                             Column(<span style="color:#a31515">&#x27;plafond_revenus_couple_pour_reduction&#x27;</span>, Float, nullable=<span style="color:#0000ff">False</span>),</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">                             Column(<span style="color:#a31515">&#x27;valeur_reduc_demi_part&#x27;</span>, Float, nullable=<span style="color:#0000ff">False</span>),</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">                             Column(<span style="color:#a31515">&#x27;plafond_decote_celibataire&#x27;</span>, Float, nullable=<span style="color:#0000ff">False</span>),</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">                             Column(<span style="color:#a31515">&#x27;plafond_decote_couple&#x27;</span>, Float, nullable=<span style="color:#0000ff">False</span>),</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">                             Column(<span style="color:#a31515">&#x27;plafond_impot_celibataire_pour_decote&#x27;</span>, Float, nullable=<span style="color:#0000ff">False</span>),</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">                             Column(<span style="color:#a31515">&#x27;plafond_impot_couple_pour_decote&#x27;</span>, Float, nullable=<span style="color:#0000ff">False</span>),</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">                             Column(<span style="color:#a31515">&#x27;abattement_dixpourcent_max&#x27;</span>, Float, nullable=<span style="color:#0000ff">False</span>),</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">                             Column(<span style="color:#a31515">&#x27;abattement_dixpourcent_min&#x27;</span>, Float, nullable=<span style="color:#0000ff">False</span>)</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">                             )</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    # a tabela das faixas de imposto</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    tranches_table = Table(<span style="color:#a31515">&quot;tbtranches&quot;</span>, metadata,</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">                           Column(<span style="color:#a31515">&#x27;id&#x27;</span>, Integer, primary_key=<span style="color:#0000ff">True</span>),</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">                           Column(<span style="color:#a31515">&#x27;limite&#x27;</span>, Float, nullable=<span style="color:#0000ff">False</span>),</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">                           Column(<span style="color:#a31515">&#x27;coeffr&#x27;</span>, Float, nullable=<span style="color:#0000ff">False</span>),</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">                           Column(<span style="color:#a31515">&#x27;coeffn&#x27;</span>, Float, nullable=<span style="color:#0000ff">False</span>)</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">                           )</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    # os mapeamentos</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#0000ff">from</span> <span style="color:#6f008a">Tranche</span> <span style="color:#0000ff">import</span> Tranche</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    mapper(Tranche, tranches_table)</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#0000ff">from</span> <span style="color:#6f008a">Constantes</span> <span style="color:#0000ff">import</span> Constantes</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    mapper(Constantes, constantes_table)</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    # a fábrica de sessões</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    session_factory = sessionmaker()</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    session_factory.configure(bind=engine)</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    # uma sessão</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    session = session_factory()</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    # registam-se determinadas informações</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#808080">config</span><span style="font-weight:bold">[</span><span style="font-weight:bold;color:#a31515">&#x27;database&#x27;</span><span style="font-weight:bold">]</span> = {<span style="color:#a31515">&quot;engine&quot;</span>: engine, <span style="color:#a31515">&quot;metadata&quot;</span>: metadata, <span style="color:#a31515">&quot;tranches_table&quot;</span>: tranches_table,</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">                          <span style="color:#a31515">&quot;constantes_table&quot;</span>: constantes_table, <span style="color:#a31515">&quot;session&quot;</span>: session}</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    # resultado</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#0000ff">return</span> <span style="color:#808080">config</span></span></span>
+</code></pre></div>
+
+<ul>
+<li>linha 1: a função <strong>[configure]</strong> recebe como parâmetro um dicionário cuja chave <strong>[sgbd]</strong> indica-lhe qual o SGBD a utilizar: MySQL (mysql) ou PostgreSQL (pgres);</li>
+<li>linhas 6-12: seleciona-se a base de dados solicitada pela configuração;</li>
+<li>linhas 14-44: mapeamentos de entidades/tabelas. Estes mapeamentos são simples, pois não existe qualquer ligação entre as tabelas <strong>[tranches]</strong> e <strong>[constantes]</strong>. São independentes. Não há, portanto, nenhuma chave estrangeira de uma para a outra para gerir;</li>
+<li>linhas 46-51: cria-se a sessão de trabalho <strong>[session]</strong> da aplicação;</li>
+<li>linhas 53-58: as informações úteis são inseridas no dicionário de configuração, que é devolvido;</li>
+</ul>
+<p><span id="toc48549096" name="toc48549096" class="odt-bookmark-anchor"></span></p>
+<h3 id="2015-a-camada-dao">20.1.5. <span style="color: #4f81bd"><strong>A camada</strong> [dao]</span></h3>
+<p>Voltemos à arquitetura da aplicação 1 a construir:</p>
+<p><img src="images/1000000000000474000002D64D661730.png" width="497" height="316" style="width:13.139cm;height:8.368cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/1000000000000474000002D64D661730.png" /></p>
+<p>A camada <strong>[dao] [1]</strong> deve ler o ficheiro <strong>[admindata.json] [2]</strong> e transferir o seu conteúdo para uma das bases de dados <strong>[3, 4]</strong>;</p>
+<p><img src="images/100000000000022F000001FDE6D0F33E.png" width="244" height="222" style="width:6.459cm;height:5.883cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000022F000001FDE6D0F33E.png" /></p>
+<p>A camada <strong>[dao]</strong> apresenta a interface <strong>[1]</strong> e é implementada pela classe <strong>[2]</strong>.</p>
+<p>A interface <strong>[InterfaceDao4TransferAdminData2Database]</strong> é a seguinte:</p>
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
+<span class="odt-code-line"><span class="odt-code-line-content"># importações</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">from</span><span style="color:#000000"> </span><span style="color:#6f008a">abc</span><span style="color:#000000"> </span><span style="color:#0000ff">import</span><span style="color:#000000"> </span><span style="color:#2b91af">ABC</span><span style="color:#000000">, abstractmethod</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"># interface InterfaceImpôtsUI</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">class</span><span style="color:#000000"> </span><span style="color:#2b91af">InterfaceDao4TransferAdminData2Database</span><span style="color:#000000">(</span><span style="color:#2b91af">ABC</span><span style="color:#000000">):</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#000000"># transferência de dados fiscais para uma base de dados</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    @abstractmethod</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="color:#0000ff">def</span><span style="color:#000000"> transfer_admindata_in_database(</span><span style="color:#808080">self</span><span style="color:#000000">:</span><span style="color:#2b91af">object</span><span style="color:#000000">):</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        </span><span style="color:#0000ff">pass</span></span></span>
+</code></pre></div>
+
+<ul>
+<li>linhas 8-10: a interface apresenta apenas um método <strong>[transfer_admindata_in_database]</strong> sem parâmetros. Como este método necessita de parâmetros (que ficheiro?, que base de dados?), isso significa que estes serão passados para o construtor das classes que implementam esta interface;</li>
+</ul>
+<p>A classe <strong>[DaoTransferAdminDataFromJsonFile2Database]</strong> implementa a interface <strong>[InterfaceDao4TransferAdminData2Database]</strong> da seguinte forma:</p>
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
+<span class="odt-code-line"><span class="odt-code-line-content"># importações</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">import</span><span style="color:#000000"> </span><span style="color:#6f008a">codecs</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">import</span><span style="color:#000000"> </span><span style="color:#6f008a">json</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">from</span><span style="color:#000000"> </span><span style="color:#6f008a">sqlalchemy</span><span style="color:#000000">.</span><span style="color:#6f008a">exc</span><span style="color:#000000"> </span><span style="color:#0000ff">import</span><span style="color:#000000"> DatabaseError, IntegrityError, InterfaceError</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">from</span><span style="color:#000000"> </span><span style="color:#6f008a">Constantes</span><span style="color:#000000"> </span><span style="color:#0000ff">import</span><span style="color:#000000"> Constantes</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">from</span><span style="color:#000000"> </span><span style="color:#6f008a">ImpôtsError</span><span style="color:#000000"> </span><span style="color:#0000ff">import</span><span style="color:#000000"> ImpôtsError</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">from</span><span style="color:#000000"> </span><span style="color:#6f008a">InterfaceDao4TransferAdminData2Database</span><span style="color:#000000"> </span><span style="color:#0000ff">import</span><span style="color:#000000"> InterfaceDao4TransferAdminData2Database</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">from</span><span style="color:#000000"> </span><span style="color:#6f008a">Tranche</span><span style="color:#000000"> </span><span style="color:#0000ff">import</span><span style="color:#000000"> Tranche</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">class</span><span style="color:#000000"> </span><span style="color:#2b91af">DaoTransferAdminDataFromJsonFile2Database</span><span style="color:#000000">(InterfaceDao4TransferAdminData2Database):</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#000000"># fabricante</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="color:#0000ff">def</span><span style="color:#000000"> __init__(</span><span style="color:#808080">self</span><span style="color:#000000">, </span><span style="color:#808080">config</span><span style="color:#000000">: </span><span style="color:#2b91af">dict</span><span style="color:#000000">):</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        </span><span style="color:#808080">self</span><span style="color:#000000">.config = </span><span style="color:#808080">config</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#000000"># transferência</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="color:#0000ff">def</span><span style="color:#000000"> transfer_admindata_in_database(</span><span style="color:#808080">self</span><span style="color:#000000">) -&gt; </span><span style="color:#0000ff">None</span><span style="color:#000000">:</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#000000"># inicializações</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        session = </span><span style="color:#0000ff">None</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        config = </span><span style="color:#808080">self</span><span style="color:#000000">.config</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        </span><span style="color:#0000ff">try</span><span style="color:#000000">:</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">            <span style="color:#000000"># recuperação dos dados da administração fiscal</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">            </span><span style="color:#0000ff">with</span><span style="color:#000000"> </span><span style="color:#6f008a">codecs</span><span style="color:#000000">.open(config</span><span style="font-weight:bold;color:#000000">[</span><span style="font-weight:bold;color:#a31515">&quot;admindataFilename&quot;</span><span style="font-weight:bold;color:#000000">]</span><span style="color:#000000">, </span><span style="color:#a31515">&quot;r&quot;</span><span style="color:#000000">, </span><span style="color:#a31515">&quot;utf8&quot;</span><span style="color:#000000">) </span><span style="color:#0000ff">as</span><span style="color:#000000"> fd:</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">                <span style="color:#000000"># transferência do conteúdo para um dicionário</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">                admindata = </span><span style="color:#6f008a">json</span><span style="color:#000000">.load(fd)</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">            <span style="color:#000000"># recuperação da configuração da base de dados</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">            database = config</span><span style="font-weight:bold;color:#000000">[</span><span style="font-weight:bold;color:#a31515">&quot;database&quot;</span><span style="font-weight:bold;color:#000000">]</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">            <span style="color:#000000"># eliminação das duas tabelas da base de dados</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">            <span style="color:#000000"># checkfirst=True: verifica primeiro se a tabela existe</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">            database</span><span style="font-weight:bold;color:#000000">[</span><span style="font-weight:bold;color:#a31515">&quot;tranches_table&quot;</span><span style="font-weight:bold;color:#000000">]</span><span style="color:#000000">.drop(database</span><span style="font-weight:bold;color:#000000">[</span><span style="font-weight:bold;color:#a31515">&quot;engine&quot;</span><span style="font-weight:bold;color:#000000">]</span><span style="color:#000000">, checkfirst=</span><span style="color:#0000ff">True</span><span style="color:#000000">)</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">            database</span><span style="font-weight:bold;color:#000000">[</span><span style="font-weight:bold;color:#a31515">&quot;constantes_table&quot;</span><span style="font-weight:bold;color:#000000">]</span><span style="color:#000000">.drop(database</span><span style="font-weight:bold;color:#000000">[</span><span style="font-weight:bold;color:#a31515">&quot;engine&quot;</span><span style="font-weight:bold;color:#000000">]</span><span style="color:#000000">, checkfirst=</span><span style="color:#0000ff">True</span><span style="color:#000000">)</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">            <span style="color:#000000"># recriação das tabelas a partir dos mapeamentos</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">            database</span><span style="font-weight:bold;color:#000000">[</span><span style="font-weight:bold;color:#a31515">&quot;metadata&quot;</span><span style="font-weight:bold;color:#000000">]</span><span style="color:#000000">.create_all(database</span><span style="font-weight:bold;color:#000000">[</span><span style="font-weight:bold;color:#a31515">&quot;engine&quot;</span><span style="font-weight:bold;color:#000000">]</span><span style="color:#000000">)</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">            <span style="color:#000000"># a sessão [sqlalchemy] atual</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">            session = database</span><span style="font-weight:bold;color:#000000">[</span><span style="font-weight:bold;color:#a31515">&quot;session&quot;</span><span style="font-weight:bold;color:#000000">]</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">            <span style="color:#000000"># preenche-se a tabela das faixas de imposto</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">            limites = admindata</span><span style="font-weight:bold;color:#000000">[</span><span style="font-weight:bold;color:#a31515">&quot;limites&quot;</span><span style="font-weight:bold;color:#000000">]</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">            coeffr = admindata</span><span style="font-weight:bold;color:#000000">[</span><span style="font-weight:bold;color:#a31515">&quot;coeffr&quot;</span><span style="font-weight:bold;color:#000000">]</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">            coeffn = admindata</span><span style="font-weight:bold;color:#000000">[</span><span style="font-weight:bold;color:#a31515">&quot;coeffn&quot;</span><span style="font-weight:bold;color:#000000">]</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">            </span><span style="color:#0000ff">for</span><span style="color:#000000"> i </span><span style="color:#0000ff">in</span><span style="color:#000000"> </span><span style="color:#2b91af">range</span><span style="color:#000000">(len(limites)):</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">                session.add(Tranche().fromdict(</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">                    {</span><span style="color:#a31515">&quot;limite&quot;</span><span style="color:#000000">: limites</span><span style="font-weight:bold;color:#000000">[i]</span><span style="color:#000000">, </span><span style="color:#a31515">&quot;coeffr&quot;</span><span style="color:#000000">: coeffr</span><span style="font-weight:bold;color:#000000">[i]</span><span style="color:#000000">, </span><span style="color:#a31515">&quot;coeffn&quot;</span><span style="color:#000000">: coeffn</span><span style="font-weight:bold;color:#000000">[i]</span><span style="color:#000000">}))</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">            <span style="color:#000000"># preenchimento da tabela de constantes</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">            session.add(Constantes().fromdict({</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">                <span style="color:#000000">&#x27;plafond_qf_demi_part&#x27;: admindata[&quot;plafond_qf_demi_part&quot;],</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">                <span style="color:#000000">&#x27;plafond_revenus_celibataire_pour_reduction&#x27;: admindata[&quot;plafond_revenus_celibataire_pour_reduction&quot;],</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">                <span style="color:#000000">&#x27;plafond_revenus_couple_pour_reduction&#x27;: admindata[&quot;plafond_revenus_couple_pour_reduction&quot;],</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">                <span style="color:#000000">&#x27;valeur_reduc_demi_part&#x27;: admindata[&quot;valeur_reduc_demi_part&quot;],</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">                <span style="color:#000000">&#x27;plafond_decote_celibataire&#x27;: admindata[&quot;plafond_decote_celibataire&quot;],</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">                <span style="color:#000000">&#x27;plafond_decote_couple&#x27;: admindata[&quot;plafond_decote_couple&quot;],</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">                <span style="color:#000000">&#x27;plafond_impot_celibataire_pour_decote&#x27;: admindata[&quot;plafond_impot_celibataire_pour_decote&quot;],</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">                <span style="color:#000000">&#x27;plafond_impot_couple_pour_decote&#x27;: admindata[&quot;plafond_impot_couple_pour_decote&quot;],</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">                <span style="color:#000000">&#x27;abattement_dixpourcent_max&#x27;: admindata[&quot;abattement_dixpourcent_max&quot;],</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">                <span style="color:#000000">&#x27;abattement_dixpourcent_min&#x27;: admindata[&quot;abattement_dixpourcent_min&quot;]</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">            }))</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">            <span style="color:#000000"># validação da sessão [sqlalchemy]</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">            session.commit()</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        </span><span style="color:#0000ff">except</span><span style="color:#000000"> (IntegrityError, DatabaseError, InterfaceError) </span><span style="color:#0000ff">as</span><span style="color:#000000"> erreur:</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">            <span style="color:#000000"># a exceção é relançada sob outra forma</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">            </span><span style="color:#0000ff">raise</span><span style="color:#000000"> ImpôtsError(17, </span><span style="color:#a31515">f&quot;{erreur}&quot;</span><span style="color:#000000">)</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        </span><span style="color:#0000ff">finally</span><span style="color:#000000">:</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">            <span style="color:#000000"># liberam-se os recursos da sessão</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">            </span><span style="color:#0000ff">if</span><span style="color:#000000"> session:</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">                session.close()</span></span>
+</code></pre></div>
+
+<ul>
+<li>linha 13: a classe <strong>[DaoTransferAdminDataFromJsonFile2Database]</strong> implementa a interface <strong>[InterfaceDao4TransferAdminData2Database]</strong>;</li>
+<li>linhas 15-17: o construtor da classe recebe como parâmetro o dicionário de configuração. Serão utilizadas as seguintes chaves:<ul>
+<li><strong>[admindataFilename]</strong> (linha 27): o nome do ficheiro jSON que contém os dados da administração fiscal a transferir para a base de dados;</li>
+<li><strong>[database],</strong> linha 32: a configuração <strong>[sqlalchemy]</strong> da aplicação;</li>
+</ul>
+</li>
+<li>linhas 34-37: eliminação das tabelas <strong>[constantes]</strong> e <strong>[tranches],</strong> caso existam;</li>
+<li>linhas 39-40: recriação das duas tabelas;</li>
+<li>linha 43: recupera-se a sessão <strong>[sqlalchemy]</strong> presente na configuração;</li>
+<li>linhas 45-51: as tabelas <strong>[limites, coeffr, coeffn]</strong> do dicionário <strong>[admindata]</strong> são inseridas na sessão. Para tal, são inseridas na sessão instâncias da entidade <strong>[Tranche]</strong>;</li>
+<li>linhas 52-64: uma instância da entidade <strong>[Constantes]</strong> é colocada na sessão;</li>
+<li>linhas 66-67: a sessão é validada. Se os dados da sessão ainda não se encontrassem na base de dados, são inseridos nesse momento;</li>
+<li>linhas 68-70: gestão de um eventual erro;</li>
+<li>linhas 71-74: a sessão é encerrada. Isto é possível porque a camada <strong>[dao]</strong> é utilizada apenas uma vez;</li>
+</ul>
+<p><span id="toc48549097" name="toc48549097" class="odt-bookmark-anchor"></span></p>
+<h3 id="2016-configuracao-da-aplicacao">20.1.6. <span style="color: #4f81bd">Configuração da aplicação</span></h3>
+<p><img src="images/1000000000000185000002053F5226B4.png" width="169" height="225" style="width:4.48cm;height:5.955cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/1000000000000185000002053F5226B4.png" /></p>
+<p>A aplicação é configurada por três ficheiros <strong>[1]</strong>:</p>
+<ul>
+<li><strong>[config]</strong> é o ficheiro de configuração geral. É este ficheiro que configura a aplicação <strong>[main]</strong>. Para tal, conta com a ajuda dos outros dois ficheiros:<ul>
+<li><strong>[config_database],</strong> que já analisámos e que configura o ORM e <strong>o [sqlalchemy]</strong>;</li>
+<li><strong>[config_layers],</strong> que configura as camadas da aplicação;</li>
+</ul>
+</li>
+</ul>
+<p>O ficheiro <strong>[config]</strong> é o seguinte:</p>
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">def</span> configure(config: dict) -&gt; dict:</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span># [config] com a chave [sgbd], cujo valor é:</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span># [mysql] para gerir uma base de dados MySQL</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span># [pgres] para gerir uma base de dados PostgreSQL</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#0000ff">import</span> os</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span># passo 1 ---</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span># define-se o Python Path da aplicação</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span># caminho absoluto da pasta deste script</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    script_dir = os.path.dirname(os.path.abspath(__file__))</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span># root_dir (a alterar, se necessário)</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    root_dir = </span>&quot;C:/Data/st-2020/dev/python/cours-2020/python3-flask-2020&quot;</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span># caminhos absolutos das dependências</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    absolute_dependencies = <span style="font-weight:bold">[</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="font-weight:bold;color:#000000">        </span><span style="font-weight:bold"># InterfaceImpôtsDao, InterfaceImpôtsMétier, InterfaceImpôtsUi</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="font-weight:bold;color:#000000">        </span><span style="font-weight:bold;color:#0000ff">f</span><span style="font-weight:bold">&quot;</span><span style="font-weight:bold;color:#000000">{root_dir}</span><span style="font-weight:bold">/impots/v04/interfaces&quot;</span><span style="font-weight:bold;color:#000000">,</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="font-weight:bold;color:#000000">        </span><span style="font-weight:bold"># AbstractImpôtsDao, ImpôtsConsole, ImpôtsMétier</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="font-weight:bold;color:#000000">        </span><span style="font-weight:bold;color:#0000ff">f</span><span style="font-weight:bold">&quot;</span><span style="font-weight:bold;color:#000000">{root_dir}</span><span style="font-weight:bold">/impots/v04/services&quot;</span><span style="font-weight:bold;color:#000000">,</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="font-weight:bold;color:#000000">        </span><span style="font-weight:bold"># AdminData, ImpôtsError, TaxPayer</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="font-weight:bold;color:#000000">        </span><span style="font-weight:bold;color:#0000ff">f</span><span style="font-weight:bold">&quot;</span><span style="font-weight:bold;color:#000000">{root_dir}</span><span style="font-weight:bold">/impots/v04/entities&quot;</span><span style="font-weight:bold;color:#000000">,</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="font-weight:bold;color:#000000">        </span><span style="font-weight:bold"># BaseEntity, MyException</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="font-weight:bold;color:#000000">        </span><span style="font-weight:bold;color:#0000ff">f</span><span style="font-weight:bold">&quot;</span><span style="font-weight:bold;color:#000000">{root_dir}</span><span style="font-weight:bold">/classes/02/entities&quot;</span><span style="font-weight:bold;color:#000000">,</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="font-weight:bold;color:#000000">        </span><span style="font-weight:bold"># pastas locais</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="font-weight:bold">        </span><span style="font-weight:bold;color:#0000ff">f</span><span style="font-weight:bold;color:#a31515">&quot;</span><span style="font-weight:bold">{script_dir}</span><span style="font-weight:bold;color:#a31515">&quot;</span><span style="font-weight:bold">,</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="font-weight:bold">        </span><span style="font-weight:bold;color:#0000ff">f</span><span style="font-weight:bold;color:#a31515">&quot;</span><span style="font-weight:bold">{script_dir}</span><span style="font-weight:bold;color:#a31515">/../../interfaces&quot;</span><span style="font-weight:bold">,</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="font-weight:bold">        </span><span style="font-weight:bold;color:#0000ff">f</span><span style="font-weight:bold;color:#a31515">&quot;</span><span style="font-weight:bold">{script_dir}</span><span style="font-weight:bold;color:#a31515">/../../services&quot;</span><span style="font-weight:bold">,</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="font-weight:bold">        </span><span style="font-weight:bold;color:#0000ff">f</span><span style="font-weight:bold;color:#a31515">&quot;</span><span style="font-weight:bold">{script_dir}</span><span style="font-weight:bold;color:#a31515">/../../entities&quot;</span><span style="font-weight:bold">,</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    ]</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span># definir o syspath</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#0000ff">from</span> myutils <span style="color:#0000ff">import</span> set_syspath</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    set_syspath(absolute_dependencies)</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span># etapa 2 ------</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span># conclui-se a configuração da aplicação</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    config.update({</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        </span># caminhos absolutos dos ficheiros de dados</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        </span>&quot;admindataFilename&quot;<span style="color:#000000">: </span><span style="color:#0000ff">f</span>&quot;<span style="color:#000000">{script_dir}</span>/../../data/input/admindata.json&quot;</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    })</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span># passo 3 ------</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span># configuração da base de dados</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#0000ff">import</span> config_database</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    config = config_database.configure(config)</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span># etapa 4 ------</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span># instanciação das camadas da aplicação</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#0000ff">import</span> config_layers</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    config = config_layers.configure(config)</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span># aplicamos a configuração</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#0000ff">return</span> config</span></span>
+</code></pre></div>
+
+<ul>
+<li>linhas 8-36: constrói-se o Python Path da aplicação;</li>
+<li>linhas 38-43: insere-se na configuração o caminho do ficheiro <strong>[admindata.json]</strong>;</li>
+<li>linhas 45-48: configuração do ficheiro <strong>[sqlalchemy]</strong>;</li>
+<li>linhas 50-53: instanciamento das camadas da aplicação;</li>
+<li>linha 56: devolve-se a configuração geral;</li>
+</ul>
+<p>O ficheiro <strong>[config_layers]</strong> é o seguinte:</p>
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">def</span> configure(<span style="color:#808080">config</span>: <span style="color:#2b91af">dict</span>) -&gt; <span style="color:#2b91af">dict</span>:</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    # instanciação da camada [dao]</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#0000ff">from</span> <span style="color:#6f008a">DaoTransferAdminDataFromJsonFile2Database</span> <span style="color:#0000ff">import</span> DaoTransferAdminDataFromJsonFile2Database</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#808080">config</span><span style="font-weight:bold">[</span><span style="font-weight:bold;color:#a31515">&#x27;dao&#x27;</span><span style="font-weight:bold">]</span> = DaoTransferAdminDataFromJsonFile2Database(<span style="color:#808080">config</span>)</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    # retornamos a configuração</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#0000ff">return</span> <span style="color:#808080">config</span></span></span>
+</code></pre></div>
+
+<ul>
+<li>linhas 3-4: instanciação da camada <strong>[dao]</strong>. Vimos que o construtor da classe <strong>[DaoTransferAdminDataFromJsonFile2Database]</strong> esperava, como parâmetro, o dicionário da configuração geral da aplicação;</li>
+<li>linha 4: a referência à camada <strong>[dao]</strong> é inserida na configuração;</li>
+<li>linha 7: a configuração é devolvida;</li>
+</ul>
+<p><span id="toc48549098" name="toc48549098" class="odt-bookmark-anchor"></span></p>
+<h3 id="2017-o-script-main-da-aplicacao">20.1.7. <span style="color: #4f81bd"><strong>O script</strong> [main] <strong>da aplicação</strong></span></h3>
+<p><img src="images/100000000000018E000002054838D98A.png" width="157" height="203" style="width:4.142cm;height:5.38cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000018E000002054838D98A.png" /></p>
+<p><img src="images/100000010000032E00000215DF1A35C4.png" width="523" height="342" style="width:13.831cm;height:9.056cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000010000032E00000215DF1A35C4.png" /></p>
+<p>O script principal <strong>[main]</strong> é o seguinte:</p>
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
+<span class="odt-code-line"><span class="odt-code-line-content"># aguarda-se um parâmetro mysql ou pgres</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">import</span><span style="color:#000000"> </span><span style="color:#6f008a">sys</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">syntaxe = </span><span style="color:#a31515">f&quot;{sys.argv</span><span style="font-weight:bold;color:#a31515">[0]</span><span style="color:#a31515">} mysql / pgres&quot;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">erreur = len(</span><span style="color:#6f008a">sys</span><span style="color:#000000">.argv) != 2</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">if</span><span style="color:#000000"> </span><span style="color:#0000ff">not</span><span style="color:#000000"> erreur:</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    sgbd = </span><span style="color:#6f008a">sys</span><span style="color:#000000">.argv</span><span style="font-weight:bold;color:#000000">[1]</span><span style="color:#000000">.lower()</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    erreur = sgbd != </span><span style="color:#a31515">&quot;mysql&quot;</span><span style="color:#000000"> </span><span style="color:#0000ff">and</span><span style="color:#000000"> sgbd != </span><span style="color:#a31515">&quot;pgres&quot;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">if</span><span style="color:#000000"> erreur:</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    print(</span><span style="color:#a31515">f&quot;syntaxe : {syntaxe}&quot;</span><span style="color:#000000">)</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="color:#6f008a">sys</span><span style="color:#000000">.exit()</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"># configuramos a aplicação</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">import</span><span style="color:#000000"> </span><span style="color:#6f008a">config</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#6f008a">config</span><span style="color:#000000"> = </span><span style="color:#6f008a">config</span><span style="color:#000000">.configure({</span><span style="color:#a31515">&#x27;sgbd&#x27;</span><span style="color:#000000">: sgbd})</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"># o syspath está definido — já é possível efetuar as importações</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">from</span><span style="color:#000000"> </span><span style="color:#6f008a">ImpôtsError</span><span style="color:#000000"> </span><span style="color:#0000ff">import</span><span style="color:#000000"> ImpôtsError</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"># recuperamos a camada [dao]</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">dao = </span><span style="color:#6f008a">config</span><span style="font-weight:bold;color:#000000">[</span><span style="font-weight:bold;color:#a31515">&quot;dao&quot;</span><span style="font-weight:bold;color:#000000">]</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"># código</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">try</span><span style="color:#000000">:</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#000000"># transferência de dados para a base de dados</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    dao.transfer_admindata_in_database()</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">except</span><span style="color:#000000"> ImpôtsError </span><span style="color:#0000ff">as</span><span style="color:#000000"> ex1:</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#000000"># é apresentado o erro</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    print(</span><span style="color:#a31515">f&quot;L&#x27;erreur 1 suivante s&#x27;est produite : {ex1}&quot;</span><span style="color:#000000">)</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">except</span><span style="color:#000000"> </span><span style="color:#2b91af">BaseException</span><span style="color:#000000"> </span><span style="color:#0000ff">as</span><span style="color:#000000"> ex2:</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#000000"># exibe o erro</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    print(</span><span style="color:#a31515">f&quot;L&#x27;erreur 2 suivante s&#x27;est produite : {ex2}&quot;</span><span style="color:#000000">)</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">finally</span><span style="color:#000000">:</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#000000"># fim</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    print(</span><span style="color:#a31515">&quot;Terminé...&quot;</span><span style="color:#000000">)</span></span></span>
+</code></pre></div>
+
+<ul>
+<li>linhas 1-10: aguarda-se um parâmetro. Verifica-se se este existe e se está correto;</li>
+<li>linhas 12-14: configura-se a aplicação (geral, SQLAlchemy, camadas) passando como parâmetro o tipo de SGBD escolhido;</li>
+<li>linhas 19-20: vamos precisar da camada <strong>[dao]</strong>. Recuperamo-la;</li>
+<li>linha 25: efetuamos a transferência para a base de dados. Todas as informações necessárias para o método <strong>[transfer_admindata_in_database]</strong> estão disponíveis nas propriedades da camada <strong>[dao]</strong> da linha 20. É aí que o método irá buscá-las;</li>
+</ul>
+<p>Após a execução com a base MySQL, esta contém os seguintes elementos (phpMyAdmin):</p>
+<p><img src="images/10000000000002560000042A6C088693.png" width="261" height="465" style="width:6.9cm;height:12.3cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000002560000042A6C088693.png" /></p>
+<p><img src="images/10000001000003FC0000012874B7E25A.png" width="662" height="192" style="width:17.521cm;height:5.085cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000001000003FC0000012874B7E25A.png" /></p>
+<p><img src="images/1000000100000239000001CA5BAB3F52.png" width="363" height="292" style="width:9.61cm;height:7.735cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/1000000100000239000001CA5BAB3F52.png" /></p>
+<p>Na coluna <strong>[3]</strong>, podem ver-se os valores atribuídos por MySQL à chave primária <strong>[id]</strong>. A numeração começa em 1. A captura de ecrã acima foi obtida após várias execuções do script.</p>
+<p><img src="images/10000001000003FA000001298DD2231E.png" width="662" height="193" style="width:17.51cm;height:5.108cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000001000003FA000001298DD2231E.png" /></p>
+<p><img src="images/10000001000003920000012381489F31.png" width="585" height="186" style="width:15.469cm;height:4.925cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000001000003920000012381489F31.png" /></p>
+<p>Com a base de dados PostgreSQL, os resultados são os seguintes:</p>
+<p><img src="images/10000001000003DF0000016993076DEB.png" width="621" height="226" style="width:16.439cm;height:5.988cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000001000003DF0000016993076DEB.png" /></p>
+<ul>
+<li>clica-se com o botão direito do rato em <strong>[1]</strong> e, em seguida, em <strong>[2-3]</strong>;</li>
+<li>em <strong>[4]</strong>, os dados das faixas de imposto aparecem corretamente;</li>
+</ul>
+<p><span style="color: #000000">Repetimos o mesmo procedimento para a tabela de constantes </span><strong><span style="color: #000000">[tbconstantes]</span></strong><span style="color: #000000">:</span></p>
+<p><img src="images/100000010000030C000000FE9B9CCE88.png" width="497" height="162" style="width:13.152cm;height:4.283cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000010000030C000000FE9B9CCE88.png" /></p>
+<p><img src="images/10000001000002F8000000FEDB45024E.png" width="496" height="166" style="width:13.13cm;height:4.389cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000001000002F8000000FEDB45024E.png" /></p>
+<p><img src="images/100000010000031F000000FCF159E5CB.png" width="522" height="165" style="width:13.822cm;height:4.359cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000010000031F000000FCF159E5CB.png" /></p>
+<p><span id="application2" name="application2" class="odt-bookmark-anchor"></span>
+<span id="toc48549099" name="toc48549099" class="odt-bookmark-anchor"></span></p>
+<h2 id="202-aplicacao-2-calculo-do-imposto-em-modo-batch">20.2. <span style="color: #4f81bd">Aplicação 2: cálculo do imposto em modo batch</span></h2>
+<p><img src="images/10000000000001850000023E1A30A3E3.png" width="170" height="251" style="width:4.493cm;height:6.629cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000001850000023E1A30A3E3.png" /></p>
+<p><span id="toc48549100" name="toc48549100" class="odt-bookmark-anchor"></span>
+<span id="refheading399281881943603" name="refheading399281881943603" class="odt-bookmark-anchor"></span></p>
+<h3 id="2021-arquitetura">20.2.1. <span style="color: #4f81bd">Arquitetura</span></h3>
+<p>A aplicação de cálculo do imposto da versão 4 utilizava a seguinte arquitetura:</p>
+<p><img src="images/1000000100000257000000DAE081E99C.png" width="382" height="139" style="width:10.119cm;height:3.683cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/1000000100000257000000DAE081E99C.png" /></p>
+<p><span style="color: #000000">A camada </span><strong><span style="color: #000000">[dao] </span></strong><span style="color: #000000">implementa uma interface </span><strong><span style="color: #000000">[InterfaceImpôtsDao]</span></strong><span style="color: #000000">. Criámos uma classe que implementa essa interface:</span></p>
+<ul>
+<li><strong><span style="color: #000000">[ImpôtsDaoWithAdminDataInJsonFile], </span></strong><span style="color: #000000">que iria buscar os dados fiscais a um ficheiro jSON. Esta era a versão 3;</span></li>
+</ul>
+<p><span style="color: #000000">Vamos implementar a interface </span><strong><span style="color: #000000">[InterfaceImpôtsDao] </span></strong><span style="color: #000000">através de uma nova classe, </span><strong><span style="color: #000000">[ImpotsDaoWithTaxAdminDataInDatabase], </span></strong><span style="color: #000000">que irá buscar os dados da administração fiscal numa base de dados. A camada </span><strong><span style="color: #000000">[dao]</span></strong><span style="color: #000000">, tal como anteriormente, gravará os resultados num ficheiro jSON e irá buscar os dados dos contribuintes num ficheiro de texto. Sabemos que, se continuarmos a respeitar a interface </span><strong><span style="color: #000000">[InterfaceImpôtsDao]</span></strong><span style="color: #000000">, a camada </span><strong><span style="color: #000000">[métier] </span></strong><span style="color: #000000">não terá de ser alterada.</span></p>
+<p><span style="color: #000000">A nova arquitetura será a seguinte:</span></p>
+<p><img src="images/10000000000003B5000002BD8D4E698A.png" width="414" height="306" style="width:10.95cm;height:8.087cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000003B5000002BD8D4E698A.png" /></p>
+<p><span id="refheadingtoc900743955410047" name="refheadingtoc900743955410047" class="odt-bookmark-anchor"></span></p>
+<p><span id="configurationdelapplication" name="configurationdelapplication" class="odt-bookmark-anchor"></span>
+<span id="toc48549101" name="toc48549101" class="odt-bookmark-anchor"></span></p>
+<h3 id="2022-configuracao-da-aplicacao">20.2.2. <span style="color: #4f81bd">Configuração da aplicação</span></h3>
+<p><img src="images/100000000000019500000206ACE6D19A.png" width="159" height="203" style="width:4.202cm;height:5.373cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000019500000206ACE6D19A.png" /></p>
+<p>O ficheiro de configuração <strong>[config_database]</strong> mantém-se tal como estava na aplicação 1. A configuração <strong>[config]</strong> inclui novos elementos:</p>
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-sql">
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#000000"># etapa 2 ------</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#000000"># conclui-se a configuração da aplicação</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="color:#808080">config</span><span style="color:#000000">.update({</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#000000"># caminhos absolutos dos ficheiros de dados</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        </span><span style="color:#a31515">&quot;admindataFilename&quot;</span><span style="color:#000000">: </span><span style="color:#a31515">f&quot;{script_dir}/../../data/input/admindata.json&quot;</span><span style="color:#000000">,</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        </span><span style="color:#a31515">&quot;taxpayersFilename&quot;</span><span style="color:#000000">: </span><span style="color:#a31515">f&quot;{script_dir}/../../data/input/taxpayersdata.txt&quot;</span><span style="color:#000000">,</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        </span><span style="color:#a31515">&quot;errorsFilename&quot;</span><span style="color:#000000">: </span><span style="color:#a31515">f&quot;{script_dir}/../../data/output/errors.txt&quot;</span><span style="color:#000000">,</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        </span><span style="color:#a31515">&quot;resultsFilename&quot;</span><span style="color:#000000">: </span><span style="color:#a31515">f&quot;{script_dir}/../../data/output/résultats.json&quot;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    })</span></span>
+</code></pre></div>
+
+<ul>
+<li>linhas 6-8: os caminhos absolutos dos ficheiros de texto utilizados pela aplicação 2;</li>
+</ul>
+<p>A configuração das camadas <strong>[config_layers]</strong> evolui da seguinte forma:</p>
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">def</span> configure(<span style="color:#808080">config</span>: <span style="color:#2b91af">dict</span>) -&gt; <span style="color:#2b91af">dict</span>:</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    # instanciação da camada DAO</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#0000ff">from</span> <span style="color:#6f008a">ImpotsDaoWithAdminDataInDatabase</span> <span style="color:#0000ff">import</span> ImpotsDaoWithAdminDataInDatabase</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#808080">config</span><span style="font-weight:bold">[</span><span style="font-weight:bold;color:#a31515">&quot;dao&quot;</span><span style="font-weight:bold">]</span> = ImpotsDaoWithAdminDataInDatabase(<span style="color:#808080">config</span>)</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    # instanciação da camada [métier]</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#0000ff">from</span> <span style="color:#6f008a">ImpôtsMétier</span> <span style="color:#0000ff">import</span> ImpôtsMétier</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#808080">config</span><span style="font-weight:bold">[</span><span style="font-weight:bold;color:#a31515">&#x27;métier&#x27;</span><span style="font-weight:bold">]</span> = ImpôtsMétier()</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    # a configuração é guardada</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#0000ff">return</span> <span style="color:#808080">config</span></span></span>
+</code></pre></div>
+
+<ul>
+<li>linhas 3-4: a camada <strong>[dao]</strong> é agora implementada pela classe <strong>[ImpotsDaoWithAdminDataInDatabase]</strong>. Esta classe é nova, mas implementa a mesma interface <strong>[InterfaceDao]</strong> que a <a href="exercicio-pratico---versao-4.html#linterfaceinterfaceimpotsdao"><u><span style="color: #0563c1">versão 4 do exercício de aplicação</span></u></a>;</li>
+<li>linhas 7-8: a camada <strong>[métier]</strong> é implementada pela classe <strong>[ImpôtsMétier]</strong>. Esta é a classe utilizada na versão 4 do exercício prático;</li>
+</ul>
+<p><span id="lacouchedao" name="lacouchedao" class="odt-bookmark-anchor"></span>
+<span id="toc48549102" name="toc48549102" class="odt-bookmark-anchor"></span></p>
+<h3 id="2023-a-camada-dao">20.2.3. <span style="color: #4f81bd"><strong>A camada</strong> [dao]</span></h3>
+<p><img src="images/100000000000028A00000157C8CEF8B5.png" width="255" height="135" style="width:6.759cm;height:3.567cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000028A00000157C8CEF8B5.png" /></p>
+<p>A classe de implementação <strong>[ImpotsDaoWithAdminDataInDatabase]</strong> da interface <strong>[InterfaceImpôtsDao]</strong> será a seguinte:</p>
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
+<span class="odt-code-line"><span class="odt-code-line-content"># importações</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">from</span><span style="color:#000000"> </span><span style="color:#6f008a">sqlalchemy</span><span style="color:#000000">.</span><span style="color:#6f008a">exc</span><span style="color:#000000"> </span><span style="color:#0000ff">import</span><span style="color:#000000"> DatabaseError, IntegrityError, InterfaceError</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">from</span><span style="color:#000000"> </span><span style="color:#6f008a">AbstractImpôtsDao</span><span style="color:#000000"> </span><span style="color:#0000ff">import</span><span style="color:#000000"> AbstractImpôtsDao</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">from</span><span style="color:#000000"> </span><span style="color:#6f008a">AdminData</span><span style="color:#000000"> </span><span style="color:#0000ff">import</span><span style="color:#000000"> AdminData</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">from</span><span style="color:#000000"> </span><span style="color:#6f008a">Constantes</span><span style="color:#000000"> </span><span style="color:#0000ff">import</span><span style="color:#000000"> Constantes</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">from</span><span style="color:#000000"> </span><span style="color:#6f008a">ImpôtsError</span><span style="color:#000000"> </span><span style="color:#0000ff">import</span><span style="color:#000000"> ImpôtsError</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">from</span><span style="color:#000000"> </span><span style="color:#6f008a">Tranche</span><span style="color:#000000"> </span><span style="color:#0000ff">import</span><span style="color:#000000"> Tranche</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">class</span><span style="color:#000000"> </span><span style="color:#2b91af">ImpotsDaoWithAdminDataInDatabase</span><span style="color:#000000">(AbstractImpôtsDao):</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#000000"># construtor</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="color:#0000ff">def</span><span style="color:#000000"> __init__(</span><span style="color:#808080">self</span><span style="color:#000000">, </span><span style="color:#808080">config</span><span style="color:#000000">: </span><span style="color:#2b91af">dict</span><span style="color:#000000">):</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#000000"># config[&quot;taxPayersFilename&quot;]: o nome do ficheiro de texto dos contribuintes</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#000000"># config[&quot;taxPayersResultsFilename&quot;]: o nome do ficheiro jSON dos resultados</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#000000"># config[&quot;errorsFilename&quot;]: regista os erros encontrados em taxPayersFilename</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#000000"># config[&quot;database&quot;]: configuração da base de dados</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#000000"># inicialização da classe Parent</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        AbstractImpôtsDao.__init__(</span><span style="color:#808080">self</span><span style="color:#000000">, </span><span style="color:#808080">config</span><span style="color:#000000">)</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#000000"># armazenamento de parâmetros</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        </span><span style="color:#808080">self</span><span style="color:#000000">.__config = </span><span style="color:#808080">config</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#000000"># dados de administração</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        </span><span style="color:#808080">self</span><span style="color:#000000">.__admindata = </span><span style="color:#0000ff">None</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#000000"># implementação da interface</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="color:#0000ff">def</span><span style="color:#000000"> get_admindata(</span><span style="color:#808080">self</span><span style="color:#000000">):</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#000000"># O admindata foi memorizado?</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        </span><span style="color:#0000ff">if</span><span style="color:#000000"> </span><span style="color:#808080">self</span><span style="color:#000000">.__admindata:</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">            </span><span style="color:#0000ff">return</span><span style="color:#000000"> </span><span style="color:#808080">self</span><span style="color:#000000">.__admindata</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#000000"># é efetuada uma consulta em BD</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        session = </span><span style="color:#0000ff">None</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        config = </span><span style="color:#808080">self</span><span style="color:#000000">.__config</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        </span><span style="color:#0000ff">try</span><span style="color:#000000">:</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">            <span style="color:#000000"># uma sessão</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">            database_config = config</span><span style="font-weight:bold;color:#000000">[</span><span style="font-weight:bold;color:#a31515">&quot;database&quot;</span><span style="font-weight:bold;color:#000000">]</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">            session = database_config</span><span style="font-weight:bold;color:#000000">[</span><span style="font-weight:bold;color:#a31515">&quot;session&quot;</span><span style="font-weight:bold;color:#000000">]</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">            <span style="color:#000000"># está a ser lida a tabela de escalões de imposto</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">            tranches = session.query(Tranche).all()</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">            <span style="color:#000000"># é lida a tabela de constantes (apenas uma linha)</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">            constantes = session.query(Constantes).first()</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">            <span style="color:#000000"># cria-se a instância admindata</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">            admindata = AdminData()</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">            <span style="color:#000000"># criam-se as tabelas de limites, coeffR, coeffN</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">            limites = admindata.limites = </span><span style="font-weight:bold;color:#000000">[]</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">            coeffr = admindata.coeffr = </span><span style="font-weight:bold;color:#000000">[]</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">            coeffn = admindata.coeffn = </span><span style="font-weight:bold;color:#000000">[]</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">            </span><span style="color:#0000ff">for</span><span style="color:#000000"> tranche </span><span style="color:#0000ff">in</span><span style="color:#000000"> tranches:</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">                limites.append(</span><span style="color:#2b91af">float</span><span style="color:#000000">(tranche.limite))</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">                coeffr.append(</span><span style="color:#2b91af">float</span><span style="color:#000000">(tranche.coeffr))</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">                coeffn.append(</span><span style="color:#2b91af">float</span><span style="color:#000000">(tranche.coeffn))</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">            <span style="color:#000000"># adicionam-se as constantes</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">            admindata.fromdict(constantes.asdict())</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">            <span style="color:#000000"># guarda-se a instância «admindata»</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">            </span><span style="color:#808080">self</span><span style="color:#000000">.__admindata = admindata</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">            <span style="color:#000000"># retorna-se o valor</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">            </span><span style="color:#0000ff">return</span><span style="color:#000000"> </span><span style="color:#808080">self</span><span style="color:#000000">.__admindata</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        </span><span style="color:#0000ff">except</span><span style="color:#000000"> (IntegrityError, DatabaseError, InterfaceError) </span><span style="color:#0000ff">as</span><span style="color:#000000"> erreur:</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">            <span style="color:#000000"># lança-se novamente a exceção sob outra forma</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">            </span><span style="color:#0000ff">raise</span><span style="color:#000000"> ImpôtsError(27, </span><span style="color:#a31515">f&quot;{erreur}&quot;</span><span style="color:#000000">)</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        </span><span style="color:#0000ff">finally</span><span style="color:#000000">:</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">            <span style="color:#000000"># encerra-se a sessão</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">            </span><span style="color:#0000ff">if</span><span style="color:#000000"> session:</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">                session.close()</span></span>
+</code></pre></div>
+
+<p><strong><span style="color: #000000">Notas</span></strong></p>
+<ul>
+<li>linha 11: a classe <strong>[ImpotsDaoWithAdminDataInDatabase]</strong> herda da classe [AbstractImpôtsDao] apresentada na versão 4. Sabe-se que esta última implementa a interface [InterfaceDao] apresentada nessa mesma versão. É o cumprimento desta interface que nos permite não alterar a camada <strong>[métier]</strong>;</li>
+<li>linha 13: o construtor da classe recebe como parâmetro o dicionário da configuração da aplicação;</li>
+<li>linha 20: a classe pai <strong>[]</strong> é inicializada. Ela implementa parcialmente a interface <strong>[InterfaceDao]</strong>:<ul>
+<li><strong>[get_taxpayers_data]</strong> lê o ficheiro <strong>[taxpayersdata.txt],</strong> que contém os dados dos contribuintes;</li>
+<li><strong>[write_taxpayers_results]</strong> grava os resultados no ficheiro jSON <strong>[résultats.json]</strong>;</li>
+<li><strong>[get_admindata]</strong> não está implementada;</li>
+</ul>
+</li>
+<li>linha 22: guarda-se a configuração passada como parâmetros;</li>
+<li>linha 27: implementação do método <strong>[get_admindata]</strong> da interface <strong>[InterfaceDao]</strong>:</li>
+<li>linhas 28-30: o método <strong>[get_admindata]</strong> recupera os dados da administração fiscal num objeto do tipo <strong>[AdminData]</strong> e armazena esse objeto em <strong>[self.__admindata]</strong>. Se o método <strong>[get_admindata]</strong> for chamado várias vezes, a base de dados não é consultada repetidamente. É consultada apenas na primeira vez. Nas vezes seguintes, é devolvido o objeto <strong>[self.__admindata]</strong>;</li>
+<li>linhas 36-37: recupera-se a sessão <strong>[sqlalchemy],</strong> que foi criada durante a configuração da aplicação pelo método <strong>[config_database]</strong>;</li>
+<li>linhas 40: recuperam-se as faixas de imposto numa lista;</li>
+<li>linhas 43: recuperam-se as constantes do cálculo do imposto;</li>
+<li>linha 46: cria-se uma instância da classe [AdminData]. Recorde-se que esta deriva de <strong>[BaseEntity]</strong>;</li>
+<li>linhas 48-54: inicializam-se os tabuletos <strong>[limites, coeffr, coeffn]</strong> da instância <strong>[AdminData]</strong>;</li>
+<li>linhas 55-56: inicializam-se as restantes propriedades de <strong>[AdminData]</strong> com as constantes do cálculo do imposto. Tivemos o cuidado de atribuir os mesmos nomes às propriedades das classes <strong>[AdminData]</strong> e <strong>[Constantes]</strong>, o que simplifica o código;</li>
+<li>linhas 57-58: a instância <strong>[AdminData]</strong> é armazenada na camada <strong>[dao]</strong> para ser devolvida nas próximas chamadas ao método <strong>[get_admindata]</strong>;</li>
+<li>linha 60: devolve-se o valor solicitado pelo código chamador;</li>
+<li>linhas 61-63: gestão de um eventual erro;</li>
+<li>linhas 64-67: a base de dados é alvo de apenas uma única consulta. Por isso, é possível encerrar a sessão <strong>[sqlalchemy]</strong>;</li>
+</ul>
+<p><span id="refheadingtoc822343439697744" name="refheadingtoc822343439697744" class="odt-bookmark-anchor"></span>
+<span id="lescriptprincipal1" name="lescriptprincipal1" class="odt-bookmark-anchor"></span>
+<span id="toc48549103" name="toc48549103" class="odt-bookmark-anchor"></span></p>
+<h3 id="2024-teste-da-camada-dao">20.2.4. <span style="color: #4f81bd"><strong>Teste da camada</strong> [dao]</span></h3>
+<p>Na versão 4 desta aplicação, criámos uma <a href="exercicio-pratico---versao-4.html#testsdescouches"><u><span style="color: #0563c1">classe de teste</span></u></a> da camada <strong>[métier]</strong>. Mais precisamente, esta testava simultaneamente as camadas <strong>[métier]</strong> e <strong>[dao]</strong>. Retomamos este teste para verificar se a camada <strong>[dao]</strong> funciona conforme o esperado. Com efeito, a camada <strong>[métier]</strong> não sofre alterações.</p>
+<p><img src="images/100000000000017E000001A74483DEE4.png" width="150" height="167" style="width:3.979cm;height:4.406cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000017E000001A74483DEE4.png" /></p>
+<p><img src="images/100000000000047B00000345B54A307A.png" width="501" height="365" style="width:13.25cm;height:9.67cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000047B00000345B54A307A.png" /></p>
+<p>O teste <strong>[TestDaoMétier]</strong> é o seguinte:</p>
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">import</span><span style="color:#000000"> </span>unittest</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">class</span><span style="color:#000000"> </span><span style="color:#2b91af">TestDaoMétier</span><span style="color:#000000">(</span>unittest<span style="color:#000000">.</span><span style="color:#2b91af">TestCase</span><span style="color:#000000">):</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="color:#0000ff">def</span><span style="color:#000000"> test_1(</span><span style="color:#808080">self</span><span style="color:#000000">) -&gt; </span><span style="color:#0000ff">None</span><span style="color:#000000">:</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        </span><span style="color:#0000ff">from</span><span style="color:#000000"> </span>TaxPayer<span style="color:#000000"> </span><span style="color:#0000ff">import</span><span style="color:#000000"> TaxPayer</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#000000"># {&#x27;casado&#x27;: &#x27;sim&#x27;, &#x27;filhos&#x27;: 2, &#x27;salário&#x27;: 55555,</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#000000"># &#x27;imposto&#x27;: 2814, &#x27;majoração&#x27;: 0, &#x27;redução&#x27;: 0, &#x27;abatimento&#x27;: 0, &#x27;taxa&#x27;: 0,14}</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        taxpayer = TaxPayer().fromdict({</span><span style="color:#a31515">&quot;marié&quot;</span><span style="color:#000000">: </span><span style="color:#a31515">&quot;oui&quot;</span><span style="color:#000000">, </span><span style="color:#a31515">&quot;enfants&quot;</span><span style="color:#000000">: 2, </span><span style="color:#a31515">&quot;salaire&quot;</span><span style="color:#000000">: 55555})</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        métier.calculate_tax(taxpayer, admindata)</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#000000"># verificação</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        </span><span style="color:#808080">self</span><span style="color:#000000">.assertAlmostEqual(taxpayer.impôt, 2815, delta=1)</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        </span><span style="color:#808080">self</span><span style="color:#000000">.assertEqual(taxpayer.décôte, 0)</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        </span><span style="color:#808080">self</span><span style="color:#000000">.assertEqual(taxpayer.réduction, 0)</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        </span><span style="color:#808080">self</span><span style="color:#000000">.assertAlmostEqual(taxpayer.taux, 0.14, delta=0.01)</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        </span><span style="color:#808080">self</span><span style="color:#000000">.assertEqual(taxpayer.surcôte, 0)</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="color:#0000ff">…</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="color:#0000ff">def</span><span style="color:#000000"> test_11(</span><span style="color:#808080">self</span><span style="color:#000000">) -&gt; </span><span style="color:#0000ff">None</span><span style="color:#000000">:</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        </span><span style="color:#0000ff">from</span><span style="color:#000000"> </span>TaxPayer<span style="color:#000000"> </span><span style="color:#0000ff">import</span><span style="color:#000000"> TaxPayer</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#000000"># {&#x27;casado&#x27;: &#x27;sim&#x27;, &#x27;filhos&#x27;: 3, &#x27;salário&#x27;: 200000,</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#000000"># &#x27;imposto&#x27;: 42842, &#x27;sobretaxa&#x27;: 17283, &#x27;desconto&#x27;: 0, &#x27;redução&#x27;: 0, &#x27;taxa&#x27;: 0,41}</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        taxpayer = TaxPayer().fromdict({</span><span style="color:#a31515">&#x27;marié&#x27;</span><span style="color:#000000">: </span><span style="color:#a31515">&#x27;oui&#x27;</span><span style="color:#000000">, </span><span style="color:#a31515">&#x27;enfants&#x27;</span><span style="color:#000000">: 3, </span><span style="color:#a31515">&#x27;salaire&#x27;</span><span style="color:#000000">: 200000})</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        métier.calculate_tax(taxpayer, admindata)</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#000000"># verificações</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        </span><span style="color:#808080">self</span><span style="color:#000000">.assertAlmostEqual(taxpayer.impôt, 42842, 1)</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        </span><span style="color:#808080">self</span><span style="color:#000000">.assertEqual(taxpayer.décôte, 0)</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        </span><span style="color:#808080">self</span><span style="color:#000000">.assertEqual(taxpayer.réduction, 0)</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        </span><span style="color:#808080">self</span><span style="color:#000000">.assertAlmostEqual(taxpayer.taux, 0.41, delta=0.01)</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        </span><span style="color:#808080">self</span><span style="color:#000000">.assertAlmostEqual(taxpayer.surcôte, 17283, delta=1)</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">if</span><span style="color:#000000"> __name__ == </span><span style="color:#a31515">&#x27;__main__&#x27;</span><span style="color:#000000">:</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#000000"># é esperado um parâmetro mysql ou pgres</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="color:#0000ff">import</span><span style="color:#000000"> </span>sys</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    syntaxe = </span><span style="color:#a31515">f&quot;{sys.argv</span><span style="font-weight:bold;color:#a31515">[0]</span><span style="color:#a31515">} mysql / pgres&quot;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    erreur = len(</span>sys<span style="color:#000000">.argv) != 2</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="color:#0000ff">if</span><span style="color:#000000"> </span><span style="color:#0000ff">not</span><span style="color:#000000"> erreur:</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        sgbd = </span>sys<span style="color:#000000">.argv</span><span style="font-weight:bold;color:#000000">[1]</span><span style="color:#000000">.lower()</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        erreur = sgbd != </span><span style="color:#a31515">&quot;mysql&quot;</span><span style="color:#000000"> </span><span style="color:#0000ff">and</span><span style="color:#000000"> sgbd != </span><span style="color:#a31515">&quot;pgres&quot;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="color:#0000ff">if</span><span style="color:#000000"> erreur:</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        print(</span><span style="color:#a31515">f&quot;syntaxe : {syntaxe}&quot;</span><span style="color:#000000">)</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        </span>sys<span style="color:#000000">.exit()</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#000000"># a aplicação está a ser configurada</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="color:#0000ff">import</span><span style="color:#000000"> </span>config</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span>config<span style="color:#000000"> = </span>config<span style="color:#000000">.configure({</span><span style="color:#a31515">&#x27;sgbd&#x27;</span><span style="color:#000000">: sgbd})</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#000000"># camada de negócio</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    métier = </span>config<span style="font-weight:bold;color:#000000">[</span><span style="font-weight:bold;color:#a31515">&#x27;métier&#x27;</span><span style="font-weight:bold;color:#000000">]</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="color:#0000ff">try</span><span style="color:#000000">:</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#000000"># admindata</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        admindata = </span>config<span style="font-weight:bold;color:#000000">[</span><span style="font-weight:bold;color:#a31515">&#x27;dao&#x27;</span><span style="font-weight:bold;color:#000000">]</span><span style="color:#000000">.get_admindata()</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="color:#0000ff">except</span><span style="color:#000000"> </span><span style="color:#2b91af">BaseException</span><span style="color:#000000"> </span><span style="color:#0000ff">as</span><span style="color:#000000"> ex:</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#000000"># visualização</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        print((</span><span style="color:#a31515">f&quot;L&#x27;erreur suivante s&#x27;est produite : {ex}&quot;</span><span style="color:#000000">))</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#000000"># fim</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        </span>sys<span style="color:#000000">.exit()</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#000000"># envia-se o parâmetro recebido pelo script</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span>sys<span style="color:#000000">.argv.pop()</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#000000"># executam-se os métodos de teste</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    print(</span><span style="color:#a31515">&quot;tests en cours...&quot;</span><span style="color:#000000">)</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">   </span>unittest<span style="color:#000000">.</span>main<span style="color:#000000">()</span></span></span>
+</code></pre></div>
+
+<ul>
+<li>Não vamos voltar aos 11 testes descritos no parágrafo <a href="exercicio-pratico---versao-4.html#testsdescouches"><u><span style="color: #0563c1">|teste da camada [métier] versão</span></u></a> 4|;</li>
+<li>linhas 37-66: vamos executar o script dos testes como uma aplicação normal e não como um teste UnitTest. É a linha 66 que irá acionar o framework UnitTest. Nos testes anteriores, utilizávamos o método <strong>[setUp]</strong> para configurar a execução de cada teste. Repetíamos 11 vezes a mesma configuração, uma vez que a função <strong>[setUp]</strong> é executada antes de cada teste. Aqui, fazemos a configuração uma única vez. Consiste em definir as variáveis globais <strong>[métier]</strong>, na linha 53, e <strong>[admindata],</strong> na linha 56, que serão posteriormente utilizadas pelos métodos de <strong>[TestDaoMétier]</strong>, na linha 12, por exemplo;</li>
+<li>linhas 39-47: o script de teste aguarda um parâmetro <strong>[mysql / pgres]</strong> que indica se se utiliza uma base MySQL ou PostgreSQL;</li>
+<li>linhas 50-51: o teste é configurado;</li>
+<li>linha 53: recupera-se a camada <strong>[métier]</strong> na configuração;</li>
+<li>linha 56: faz-se o mesmo com a camada <strong>[dao]</strong>. Recupera-se então a instância <strong>[admindata],</strong> que encapsula os dados necessários ao cálculo do imposto;</li>
+<li>os testes revelaram que o método <strong>[unittest.main()]</strong> da linha 66 não ignorava o parâmetro <strong>[mysql / pgres]</strong> recebido pelo script, mas atribuía-lhe um significado diferente. A linha 63 faz com que este método deixe de ter qualquer parâmetro;</li>
+</ul>
+<p>Criamos duas <a href="arquitetura-em-camadas-e-programacao-por-interfaces.html#lescriptprincipal2"><u><span style="color: #0563c1">configurações de execução</span></u></a>:</p>
+<p><img src="images/1000000000000517000002697CC32661.png" width="568" height="269" style="width:15.032cm;height:7.117cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/1000000000000517000002697CC32661.png" /></p>
+<p><img src="images/1000000000000513000002406E8B8A1E.png" width="567" height="252" style="width:15.011cm;height:6.655cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/1000000000000513000002406E8B8A1E.png" /></p>
+<p>Se executarmos uma destas duas configurações, obtemos os seguintes resultados:</p>
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-text">
+<span class="odt-code-line"><span class="odt-code-line-content">C:\Data\st-2020\dev\python\cours-2020\python3-flask-2020\venv\Scripts\python.exe C:/Data/st-2020/dev/python/cours-2020/python3-flask-2020/impots/v05/tests/<span style="background-color:#fff2cc">TestDaoMétier.py mysql</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">tests en cours...</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">...........</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">----------------------------------------------------------------------</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">Ran 11 tests in 0.001s</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">OK</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">Process finished with exit code 0</span></span>
+</code></pre></div>
+
+<ul>
+<li>linhas 5 e 7: os 11 testes foram bem-sucedidos;</li>
+</ul>
+<p>Recorde-se que estes testes verificam apenas 11 casos de cálculo do imposto. O seu sucesso pode, no entanto, ser suficiente para nos dar confiança na camada <strong>[dao]</strong>.</p>
+<p><span id="lescriptprincipal5" name="lescriptprincipal5" class="odt-bookmark-anchor"></span>
+<span id="toc48549104" name="toc48549104" class="odt-bookmark-anchor"></span></p>
+<h3 id="2025-o-script-principal">20.2.5. <span style="color: #4f81bd">O script principal</span></h3>
+<p><img src="images/10000000000001A1000002152583529E.png" width="164" height="210" style="width:4.339cm;height:5.547cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000001A1000002152583529E.png" /></p>
+<p><img src="images/100000000000039F000002AD82466924.png" width="404" height="299" style="width:10.702cm;height:7.908cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000039F000002AD82466924.png" /></p>
+<p>O script principal <strong>[main]</strong> é o mesmo da versão 4:</p>
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
+<span class="odt-code-line"><span class="odt-code-line-content"># aguarda-se um parâmetro mysql ou pgres</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">import</span><span style="color:#000000"> </span><span style="color:#6f008a">sys</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">syntaxe = </span><span style="color:#a31515">f&quot;{sys.argv</span><span style="font-weight:bold;color:#a31515">[0]</span><span style="color:#a31515">} mysql / pgres&quot;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">erreur = len(</span><span style="color:#6f008a">sys</span><span style="color:#000000">.argv) != 2</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">if</span><span style="color:#000000"> </span><span style="color:#0000ff">not</span><span style="color:#000000"> erreur:</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    sgbd = </span><span style="color:#6f008a">sys</span><span style="color:#000000">.argv</span><span style="font-weight:bold;color:#000000">[1]</span><span style="color:#000000">.lower()</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    erreur = sgbd != </span><span style="color:#a31515">&quot;mysql&quot;</span><span style="color:#000000"> </span><span style="color:#0000ff">and</span><span style="color:#000000"> sgbd != </span><span style="color:#a31515">&quot;pgres&quot;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">if</span><span style="color:#000000"> erreur:</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    print(</span><span style="color:#a31515">f&quot;syntaxe : {syntaxe}&quot;</span><span style="color:#000000">)</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="color:#6f008a">sys</span><span style="color:#000000">.exit()</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"># configura-se a aplicação</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">import</span><span style="color:#000000"> </span><span style="color:#6f008a">config</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#6f008a">config</span><span style="color:#000000"> = </span><span style="color:#6f008a">config</span><span style="color:#000000">.configure({</span><span style="color:#a31515">&#x27;sgbd&#x27;</span><span style="color:#000000">: sgbd})</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"># o syspath está definido — já é possível efetuar as importações</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">from</span><span style="color:#000000"> </span><span style="color:#6f008a">ImpôtsError</span><span style="color:#000000"> </span><span style="color:#0000ff">import</span><span style="color:#000000"> ImpôtsError</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"># recuperam-se as camadas da aplicação (já estão instanciadas)</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">dao = </span><span style="color:#6f008a">config</span><span style="font-weight:bold;color:#000000">[</span><span style="font-weight:bold;color:#a31515">&quot;dao&quot;</span><span style="font-weight:bold;color:#000000">]</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">métier = </span><span style="color:#6f008a">config</span><span style="font-weight:bold;color:#000000">[</span><span style="font-weight:bold;color:#a31515">&quot;métier&quot;</span><span style="font-weight:bold;color:#000000">]</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">try</span><span style="color:#000000">:</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#000000"># recuperação dos escalões de imposto</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    admindata = dao.get_admindata()</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#000000"># leitura dos dados dos contribuintes</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    taxpayers = dao.get_taxpayers_data()</span><span style="font-weight:bold;color:#000000">[</span><span style="font-weight:bold;color:#a31515">&quot;taxpayers&quot;</span><span style="font-weight:bold;color:#000000">]</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#000000"># dos contribuintes?</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="color:#0000ff">if</span><span style="color:#000000"> </span><span style="color:#0000ff">not</span><span style="color:#000000"> taxpayers:</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        </span><span style="color:#0000ff">raise</span><span style="color:#000000"> ImpôtsError(57, </span><span style="color:#a31515">f&quot;Pas de contribuables valides dans le fichier {config</span><span style="font-weight:bold;color:#a31515">[&#x27;taxpayersFilename&#x27;]</span><span style="color:#a31515">}&quot;</span><span style="color:#000000">)</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#000000"># cálculo do imposto dos contribuintes</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="color:#0000ff">for</span><span style="color:#000000"> taxPayer </span><span style="color:#0000ff">in</span><span style="color:#000000"> taxpayers:</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#000000"># taxPayer é simultaneamente um parâmetro de entrada e de saída</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#000000"># O taxPayer vai ser alterado</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        métier.calculate_tax(taxPayer, admindata)</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#000000"># gravação dos resultados num ficheiro de texto</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    dao.write_taxpayers_results(taxpayers)</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">except</span><span style="color:#000000"> ImpôtsError </span><span style="color:#0000ff">as</span><span style="color:#000000"> erreur:</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#000000"># exibição do erro</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    print(</span><span style="color:#a31515">f&quot;L&#x27;erreur suivante s&#x27;est produite : {erreur}&quot;</span><span style="color:#000000">)</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">finally</span><span style="color:#000000">:</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#000000"># concluído</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    print(</span><span style="color:#a31515">&quot;Travail terminé...&quot;</span><span style="color:#000000">)</span></span></span>
+</code></pre></div>
+
+<p><strong><span style="color: #000000">Notas</span></strong></p>
+<ul>
+<li>linhas 1-10: recupera-se o parâmetro <strong>[mysql / pgres],</strong> que indica o SGBD a utilizar;</li>
+<li>linhas 12-14: a aplicação é configurada;</li>
+<li>linhas 16-17: a classe <strong>[ImpôtsError]</strong> é importada. É necessária na linha 38;</li>
+<li>linhas 19-21: recuperam-se referências às camadas da aplicação;</li>
+<li>linha 25: solicitam-se à camada <strong>[dao]</strong> os dados da administração fiscal. A camada <strong>[métier]</strong> necessita deles para o cálculo do imposto;</li>
+<li>linha 27: recuperam-se, numa lista, os dados (ID, estado civil, filhos, salário) dos contribuintes;</li>
+<li>linhas 29-30: se esta lista estiver vazia, é lançada uma exceção;</li>
+<li>linhas 32-35: cálculo do imposto dos elementos da lista <strong>[taxpayers]</strong>;</li>
+<li>linha 37: gravação dos resultados no ficheiro <strong>jSON[résultats.json]</strong>;</li>
+<li>linhas 38-40: gestão de eventuais erros;</li>
+</ul>
+<p><span style="color: #000000">Para a execução do script, criam-se duas </span><a href="arquitetura-em-camadas-e-programacao-por-interfaces.html#lescriptprincipal2"><u><span style="color: #0563c1">|configurações de</span></u></a><span style="color: #000000"> execução|:</span></p>
+<p><img src="images/10000000000003D2000001DC25ED70E5.png" width="426" height="207" style="width:11.269cm;height:5.486cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000003D2000001DC25ED70E5.png" /></p>
+<p><span style="color: #000000">Os resultados obtidos no ficheiro </span><strong><span style="color: #000000">[résultats.json] </span></strong><span style="color: #000000">são os da versão 4.</span></p>
+<p><img src="images/10000000000003D2000001D660C57B6C.png" width="426" height="205" style="width:11.269cm;height:5.415cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000003D2000001D660C57B6C.png" /></p>
+<p><span id="application3" name="application3" class="odt-bookmark-anchor"></span>
+<span id="toc48549105" name="toc48549105" class="odt-bookmark-anchor"></span></p>
+<h2 id="203-aplicacao-3-calculo-do-imposto-em-modo-interativo">20.3. <span style="color: #4f81bd"><strong><span style="color: #4f81bd">Aplicação 3: cálculo do imposto em modo interativo</span></strong></span></h2>
+<p>Apresentamos agora a aplicação que permite calcular o imposto de forma interativa. Trata-se de uma adaptação da <a href="exercicio-pratico---versao-4.html#version4-"><u><span style="color: #0563c1">aplicação 2</span></u></a> da versão 4.</p>
+<p><img src="images/100000000000018500000205A7925E38.png" width="153" height="203" style="width:4.052cm;height:5.383cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000018500000205A7925E38.png" /></p>
+<p><img src="images/1000000000000422000003317DC9988A.png" width="462" height="357" style="width:12.233cm;height:9.446cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/1000000000000422000003317DC9988A.png" /></p>
+<ul>
+<li>o script <strong>[main]</strong> inicia o diálogo com o utilizador através do método <strong>[ui.run]</strong> da camada <strong>[ui]</strong>;</li>
+<li>a camada <strong>[ui]</strong>:<ul>
+<li>utiliza a camada <strong>[dao]</strong> para obter os dados necessários ao cálculo do imposto;</li>
+<li>solicita ao utilizador as informações relativas ao contribuinte cujo imposto se pretende calcular;</li>
+<li>utiliza a camada <strong>[métier]</strong> para efetuar esse cálculo;</li>
+</ul>
+</li>
+</ul>
+<p>O ficheiro <strong>[config_layers]</strong> instancia uma camada adicional:</p>
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">def</span> configure(<span style="color:#808080">config</span>: <span style="color:#2b91af">dict</span>) -&gt; <span style="color:#2b91af">dict</span>:</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    # instanciação da camada DAO</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#0000ff">from</span> <span style="color:#6f008a">ImpotsDaoWithAdminDataInDatabase</span> <span style="color:#0000ff">import</span> ImpotsDaoWithAdminDataInDatabase</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#808080">config</span><span style="font-weight:bold">[</span><span style="font-weight:bold;color:#a31515">&quot;dao&quot;</span><span style="font-weight:bold">]</span> = ImpotsDaoWithAdminDataInDatabase(<span style="color:#808080">config</span>)</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    # instanciação da camada [métier]</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#0000ff">from</span> <span style="color:#6f008a">ImpôtsMétier</span> <span style="color:#0000ff">import</span> ImpôtsMétier</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#808080">config</span><span style="font-weight:bold">[</span><span style="font-weight:bold;color:#a31515">&#x27;métier&#x27;</span><span style="font-weight:bold">]</span> = ImpôtsMétier()</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    # interface do utilizador</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#0000ff">from</span> <span style="color:#6f008a">ImpôtsConsole</span> <span style="color:#0000ff">import</span> ImpôtsConsole</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#808080">config</span><span style="font-weight:bold">[</span><span style="font-weight:bold;color:#a31515">&#x27;ui&#x27;</span><span style="font-weight:bold">]</span> = ImpôtsConsole(<span style="color:#808080">config</span>)</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    # enviando a configuração</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#0000ff">return</span> <span style="color:#808080">config</span></span></span>
+</code></pre></div>
+
+<p>A classe <strong>[ImpôtsConsole]</strong>, linhas 11-12, é a mesma que na <a href="exercicio-pratico---versao-4.html#laclasseimpotsconsole"><u><span style="color: #0563c1">|versão</span></u></a> 4|.</p>
+<p>O script principal <strong>[main]</strong> é o seguinte:</p>
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
+<span class="odt-code-line"><span class="odt-code-line-content"># aguarda-se um parâmetro mysql ou pgres</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">import</span><span style="color:#000000"> </span><span style="color:#6f008a">sys</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">syntaxe = </span><span style="color:#a31515">f&quot;{sys.argv</span><span style="font-weight:bold;color:#a31515">[0]</span><span style="color:#a31515">} mysql / pgres&quot;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">erreur = len(</span><span style="color:#6f008a">sys</span><span style="color:#000000">.argv) != 2</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">if</span><span style="color:#000000"> </span><span style="color:#0000ff">not</span><span style="color:#000000"> erreur:</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    sgbd = </span><span style="color:#6f008a">sys</span><span style="color:#000000">.argv</span><span style="font-weight:bold;color:#000000">[1]</span><span style="color:#000000">.lower()</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    erreur = sgbd != </span><span style="color:#a31515">&quot;mysql&quot;</span><span style="color:#000000"> </span><span style="color:#0000ff">and</span><span style="color:#000000"> sgbd != </span><span style="color:#a31515">&quot;pgres&quot;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">if</span><span style="color:#000000"> erreur:</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    print(</span><span style="color:#a31515">f&quot;syntaxe : {syntaxe}&quot;</span><span style="color:#000000">)</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="color:#6f008a">sys</span><span style="color:#000000">.exit()</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"># configuramos a aplicação</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">import</span><span style="color:#000000"> </span><span style="color:#6f008a">config</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#6f008a">config</span><span style="color:#000000"> = </span><span style="color:#6f008a">config</span><span style="color:#000000">.configure({</span><span style="color:#a31515">&#x27;sgbd&#x27;</span><span style="color:#000000">: sgbd})</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"># o syspath está configurado — já é possível efetuar as importações</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">from</span><span style="color:#000000"> </span><span style="color:#6f008a">ImpôtsError</span><span style="color:#000000"> </span><span style="color:#0000ff">import</span><span style="color:#000000"> ImpôtsError</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"># recuperar a camada [ui]</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">ui = </span><span style="color:#6f008a">config</span><span style="font-weight:bold;color:#000000">[</span><span style="font-weight:bold;color:#a31515">&quot;ui&quot;</span><span style="font-weight:bold;color:#000000">]</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"># código</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">try</span><span style="color:#000000">:</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#000000"># execução da camada [ui]</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    ui.run()</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">except</span><span style="color:#000000"> ImpôtsError </span><span style="color:#0000ff">as</span><span style="color:#000000"> ex1:</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#000000"># é apresentada a mensagem de erro</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    print(</span><span style="color:#a31515">f&quot;L&#x27;erreur 1 suivante s&#x27;est produite : {ex1}&quot;</span><span style="color:#000000">)</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">except</span><span style="color:#000000"> </span><span style="color:#2b91af">BaseException</span><span style="color:#000000"> </span><span style="color:#0000ff">as</span><span style="color:#000000"> ex2:</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#000000"># é apresentada a mensagem de erro</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    print(</span><span style="color:#a31515">f&quot;L&#x27;erreur 2 suivante s&#x27;est produite : {ex2}&quot;</span><span style="color:#000000">)</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">finally</span><span style="color:#000000">:</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#000000"># executado em todos os casos</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    print(</span><span style="color:#a31515">&quot;Travail terminé...&quot;</span><span style="color:#000000">)</span></span></span>
+</code></pre></div>
+
+<ul>
+<li>nas linhas 1-10, o script aguarda um parâmetro <strong>[mysql / pgres]</strong> que indica o SGBD a utilizar;</li>
+<li>linhas 12-14: a aplicação é configurada;</li>
+<li>linhas 19-20: recupera-se a camada <strong>[ui]</strong> da configuração;</li>
+<li>linha 25: executa-se a camada;</li>
+</ul>
+<p>Os resultados são idênticos aos da <a href="exercicio-pratico---versao-4.html#lescriptprincipal4"><u><span style="color: #0563c1">|versão</span></u></a> 4|. Não poderia ser de outra forma, uma vez que todas as interfaces da versão 4 foram respeitadas na versão 5.</p>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner">
+
+      <div>
+        <a href="https://stahe.github.io" target="_blank">
+          https://stahe.github.io
+        </a>
+        <br>
+        Este tutorial, escrito por <strong>Serge Tahé</strong>, é disponibilizado ao público sob os termos da
+<em>Creative Commons Atribuição – Não comercial –
+Partilha igual 3.0 Unported</em>.
+      </div>
+
+    </div>
+  </div>
+
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": ".", "features": ["navigation.sections", "navigation.indexes", "navigation.expand", "toc.integrate", "navigation.top"], "search": "assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="assets/javascripts/bundle.e71a0d61.min.js"></script>
+      
+        <script src="javascripts/focus.js"></script>
+      
+    
+  </body>
+</html>

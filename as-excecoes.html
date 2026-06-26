@@ -1,0 +1,1898 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Introdução ao Python 3 e ao framework web Flask através de exemplos">
+      
+      
+        <meta name="author" content="Serge Tahé">
+      
+      
+        <link rel="canonical" href="https://stahe.github.io/pt-python-flask-sept-2020/as-excecoes.html">
+      
+      
+        <link rel="prev" href="as-cadeias-de-caracteres.html">
+      
+      
+        <link rel="next" href="as-funcoes.html">
+      
+      
+        
+      
+      
+      <link rel="icon" href="assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.0">
+    
+    
+      
+        <title>5. As exceções - Introdução ao Python 3 e ao framework web Flask através de exemplos</title>
+      
+    
+    
+      <link rel="stylesheet" href="assets/stylesheets/main.618322db.min.css">
+      
+        
+        <link rel="stylesheet" href="assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="stylesheets/focus.css">
+    
+      <link rel="stylesheet" href="stylesheets/bidi.css">
+    
+    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-EBZC3JVJNR"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    var siteName = "Introdução ao Python 3 e ao framework web Flask através de exemplos";
+    gtag('config', 'G-EBZC3JVJNR', {
+        'page_title': siteName
+    });
+  </script>
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="purple">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#5-as-excecoes" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="index.html" title="Introdução ao Python 3 e ao framework web Flask através de exemplos" class="md-header__button md-logo" aria-label="Introdução ao Python 3 e ao framework web Flask através de exemplos" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Introdução ao Python 3 e ao framework web Flask através de exemplos
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              5. As exceções
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="purple"  aria-label="Mudar para modo escuro"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Mudar para modo escuro" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="purple"  aria-label="Mudar para modo claro"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Mudar para modo claro" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://stahe.github.io/pt-python-flask-sept-2020" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="index.html" title="Introdução ao Python 3 e ao framework web Flask através de exemplos" class="md-nav__button md-logo" aria-label="Introdução ao Python 3 e ao framework web Flask através de exemplos" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Introdução ao Python 3 e ao framework web Flask através de exemplos
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://stahe.github.io/pt-python-flask-sept-2020" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Bem-vindos
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="prefacio.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. Prefácio
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="instalacao-de-um-ambiente-de-trabalho.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. Instalação de um ambiente de trabalho
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="nocoes-basicas-de-python.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. Noções básicas de Python
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="as-cadeias-de-caracteres.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. As cadeias de caracteres
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. As exceções
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="as-excecoes.html" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. As exceções
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#51-script-exceptions_01" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.1. script [exceptions_01]
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#52-script-exceptions_02" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.2. script [exceptions_02]
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#53-script-exceptions_03" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.3. script [exceptions_03]
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="as-funcoes.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6. As funções
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="os-ficheiros-de-texto.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    7. Os ficheiros de texto
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="exercicio-pratico---versao-1.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    8. Exercício prático – versão 1
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="as-importacoes.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    9. As importações
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="exercicio-pratico-versao-2.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    10. Exercício prático: versão 2
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="exercicio-pratico-versao-3.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    11. Exercício prático: versão 3
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="as-classes-e-os-objetos.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    12. As classes e os objetos
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="as-classes-genericas-baseentity-e-myexception.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    13. As classes genéricas [BaseEntity] e [MyException]
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="arquitetura-em-camadas-e-programacao-por-interfaces.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    14. Arquitetura em camadas e programação por interfaces
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="exercicio-pratico---versao-4.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    15. Exercício prático - versão 4
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="utilizacao-do-sgbd-mysql.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    16. Utilização do SGBD MySQL
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="utilizacao-do-sgbd-postgresql.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    17. Utilização do SGBD PostgreSQL
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="escrever-codigo-independente-do-sgbd.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    18. Escrever código independente do SGBD
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="utilizacao-do-orm-sqlalchemy.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    19. Utilização do ORM SQLALCHEMY
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="exercicio-pratico-versao-5.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    20. Exercício prático: versão 5
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="funcoes-de-internet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    21. Funções de Internet
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="servicos-web-com-o-framework-flask.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    22. Serviços web com o framework Flask
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="exercicio-pratico-versao-6.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    23. Exercício prático: versão 6
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="exercicio-pratico-versao-7.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    24. Exercício prático: versão 7
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="-exercicio-pratico-versao-8.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    25.  Exercício prático: versão 8
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="do-dicionario-para-xml-e-vice-versa.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    26. Do dicionário para XML e vice-versa
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="exercicio-pratico-versao-9.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    27. Exercício prático: versão 9
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="exercicio-pratico-versao-10.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    28. Exercício prático: versão 10
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="exercicio-pratico-versao-11.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    29. Exercício prático: versão 11
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="exercicio-pratico-versao-12.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    30. Exercício prático: versão 12
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="clientes-web-para-os-servicos-json-e-xml-da-versao-12.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    31. Clientes web para os serviços jSON e XML da versão 12
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="o-modo-html-da-versao-12.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    32. O modo HTML da versão 12
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="exercicio-pratico-versao-13.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    33. Exercício prático: versão 13
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="exercicio-pratico-versao-14.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    34. Exercício prático: versão 14
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="exercicio-pratico-versao-15.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    35. Exercício prático: versão 15
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="exercicio-pratico-versao-16.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    36. Exercício prático: versão 16
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="exercicio-pratico-versao-17.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    37. Exercício prático: versão 17
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="exercicio-pratico-versao-18-.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    38. Exercício prático: versão 18 
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="conclusao.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    39. Conclusão
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<p><span id="toc48548939" name="toc48548939" class="odt-bookmark-anchor"></span>
+<span id="lesexceptions" name="lesexceptions" class="odt-bookmark-anchor"></span>
+<span id="refheading352241169597484" name="refheading352241169597484" class="odt-bookmark-anchor"></span></p>
+<h1 id="5-as-excecoes">5. <span style="color: #365f91">As exceções</span></h1>
+<p>Vamos agora debruçar-nos sobre as exceções.</p>
+<p><img src="images/1000000100000181000000996FC8CA33.png" width="136" height="54" style="width:3.602cm;height:1.431cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/1000000100000181000000996FC8CA33.png" /></p>
+<p><span id="toc48548940" name="toc48548940" class="odt-bookmark-anchor"></span>
+<span id="refheadingtoc2520952924280206" name="refheadingtoc2520952924280206" class="odt-bookmark-anchor"></span></p>
+<h2 id="51-script-exceptions_01">5.1. <span style="color: #4f81bd"><strong>script</strong> [exceptions_01]</span></h2>
+<p>O primeiro script ilustra a necessidade de gerir as exceções.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1">1</a></span>
+<span class="normal"><a href="#__codelineno-0-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="gh"># provoca-se deliberadamente um erro</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2"></a>x = 4 / 0
+</code></pre></div></td></tr></table></div>
+<p>Provocamos deliberadamente um erro para ver o que acontece (<em>exceptions-01.py</em>):</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1">1</a></span>
+<span class="normal"><a href="#__codelineno-1-2">2</a></span>
+<span class="normal"><a href="#__codelineno-1-3">3</a></span>
+<span class="normal"><a href="#__codelineno-1-4">4</a></span>
+<span class="normal"><a href="#__codelineno-1-5">5</a></span>
+<span class="normal"><a href="#__codelineno-1-6">6</a></span>
+<span class="normal"><a href="#__codelineno-1-7">7</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a>C:\Data\st-2020\dev\python\cours-2020\python3-flask-2020\venv\Scripts\python.exe C:/Data/st-2020/dev/python/cours-2020/python3-flask-2020/exceptions/exceptions_01.py
+<a id="__codelineno-1-2" name="__codelineno-1-2"></a>Traceback (most recent call last):
+<a id="__codelineno-1-3" name="__codelineno-1-3"></a>  File &quot;C:/Data/st-2020/dev/python/cours-2020/python3-flask-2020/exceptions/exceptions_01.py&quot;, line 2, in &lt;module&gt;
+<a id="__codelineno-1-4" name="__codelineno-1-4"></a>    x = 4 / 0
+<a id="__codelineno-1-5" name="__codelineno-1-5"></a>ZeroDivisionError: division by zero
+<a id="__codelineno-1-6" name="__codelineno-1-6"></a>
+<a id="__codelineno-1-7" name="__codelineno-1-7"></a>Process finished with exit code 1
+</code></pre></div></td></tr></table></div>
+<p>A linha 4 indica-nos:</p>
+<ul>
+<li>o tipo da exceção: ZeroDivisionError;</li>
+<li>a mensagem de erro associada: «division by zero». Está em inglês. É algo que talvez queiramos alterar.</li>
+</ul>
+<p>Uma regra essencial é que devemos fazer tudo o que for possível para evitar as exceções geradas pelo interpretador Python. Temos de gerir os erros nós próprios.</p>
+<p>A sintaxe para a gestão de exceções é a seguinte:</p>
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-text">
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="font-weight:bold">try</span>:</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    actions susceptibles de lancer une exception</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="font-weight:bold">except</span> (Ex1, Ex2…) as ex:</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    actions de gestion de l&#x27;exception <span style="font-weight:bold">[ex]</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="font-weight:bold">except</span> (Ex11, Ex12…) as ex:</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    actions de gestion de l&#x27;exception <span style="font-weight:bold">[ex]</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="font-weight:bold">finally</span>:</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">   actions toujours exécutées qu&#x27;il y ait exception ou non</span></span>
+</code></pre></div>
+
+<p>No bloco <strong>«try</strong>», a execução das ações é interrompida assim que ocorre uma exceção (erro). Nesse caso, a execução prossegue com as ações de uma das cláusulas <strong>«except</strong>»:</p>
+<ul>
+<li>linha 3: se a exceção <strong>[ex]</strong> que ocorreu for de um tipo pertencente à tupla (Ex1, Ex2…) ou derivado de um deles, então as ações da linha 4 são executadas;</li>
+<li>linha 5: se a exceção não tiver sido interceptada pela linha 3 e existir outra cláusula <strong>[except]</strong>, então ocorre o mesmo processo. E assim por diante…;</li>
+<li>pode haver tantas cláusulas <strong>[except]</strong> quantas forem necessárias para gerir os diferentes tipos de exceção que possam ocorrer no <strong>[try]</strong>;</li>
+<li>se a exceção não tiver sido tratada por nenhuma das cláusulas <strong>[except]</strong>, então será reenviada para o código chamador. Se este se encontrar, por sua vez, numa estrutura <strong>try/except</strong>, a exceção é novamente tratada; caso contrário, continua a subir pela cadeia de métodos chamados. Em última instância, chega ao interpretador Python. Este interrompe então o programa em execução e exibe uma mensagem de erro do tipo apresentado no exemplo anterior. A regra é, portanto, que o programa principal deve interceptar todas as exceções que possam ser propagadas a partir dos métodos chamados;</li>
+<li>linha 7: a cláusula <strong>[finally]</strong> é sempre executada, quer tenha ocorrido uma exceção (continuação do <strong>«except»</strong>) quer não (continuação do <strong>«try»</strong>). Isto é válido mesmo que tenha ocorrido uma exceção e esta não tenha sido interceptada. Neste caso, a cláusula <strong>[finally]</strong> será executada antes de a exceção ser propagada para o código chamador;</li>
+</ul>
+<p>Uma exceção transporta consigo informações sobre o erro que ocorreu. Estas podem ser obtidas com a seguinte sintaxe:</p>
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-text">
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="font-weight:bold">except</span> MyException <span style="font-weight:bold">as</span> exception:</span></span>
+</code></pre></div>
+
+<p><strong>[exception]</strong> é a exceção que ocorreu. <strong>[exception.args]</strong> representa o tuplo dos parâmetros da exceção.</p>
+<p>Para lançar uma exceção, utiliza-se a sintaxe</p>
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-text">
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="font-weight:bold">raise</span> MyException(param1, param2…)</span></span>
+</code></pre></div>
+
+<p>onde, na maioria das vezes, <em>MyException</em> é uma classe derivada da classe <em>BaseException</em>. Os parâmetros passados ao construtor da classe estarão disponíveis na cláusula <strong>«except»</strong> das estruturas de interceção de exceções com a sintaxe <strong>[ex.args],</strong> se <strong>[ex]</strong> for a exceção interceptada pela cláusula <strong>[except]</strong>.</p>
+<p>Estes conceitos são ilustrados pelo seguinte script.</p>
+<p><span id="toc48548941" name="toc48548941" class="odt-bookmark-anchor"></span>
+<span id="refheadingtoc2520972924280206" name="refheadingtoc2520972924280206" class="odt-bookmark-anchor"></span></p>
+<h2 id="52-script-exceptions_02">5.2. <span style="color: #4f81bd"><strong>script</strong> [exceptions_02]</span></h2>
+<p>O seguinte script trata explicitamente os erros:</p>
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
+<span class="odt-code-line"><span class="odt-code-line-content"># gestão de exceções</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">essai = 0</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"># provoca-se um erro e este é tratado</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">x = 2</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">try</span><span style="color:#000000">:</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    x = 4 / 0</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">except</span><span style="color:#000000"> </span><span style="color:#2b91af">ZeroDivisionError</span><span style="color:#000000"> </span><span style="color:#0000ff">as</span><span style="color:#000000"> erreur:</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#000000"># o erro é a exceção interceptada</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    print(</span><span style="color:#a31515">f&quot;essai n° {essai} : {erreur}&quot;</span><span style="color:#000000">)</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"># o valor de x não se alterou</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">print(</span><span style="color:#a31515">f&quot;x={x}&quot;</span><span style="color:#000000">)</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"># recomeça-se</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">essai += 1</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">try</span><span style="color:#000000">:</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    x = 4 / 0</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">except</span><span style="color:#000000"> </span><span style="color:#2b91af">BaseException</span><span style="color:#000000"> </span><span style="color:#0000ff">as</span><span style="color:#000000"> erreur:</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#000000"># intercepta-se a exceção mais geral</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#000000"># o erro é a exceção interceptada</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    print(</span><span style="color:#a31515">f&quot;essai n° {essai} : {erreur}&quot;</span><span style="color:#000000">)</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"># é possível interceptar diferentes tipos de exceções</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"># a execução pára no primeiro [except] capaz de tratar a exceção</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">essai += 1</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">try</span><span style="color:#000000">:</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    x = 4 / 0</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">except</span><span style="color:#000000"> </span><span style="color:#2b91af">ValueError</span><span style="color:#000000"> </span><span style="color:#0000ff">as</span><span style="color:#000000"> erreur:</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#000000"># esta exceção não ocorre aqui</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    print(</span><span style="color:#a31515">f&quot;essai n° {essai} : {erreur}&quot;</span><span style="color:#000000">)</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">except</span><span style="color:#000000"> </span><span style="color:#2b91af">BaseException</span><span style="color:#000000"> </span><span style="color:#0000ff">as</span><span style="color:#000000"> erreur:</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#000000"># intercepta-se a exceção mais geral</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    print(</span><span style="color:#a31515">f&quot;essai n° {essai} : (Exception) {erreur}&quot;</span><span style="color:#000000">)</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">except</span><span style="color:#000000"> </span><span style="color:#2b91af">ZeroDivisionError</span><span style="color:#000000"> </span><span style="color:#0000ff">as</span><span style="color:#000000"> erreur:</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#000000"># intercepta-se um tipo específico</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    print(</span><span style="color:#a31515">f&quot;essai n° {essai} : (ZeroDivisionError) {erreur}&quot;</span><span style="color:#000000">)</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"># repetimos o processo alterando a ordem </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">essai += 1</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">try</span><span style="color:#000000">:</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    x = 4 / 0</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">except</span><span style="color:#000000"> </span><span style="color:#2b91af">ValueError</span><span style="color:#000000"> </span><span style="color:#0000ff">as</span><span style="color:#000000"> erreur:</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#000000"># esta exceção não ocorre aqui</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    print(</span><span style="color:#a31515">f&quot;essai n° {essai} : {erreur}&quot;</span><span style="color:#000000">)</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">except</span><span style="color:#000000"> </span><span style="color:#2b91af">ZeroDivisionError</span><span style="color:#000000"> </span><span style="color:#0000ff">as</span><span style="color:#000000"> erreur:</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#000000"># intercepta-se um tipo específico</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    print(</span><span style="color:#a31515">f&quot;essai n° {essai} : (ZeroDivisionError) {erreur}&quot;</span><span style="color:#000000">)</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">except</span><span style="color:#000000"> </span><span style="color:#2b91af">BaseException</span><span style="color:#000000"> </span><span style="color:#0000ff">as</span><span style="color:#000000"> erreur:</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#000000"># intercepta-se a exceção mais geral</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    print(</span><span style="color:#a31515">f&quot;essai n° {essai} : (Exception) {erreur}&quot;</span><span style="color:#000000">)</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"># uma cláusula «except» sem argumentos</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">essai += 1</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">try</span><span style="color:#000000">:</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    x = 4 / 0</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">except</span><span style="color:#000000">:</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#000000"># não nos interessa a natureza da exceção</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    print(</span><span style="color:#a31515">f&quot;essai n° {essai} : il y a eu un problème&quot;</span><span style="color:#000000">)</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"># outro tipo de exceção</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">essai += 1</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">try</span><span style="color:#000000">:</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#000000"># x não pode ser convertido num número inteiro</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    x = </span><span style="color:#2b91af">int</span><span style="color:#000000">(</span><span style="color:#a31515">&quot;x&quot;</span><span style="color:#000000">)</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">except</span><span style="color:#000000"> </span><span style="color:#2b91af">ValueError</span><span style="color:#000000"> </span><span style="color:#0000ff">as</span><span style="color:#000000"> erreur:</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#000000"># o erro é a exceção interceptada</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    print(</span><span style="color:#a31515">f&quot;essai n° {essai} : {erreur}&quot;</span><span style="color:#000000">)</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"># uma exceção transporta informações numa tupla acessível ao programa</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">essai += 1</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">try</span><span style="color:#000000">:</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    x = </span><span style="color:#2b91af">int</span><span style="color:#000000">(</span><span style="color:#a31515">&quot;x&quot;</span><span style="color:#000000">)</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">except</span><span style="color:#000000"> </span><span style="color:#2b91af">ValueError</span><span style="color:#000000"> </span><span style="color:#0000ff">as</span><span style="color:#000000"> erreur:</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#000000"># o erro é a exceção interceptada</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    print(</span><span style="color:#a31515">f&quot;essai n° {essai} : {erreur}, paramètres={erreur.args}&quot;</span><span style="color:#000000">)</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"># é possível lançar exceções</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">essai += 1</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">try</span><span style="color:#000000">:</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="color:#0000ff">raise</span><span style="color:#000000"> </span><span style="color:#2b91af">ValueError</span><span style="color:#000000">(</span><span style="color:#a31515">&quot;param1&quot;</span><span style="color:#000000">, </span><span style="color:#a31515">&quot;param2&quot;</span><span style="color:#000000">, </span><span style="color:#a31515">&quot;param3&quot;</span><span style="color:#000000">)</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">except</span><span style="color:#000000"> </span><span style="color:#2b91af">ValueError</span><span style="color:#000000"> </span><span style="color:#0000ff">as</span><span style="color:#000000"> erreur:</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#000000"># o erro é a exceção interceptada</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    print(</span><span style="color:#a31515">f&quot;essai n° {essai} : {erreur}, paramètres={erreur.args}&quot;</span><span style="color:#000000">)</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"># é possível criar as próprias exceções</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"># devem derivar da classe [BaseException]</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">class</span><span style="color:#000000"> </span><span style="color:#2b91af">MyError</span><span style="color:#000000">(</span><span style="color:#2b91af">BaseException</span><span style="color:#000000">):</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="color:#0000ff">pass</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"># lança-se a exceção MyError</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">essai += 1</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">try</span><span style="color:#000000">:</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="color:#0000ff">raise</span><span style="color:#000000"> </span><span style="color:#2b91af">MyError</span><span style="color:#000000">(</span><span style="color:#a31515">&quot;info1&quot;</span><span style="color:#000000">, </span><span style="color:#a31515">&quot;info2&quot;</span><span style="color:#000000">, </span><span style="color:#a31515">&quot;info3&quot;</span><span style="color:#000000">)</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">except</span><span style="color:#000000"> </span><span style="color:#2b91af">MyError</span><span style="color:#000000"> </span><span style="color:#0000ff">as</span><span style="color:#000000"> erreur:</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#000000"># o erro é a exceção interceptada</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    print(</span><span style="color:#a31515">f&quot;essai n° {essai} : {erreur}, paramètres={erreur.args}&quot;</span><span style="color:#000000">)</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"># é lançada a exceção MyError com uma mensagem de erro</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">essai += 1</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">try</span><span style="color:#000000">:</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="color:#0000ff">raise</span><span style="color:#000000"> </span><span style="color:#2b91af">MyError</span><span style="color:#000000">(</span><span style="color:#a31515">&quot;mon msg d&#x27;erreur&quot;</span><span style="color:#000000">)</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">except</span><span style="color:#000000"> </span><span style="color:#2b91af">MyError</span><span style="color:#000000"> </span><span style="color:#0000ff">as</span><span style="color:#000000"> erreur:</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#000000"># o erro é a exceção interceptada</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    print(</span><span style="color:#a31515">f&quot;essai n° {essai} : {erreur.args</span><span style="font-weight:bold;color:#a31515">[0]</span><span style="color:#a31515">}&quot;</span><span style="color:#000000">)</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"># a cláusula finally é sempre executada</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"># quer haja ou não uma exceção</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">essai += 1</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">x = </span><span style="color:#0000ff">None</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">try</span><span style="color:#000000">:</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    x = 1</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">except</span><span style="color:#000000">:</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#000000"># exceção</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    print(</span><span style="color:#a31515">f&quot;essai n° {essai} : exception&quot;</span><span style="color:#000000">)</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">finally</span><span style="color:#000000">:</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#000000"># executada em todos os casos</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    print(</span><span style="color:#a31515">f&quot;essai n° {essai} : finally x={x}&quot;</span><span style="color:#000000">)</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">essai += 1</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">x = </span><span style="color:#0000ff">None</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">try</span><span style="color:#000000">:</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    x = 2 / 0</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">except</span><span style="color:#000000">:</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#000000"># exceção</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    print(</span><span style="color:#a31515">f&quot;essai n° {essai} : exception&quot;</span><span style="color:#000000">)</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">finally</span><span style="color:#000000">:</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#000000"># executado em todos os casos</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    print(</span><span style="color:#a31515">f&quot;essai n° {essai} : finally x={x}&quot;</span><span style="color:#000000">)</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"># não é obrigatório incluir uma cláusula [except]</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">essai += 1</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">try</span><span style="color:#000000">:</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#000000"># provoca um erro</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    x = 4 / 0</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">finally</span><span style="color:#000000">:</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#000000"># executado em todos os casos</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    print(</span><span style="color:#a31515">f&quot;essai n° {essai} : finally x={x}&quot;</span><span style="color:#000000">)</span></span></span>
+</code></pre></div>
+
+<p><strong>Notas</strong>:</p>
+<ul>
+<li>linhas 4-12: trata-se de uma divisão por zero;</li>
+<li>linha 8: intercepta-se a exceção exata que ocorre e exibe-se;</li>
+<li>linha 12: devido à exceção que ocorreu, <em>x</em> não recebeu qualquer valor na linha 7 e, por isso, o seu valor não se alterou;</li>
+<li>linhas 14-21: repetimos o mesmo procedimento, mas interceptando uma exceção de nível superior do tipo <em>BaseException</em>. Como a exceção <em>ZeroDivisionError</em> deriva da classe <em>BaseException</em>, a cláusula <em>except</em> irá interrompê-la;</li>
+<li>linhas 23-36: inserem-se várias cláusulas <em>except</em> para gerir vários tipos de exceção. Será executada apenas uma cláusula <em>except</em> ou nenhuma, caso a exceção não corresponda a nenhuma cláusula <em>«except»;</em></li>
+<li>linhas 38-50: repete-se o mesmo procedimento, alterando a ordem das cláusulas <strong>[except]</strong> para demonstrar a função destas;</li>
+<li>linhas 52-58: a cláusula <em>except</em> pode não ter nenhum argumento. Nesse caso, interrompe todas as exceções;</li>
+<li>linhas 60-67: introduzem a exceção <em>ValueError;</em></li>
+<li>linhas 69-75: recuperam-se as informações transportadas pela exceção;</li>
+<li>linhas 77-83: apresentam a forma de lançar (raise) uma exceção;</li>
+<li>linhas 86-106: ilustram a utilização de uma classe de exceção proprietária <em>MyError</em>. A classe <em>MyError</em> limita-se a derivar da classe base <em>BaseException</em>. Não acrescenta nada à sua classe base. Mas agora pode ser nomeada explicitamente nas cláusulas <em>«except»;</em></li>
+<li>linhas 108-130: ilustram a utilização da cláusula <em>finally</em>;</li>
+<li>linhas 132-139: estas linhas mostram que a cláusula <strong>[except]</strong> não é obrigatória;</li>
+</ul>
+<p>Os resultados no ecrã são os seguintes:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-2-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-2-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-2-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-2-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-2-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-2-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-2-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-2-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-2-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-2-10">10</a></span>
+<span class="normal"><a href="#__codelineno-2-11">11</a></span>
+<span class="normal"><a href="#__codelineno-2-12">12</a></span>
+<span class="normal"><a href="#__codelineno-2-13">13</a></span>
+<span class="normal"><a href="#__codelineno-2-14">14</a></span>
+<span class="normal"><a href="#__codelineno-2-15">15</a></span>
+<span class="normal"><a href="#__codelineno-2-16">16</a></span>
+<span class="normal"><a href="#__codelineno-2-17">17</a></span>
+<span class="normal"><a href="#__codelineno-2-18">18</a></span>
+<span class="normal"><a href="#__codelineno-2-19">19</a></span>
+<span class="normal"><a href="#__codelineno-2-20">20</a></span>
+<span class="normal"><a href="#__codelineno-2-21">21</a></span>
+<span class="normal"><a href="#__codelineno-2-22">22</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1"></a>C:\Data\st-2020\dev\python\cours-2020\python3-flask-2020\venv\Scripts\python.exe C:/Data/st-2020/dev/python/cours-2020/python3-flask-2020/exceptions/exceptions_02.py
+<a id="__codelineno-2-2" name="__codelineno-2-2"></a>Traceback (most recent call last):
+<a id="__codelineno-2-3" name="__codelineno-2-3"></a>  File &quot;C:/Data/st-2020/dev/python/cours-2020/python3-flask-2020/exceptions/exceptions_02.py&quot;, line 136, in &lt;module&gt;
+<a id="__codelineno-2-4" name="__codelineno-2-4"></a>    x = 4 / 0
+<a id="__codelineno-2-5" name="__codelineno-2-5"></a>ZeroDivisionError: division by zero
+<a id="__codelineno-2-6" name="__codelineno-2-6"></a>essai n° 0 : division by zero
+<a id="__codelineno-2-7" name="__codelineno-2-7"></a>x=2
+<a id="__codelineno-2-8" name="__codelineno-2-8"></a>essai n° 1 : division by zero
+<a id="__codelineno-2-9" name="__codelineno-2-9"></a>essai n° 2 : (Exception) division by zero
+<a id="__codelineno-2-10" name="__codelineno-2-10"></a>essai n° 3 : (ZeroDivisionError) division by zero
+<a id="__codelineno-2-11" name="__codelineno-2-11"></a>essai n° 4 : il y a eu un problème
+<a id="__codelineno-2-12" name="__codelineno-2-12"></a>essai n° 5 : invalid literal for int() with base 10: &#39;x&#39;
+<a id="__codelineno-2-13" name="__codelineno-2-13"></a>essai n° 6 : invalid literal for int() with base 10: &#39;x&#39;, paramètres=(&quot;invalid literal for int() with base 10: &#39;x&#39;&quot;,)
+<a id="__codelineno-2-14" name="__codelineno-2-14"></a>essai n° 7 : (&#39;param1&#39;, &#39;param2&#39;, &#39;param3&#39;), paramètres=(&#39;param1&#39;, &#39;param2&#39;, &#39;param3&#39;)
+<a id="__codelineno-2-15" name="__codelineno-2-15"></a>essai n° 8 : (&#39;info1&#39;, &#39;info2&#39;, &#39;info3&#39;), paramètres=(&#39;info1&#39;, &#39;info2&#39;, &#39;info3&#39;)
+<a id="__codelineno-2-16" name="__codelineno-2-16"></a>essai n° 9 : mon msg d&#39;erreur
+<a id="__codelineno-2-17" name="__codelineno-2-17"></a>essai n° 10 : finally x=1
+<a id="__codelineno-2-18" name="__codelineno-2-18"></a>essai n° 11 : exception
+<a id="__codelineno-2-19" name="__codelineno-2-19"></a>essai n° 11 : finally x=None
+<a id="__codelineno-2-20" name="__codelineno-2-20"></a>essai n° 12 : finally x=None
+<a id="__codelineno-2-21" name="__codelineno-2-21"></a>
+<a id="__codelineno-2-22" name="__codelineno-2-22"></a>Process finished with exit code 1
+</code></pre></div></td></tr></table></div>
+<p><span id="toc48548942" name="toc48548942" class="odt-bookmark-anchor"></span>
+<span id="refheadingtoc2520992924280206" name="refheadingtoc2520992924280206" class="odt-bookmark-anchor"></span></p>
+<h2 id="53-script-exceptions_03">5.3. <span style="color: #4f81bd"><strong>script</strong> [exceptions_03]</span></h2>
+<p>Este novo script ilustra a propagação das exceções na cadeia de funções chamadoras:</p>
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
+<span class="odt-code-line"><span class="odt-code-line-content"># uma exceção proprietária</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">class</span><span style="color:#000000"> </span><span style="color:#2b91af">MyError</span><span style="color:#000000">(</span><span style="color:#2b91af">BaseException</span><span style="color:#000000">):</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="color:#0000ff">pass</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"># três funções</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">def</span><span style="color:#000000"> f1(</span><span style="color:#808080">x</span><span style="color:#000000">: </span><span style="color:#2b91af">int</span><span style="color:#000000">) -&gt; </span><span style="color:#2b91af">int</span><span style="color:#000000">:</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#000000"># não se tratam as exceções — estas são propagadas automaticamente</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="color:#0000ff">return</span><span style="color:#000000"> f2(</span><span style="color:#808080">x</span><span style="color:#000000">)</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">def</span><span style="color:#000000"> f2(</span><span style="color:#808080">y</span><span style="color:#000000">: </span><span style="color:#2b91af">int</span><span style="color:#000000">) -&gt; </span><span style="color:#2b91af">int</span><span style="color:#000000">:</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#000000"># não se tratam as exceções — estas são propagadas automaticamente</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="color:#0000ff">return</span><span style="color:#000000"> f3(</span><span style="color:#808080">y</span><span style="color:#000000">)</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">def</span><span style="color:#000000"> f3(</span><span style="color:#808080">z</span><span style="color:#000000">: </span><span style="color:#2b91af">int</span><span style="color:#000000">) -&gt; </span><span style="color:#2b91af">int</span><span style="color:#000000">:</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="color:#0000ff">if</span><span style="color:#000000"> (</span><span style="color:#808080">z</span><span style="color:#000000"> % 2) == 0:</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#000000"># se z for par, lança-se uma exceção</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        </span><span style="color:#0000ff">raise</span><span style="color:#000000"> </span><span style="color:#2b91af">MyError</span><span style="color:#000000">(</span><span style="color:#a31515">&quot;exception dans f3&quot;</span><span style="color:#000000">)</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="color:#0000ff">else</span><span style="color:#000000">:</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        </span><span style="color:#0000ff">return</span><span style="color:#000000"> 2 * </span><span style="color:#808080">z</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"># ---------- main</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"># as exceções são propagadas pela cadeia de métodos chamados</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"># até que um método as intercepte. Neste caso, será o método «main»</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">try</span><span style="color:#000000">:</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    print(f1(4))</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">except</span><span style="color:#000000"> </span><span style="color:#2b91af">MyError</span><span style="color:#000000"> </span><span style="color:#0000ff">as</span><span style="color:#000000"> erreur:</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    print(</span><span style="color:#a31515">f&quot;type : {type(erreur)}, arguments : {erreur.args}&quot;</span><span style="color:#000000">)</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"># três outras funções que enriquecem as exceções que ela reenvia</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">def</span><span style="color:#000000"> f4(</span><span style="color:#808080">x</span><span style="color:#000000">: </span><span style="color:#2b91af">int</span><span style="color:#000000">) -&gt; </span><span style="color:#2b91af">int</span><span style="color:#000000">:</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="color:#0000ff">try</span><span style="color:#000000">:</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        </span><span style="color:#0000ff">return</span><span style="color:#000000"> f5(</span><span style="color:#808080">x</span><span style="color:#000000">)</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="color:#0000ff">except</span><span style="color:#000000"> </span><span style="color:#2b91af">MyError</span><span style="color:#000000"> </span><span style="color:#0000ff">as</span><span style="color:#000000"> erreur:</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#000000"># a exceção é enriquecida e, em seguida, relançada</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        </span><span style="color:#0000ff">raise</span><span style="color:#000000"> </span><span style="color:#2b91af">MyError</span><span style="color:#000000">(</span><span style="color:#a31515">&quot;exception dans f4&quot;</span><span style="color:#000000">, erreur)</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">def</span><span style="color:#000000"> f5(</span><span style="color:#808080">y</span><span style="color:#000000">: </span><span style="color:#2b91af">int</span><span style="color:#000000">) -&gt; </span><span style="color:#2b91af">int</span><span style="color:#000000">:</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="color:#0000ff">try</span><span style="color:#000000">:</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        </span><span style="color:#0000ff">return</span><span style="color:#000000"> f6(</span><span style="color:#808080">y</span><span style="color:#000000">)</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="color:#0000ff">except</span><span style="color:#000000"> </span><span style="color:#2b91af">MyError</span><span style="color:#000000"> </span><span style="color:#0000ff">as</span><span style="color:#000000"> erreur:</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#000000"># enriquecemos a exceção e, em seguida, relançamo-la</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        </span><span style="color:#0000ff">raise</span><span style="color:#000000"> </span><span style="color:#2b91af">MyError</span><span style="color:#000000">(</span><span style="color:#a31515">&quot;exception dans f5&quot;</span><span style="color:#000000">, erreur)</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">def</span><span style="color:#000000"> f6(</span><span style="color:#808080">z</span><span style="color:#000000">: </span><span style="color:#2b91af">int</span><span style="color:#000000">) -&gt; </span><span style="color:#2b91af">int</span><span style="color:#000000">:</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="color:#0000ff">if</span><span style="color:#000000"> (</span><span style="color:#808080">z</span><span style="color:#000000"> % 2) == 0:</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#000000"># lança-se uma exceção se z for par</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        </span><span style="color:#0000ff">raise</span><span style="color:#000000"> </span><span style="color:#2b91af">MyError</span><span style="color:#000000">(</span><span style="color:#a31515">&quot;exception dans f6&quot;</span><span style="color:#000000">)</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="color:#0000ff">else</span><span style="color:#000000">:</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        </span><span style="color:#0000ff">return</span><span style="color:#000000"> 2 * </span><span style="color:#808080">z</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"># ---------- main</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">try</span><span style="color:#000000">:</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    print(f4(4))</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">except</span><span style="color:#000000"> </span><span style="color:#2b91af">MyError</span><span style="color:#000000"> </span><span style="color:#0000ff">as</span><span style="color:#000000"> erreur:</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#000000"># exibição da exceção</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    print(</span><span style="color:#a31515">f&quot;type : {type(erreur)}, arguments : {erreur.args}&quot;</span><span style="color:#000000">)</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#000000"># é possível percorrer a pilha de exceções</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    err = erreur</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#000000"># exibe-se a mensagem de erro</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    print(err.args</span><span style="font-weight:bold;color:#000000">[0]</span><span style="color:#000000">)</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#000000"># uma exceção está encapsulada?</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="color:#0000ff">while</span><span style="color:#000000"> len(err.args) == 2 </span><span style="color:#0000ff">and</span><span style="color:#000000"> isinstance(err.args</span><span style="font-weight:bold;color:#000000">[1]</span><span style="color:#000000">, </span><span style="color:#2b91af">BaseException</span><span style="color:#000000">):</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#000000"># alteração da exceção</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        err = err.args</span><span style="font-weight:bold;color:#000000">[1]</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#000000"># o primeiro argumento é a mensagem de erro</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        print(err.args</span><span style="font-weight:bold;color:#000000">[0]</span><span style="color:#000000">)</span></span></span>
+</code></pre></div>
+
+<p><strong>Notas</strong>:</p>
+<ul>
+<li>nas linhas 25-32, na chamada <em>main --&gt; f1 --&gt; f2 --&gt; f3</em> (linha 30), a exceção <em>MyError</em> lançada por <em>f3</em> será propagada até <em>main</em>. Será então tratada pela cláusula <em>except</em> da linha 31;</li>
+<li>linhas 61-75: na chamada <em>main --&gt; f4 --&gt; f5 --&gt; f6</em> (linha 62), a exceção lançada <em>MyError</em> pela função <em>f6</em> irá propagar-se até à <em>função main</em>. Será então tratada pela cláusula <em>except</em> da linha 63. Desta vez, ao subir pela cadeia de funções chamadoras, a exceção <em>MyError</em> que sobe está, por sua vez, encapsulada noutra exceção;</li>
+<li>linhas 66-75: mostram como subir na pilha de exceções;</li>
+<li>linha 71: a função <strong>[isinstance(instance, Classe)]</strong> retorna True se o objeto <strong>[instance]</strong> for do tipo <strong>[Classe]</strong> ou derivado. Aqui, utilizámos a exceção de nível mais elevado <strong>[BaseException]</strong>, o que nos garante a recuperação de todas as exceções;</li>
+</ul>
+<p>Os resultados no ecrã são os seguintes:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-3-1">1</a></span>
+<span class="normal"><a href="#__codelineno-3-2">2</a></span>
+<span class="normal"><a href="#__codelineno-3-3">3</a></span>
+<span class="normal"><a href="#__codelineno-3-4">4</a></span>
+<span class="normal"><a href="#__codelineno-3-5">5</a></span>
+<span class="normal"><a href="#__codelineno-3-6">6</a></span>
+<span class="normal"><a href="#__codelineno-3-7">7</a></span>
+<span class="normal"><a href="#__codelineno-3-8">8</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1"></a>C:\Data\st-2020\dev\python\cours-2020\python3-flask-2020\venv\Scripts\python.exe C:/Data/st-2020/dev/python/cours-2020/python3-flask-2020/exceptions/exceptions_03.py
+<a id="__codelineno-3-2" name="__codelineno-3-2"></a>type : &lt;class &#39;<span class="gs">__main__</span>.MyError&#39;&gt;, arguments : (&#39;exception dans f3&#39;,)
+<a id="__codelineno-3-3" name="__codelineno-3-3"></a>type : &lt;class &#39;<span class="gs">__main__</span>.MyError&#39;&gt;, arguments : (&#39;exception dans f4&#39;, MyError(&#39;exception dans f5&#39;, MyError(&#39;exception dans f6&#39;)))
+<a id="__codelineno-3-4" name="__codelineno-3-4"></a>exception dans f4
+<a id="__codelineno-3-5" name="__codelineno-3-5"></a>exception dans f5
+<a id="__codelineno-3-6" name="__codelineno-3-6"></a>exception dans f6
+<a id="__codelineno-3-7" name="__codelineno-3-7"></a>
+<a id="__codelineno-3-8" name="__codelineno-3-8"></a>Process finished with exit code 0
+</code></pre></div></td></tr></table></div>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner">
+
+      <div>
+        <a href="https://stahe.github.io" target="_blank">
+          https://stahe.github.io
+        </a>
+        <br>
+        Este tutorial, escrito por <strong>Serge Tahé</strong>, é disponibilizado ao público sob os termos da
+<em>Creative Commons Atribuição – Não comercial –
+Partilha igual 3.0 Unported</em>.
+      </div>
+
+    </div>
+  </div>
+
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": ".", "features": ["navigation.sections", "navigation.indexes", "navigation.expand", "toc.integrate", "navigation.top"], "search": "assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="assets/javascripts/bundle.e71a0d61.min.js"></script>
+      
+        <script src="javascripts/focus.js"></script>
+      
+    
+  </body>
+</html>

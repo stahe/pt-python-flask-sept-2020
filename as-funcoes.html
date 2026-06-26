@@ -1,0 +1,2276 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Introdução ao Python 3 e ao framework web Flask através de exemplos">
+      
+      
+        <meta name="author" content="Serge Tahé">
+      
+      
+        <link rel="canonical" href="https://stahe.github.io/pt-python-flask-sept-2020/as-funcoes.html">
+      
+      
+        <link rel="prev" href="as-excecoes.html">
+      
+      
+        <link rel="next" href="os-ficheiros-de-texto.html">
+      
+      
+        
+      
+      
+      <link rel="icon" href="assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.0">
+    
+    
+      
+        <title>6. As funções - Introdução ao Python 3 e ao framework web Flask através de exemplos</title>
+      
+    
+    
+      <link rel="stylesheet" href="assets/stylesheets/main.618322db.min.css">
+      
+        
+        <link rel="stylesheet" href="assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="stylesheets/focus.css">
+    
+      <link rel="stylesheet" href="stylesheets/bidi.css">
+    
+    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-EBZC3JVJNR"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    var siteName = "Introdução ao Python 3 e ao framework web Flask através de exemplos";
+    gtag('config', 'G-EBZC3JVJNR', {
+        'page_title': siteName
+    });
+  </script>
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="purple">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#6-as-funcoes" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="index.html" title="Introdução ao Python 3 e ao framework web Flask através de exemplos" class="md-header__button md-logo" aria-label="Introdução ao Python 3 e ao framework web Flask através de exemplos" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Introdução ao Python 3 e ao framework web Flask através de exemplos
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              6. As funções
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="purple"  aria-label="Mudar para modo escuro"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Mudar para modo escuro" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="purple"  aria-label="Mudar para modo claro"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Mudar para modo claro" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://stahe.github.io/pt-python-flask-sept-2020" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="index.html" title="Introdução ao Python 3 e ao framework web Flask através de exemplos" class="md-nav__button md-logo" aria-label="Introdução ao Python 3 e ao framework web Flask através de exemplos" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Introdução ao Python 3 e ao framework web Flask através de exemplos
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://stahe.github.io/pt-python-flask-sept-2020" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Bem-vindos
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="prefacio.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. Prefácio
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="instalacao-de-um-ambiente-de-trabalho.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. Instalação de um ambiente de trabalho
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="nocoes-basicas-de-python.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. Noções básicas de Python
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="as-cadeias-de-caracteres.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. As cadeias de caracteres
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="as-excecoes.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. As exceções
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6. As funções
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="as-funcoes.html" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6. As funções
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#61-script-fonc_01-ambito-das-variaveis" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.1. Script [fonc_01]: âmbito das variáveis
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#62-script-fonc_02-ambito-das-variaveis" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.2. Script [fonc_02]: âmbito das variáveis
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#63-script-fonc_03-ambito-das-variaveis" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.3. Script [fonc_03]: âmbito das variáveis
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#64-script-fonc_04-modo-de-passagem-de-parametros" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.4. Script [fonc_04]: modo de passagem de parâmetros
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#65-script-fonc_05-ordem-de-escrita-das-funcoes-num-script" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.5. Script [fonc_05]: ordem de escrita das funções num script
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#66-script-fonc_06-ordem-de-escrita-das-funcoes-num-script" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.6. Script [fonc_06]: ordem de escrita das funções num script
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#67-script-fonc_07-utilizacao-de-modulos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.7. Script [fonc_07]: utilização de módulos
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#68-script-fonc_08-adicionar-pastas-ao-python-path" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.8. Script [fonc_08]: adicionar pastas ao [Python Path]
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#69-script-fonc_09-declaracao-do-tipo-dos-parametros" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.9. Script [fonc_09]: declaração do tipo dos parâmetros
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#610-script-fonc_10-parametros-nomeados" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.10. Script [fonc_10]: parâmetros nomeados
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#611-script-fonc_11-funcao-recursiva" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.11. Script [fonc_11]: função recursiva
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#612-script-fonc_12-funcao-recursiva" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.12. Script [fonc_12]: função recursiva
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="os-ficheiros-de-texto.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    7. Os ficheiros de texto
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="exercicio-pratico---versao-1.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    8. Exercício prático – versão 1
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="as-importacoes.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    9. As importações
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="exercicio-pratico-versao-2.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    10. Exercício prático: versão 2
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="exercicio-pratico-versao-3.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    11. Exercício prático: versão 3
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="as-classes-e-os-objetos.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    12. As classes e os objetos
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="as-classes-genericas-baseentity-e-myexception.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    13. As classes genéricas [BaseEntity] e [MyException]
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="arquitetura-em-camadas-e-programacao-por-interfaces.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    14. Arquitetura em camadas e programação por interfaces
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="exercicio-pratico---versao-4.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    15. Exercício prático - versão 4
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="utilizacao-do-sgbd-mysql.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    16. Utilização do SGBD MySQL
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="utilizacao-do-sgbd-postgresql.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    17. Utilização do SGBD PostgreSQL
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="escrever-codigo-independente-do-sgbd.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    18. Escrever código independente do SGBD
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="utilizacao-do-orm-sqlalchemy.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    19. Utilização do ORM SQLALCHEMY
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="exercicio-pratico-versao-5.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    20. Exercício prático: versão 5
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="funcoes-de-internet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    21. Funções de Internet
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="servicos-web-com-o-framework-flask.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    22. Serviços web com o framework Flask
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="exercicio-pratico-versao-6.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    23. Exercício prático: versão 6
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="exercicio-pratico-versao-7.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    24. Exercício prático: versão 7
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="-exercicio-pratico-versao-8.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    25.  Exercício prático: versão 8
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="do-dicionario-para-xml-e-vice-versa.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    26. Do dicionário para XML e vice-versa
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="exercicio-pratico-versao-9.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    27. Exercício prático: versão 9
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="exercicio-pratico-versao-10.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    28. Exercício prático: versão 10
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="exercicio-pratico-versao-11.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    29. Exercício prático: versão 11
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="exercicio-pratico-versao-12.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    30. Exercício prático: versão 12
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="clientes-web-para-os-servicos-json-e-xml-da-versao-12.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    31. Clientes web para os serviços jSON e XML da versão 12
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="o-modo-html-da-versao-12.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    32. O modo HTML da versão 12
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="exercicio-pratico-versao-13.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    33. Exercício prático: versão 13
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="exercicio-pratico-versao-14.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    34. Exercício prático: versão 14
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="exercicio-pratico-versao-15.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    35. Exercício prático: versão 15
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="exercicio-pratico-versao-16.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    36. Exercício prático: versão 16
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="exercicio-pratico-versao-17.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    37. Exercício prático: versão 17
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="exercicio-pratico-versao-18-.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    38. Exercício prático: versão 18 
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="conclusao.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    39. Conclusão
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<p><span id="toc48548943" name="toc48548943" class="odt-bookmark-anchor"></span>
+<span id="lesfonctions" name="lesfonctions" class="odt-bookmark-anchor"></span>
+<span id="refheadingtoc2521012924280206" name="refheadingtoc2521012924280206" class="odt-bookmark-anchor"></span></p>
+<h1 id="6-as-funcoes">6. <span style="color: #365f91">As funções</span></h1>
+<p><img src="images/10000001000001D000000225461F936F.png" width="163" height="193" style="width:4.309cm;height:5.099cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000001000001D000000225461F936F.png" /></p>
+<p><span id="toc48548944" name="toc48548944" class="odt-bookmark-anchor"></span>
+<span id="refheadingtoc2521032924280206" name="refheadingtoc2521032924280206" class="odt-bookmark-anchor"></span></p>
+<h2 id="61-script-fonc_01-ambito-das-variaveis">6.1. <span style="color: #4f81bd"><strong>Script</strong> [fonc_01]<strong>: âmbito das variáveis</strong></span></h2>
+<p>O script <strong>[fonc_01]</strong> apresenta exemplos do âmbito das variáveis entre funções:</p>
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
+<span class="odt-code-line"><span class="odt-code-line-content"># âmbito das variáveis</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">def</span><span style="color:#000000"> f1():</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#000000"># deve evitar-se a utilização de variáveis globais</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#000000"># variável global i</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="color:#0000ff">global</span><span style="color:#000000"> i</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    i += 1</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#000000"># variável local j</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    j = 10</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    print(</span><span style="color:#a31515">f&quot;f1</span><span style="font-weight:bold;color:#a31515">[i,j]</span><span style="color:#a31515">=</span><span style="font-weight:bold;color:#a31515">[{i},{j}]</span><span style="color:#a31515">&quot;</span><span style="color:#000000">)</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">def</span><span style="color:#000000"> f2():</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#000000"># deve evitar-se a utilização de variáveis globais</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#000000"># variável global i</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="color:#0000ff">global</span><span style="color:#000000"> i</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    i += 1</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#000000"># variável local j</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    j = 20</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    print(</span><span style="color:#a31515">f&quot;f2</span><span style="font-weight:bold;color:#a31515">[i,j]</span><span style="color:#a31515">=</span><span style="font-weight:bold;color:#a31515">[{i},{j}]</span><span style="color:#a31515">&quot;</span><span style="color:#000000">)</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">def</span><span style="color:#000000"> f3():</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#000000"># variável local i</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    i = 1</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#000000"># variável local j</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    j = 30</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    print(</span><span style="color:#a31515">f&quot;f3</span><span style="font-weight:bold;color:#a31515">[i,j]</span><span style="color:#a31515">=</span><span style="font-weight:bold;color:#a31515">[{i},{j}]</span><span style="color:#a31515">&quot;</span><span style="color:#000000">)</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"># programa principal</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">i = 0</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">j = 0</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"># estas duas variáveis só serão conhecidas por uma função f</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"># a menos que esta declare explicitamente, através da instrução «global», que pretende utilizá-las</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"># ou que a função utilize a variável global apenas em modo de leitura</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">f1()</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">f2()</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">f3()</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"># j não mudou, mas i mudou</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">print(</span><span style="color:#a31515">f&quot;</span><span style="font-weight:bold;color:#a31515">[i,j]</span><span style="color:#a31515">=</span><span style="font-weight:bold;color:#a31515">[{i},{j}]</span><span style="color:#a31515">&quot;</span><span style="color:#000000">)</span></span></span>
+</code></pre></div>
+
+<p><strong>Resultados</strong></p>
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-text">
+<span class="odt-code-line"><span class="odt-code-line-content">C:\Data\st-2020\dev\python\cours-2020\python3-flask-2020\venv\Scripts\python.exe C:/Data/st-2020/dev/python/cours-2020/python3-flask-2020/fonctions/fonc_01.py</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">f1<span style="font-weight:bold">[i,j]</span>=<span style="font-weight:bold">[1,10]</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">f2<span style="font-weight:bold">[i,j]</span>=<span style="font-weight:bold">[2,20]</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">f3<span style="font-weight:bold">[i,j]</span>=<span style="font-weight:bold">[1,30]</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="font-weight:bold">[i,j]</span>=<span style="font-weight:bold">[2,0]</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">Process finished with exit code 0</span></span>
+</code></pre></div>
+
+<p><strong>Notas</strong>:</p>
+<ul>
+<li>o script mostra a utilização da variável i, declarada como global nas funções f1 e f2. Neste caso, o programa principal e as funções f1 e f2 partilham a mesma variável i.</li>
+</ul>
+<p><span id="toc48548945" name="toc48548945" class="odt-bookmark-anchor"></span>
+<span id="refheadingtoc2521052924280206" name="refheadingtoc2521052924280206" class="odt-bookmark-anchor"></span></p>
+<h2 id="62-script-fonc_02-ambito-das-variaveis">6.2. <span style="color: #4f81bd"><strong>Script</strong> [fonc_02]<strong>: âmbito das variáveis</strong></span></h2>
+<p>O script <strong>[fonc_03]</strong> retoma o script <strong>[fonc_02]</strong> e mostra como evitar a utilização de variáveis globais:</p>
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
+<span class="odt-code-line"><span class="odt-code-line-content"># âmbito das variáveis</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">def</span><span style="color:#000000"> f1(</span><span style="color:#808080">i</span><span style="color:#000000">):</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#000000"># variável local i</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="color:#808080">i</span><span style="color:#000000"> += 1</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#000000"># variável local j</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    j = 10</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    print(</span><span style="color:#a31515">f&quot;f1</span><span style="font-weight:bold;color:#a31515">[i,j]</span><span style="color:#a31515">=</span><span style="font-weight:bold;color:#a31515">[{i},{j}]</span><span style="color:#a31515">&quot;</span><span style="color:#000000">)</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#000000"># atribuímos o valor alterado</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="color:#0000ff">return</span><span style="color:#000000"> </span><span style="color:#808080">i</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">def</span><span style="color:#000000"> f2(</span><span style="color:#808080">i</span><span style="color:#000000">):</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#000000"># variável local i</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="color:#808080">i</span><span style="color:#000000"> += 1</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#000000"># variável local j</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    j = 20</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    print(</span><span style="color:#a31515">f&quot;f2</span><span style="font-weight:bold;color:#a31515">[i,j]</span><span style="color:#a31515">=</span><span style="font-weight:bold;color:#a31515">[{i},{j}]</span><span style="color:#a31515">&quot;</span><span style="color:#000000">)</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#000000"># retorna o valor alterado</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="color:#0000ff">return</span><span style="color:#000000"> </span><span style="color:#808080">i</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">def</span><span style="color:#000000"> f3():</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#000000"># variável local i</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    i = 1</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#000000"># variável local j</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    j = 30</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    print(</span><span style="color:#a31515">f&quot;f3</span><span style="font-weight:bold;color:#a31515">[i,j]</span><span style="color:#a31515">=</span><span style="font-weight:bold;color:#a31515">[{i},{j}]</span><span style="color:#a31515">&quot;</span><span style="color:#000000">)</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"># programa principal</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">i = 0</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">j = 0</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"># estas duas variáveis só serão conhecidas por uma função f</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"># a menos que esta declare explicitamente, através da instrução «global», que pretende utilizá-las</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"># ou se a função utilizar a variável global apenas em modo de leitura</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">i = f1(i)</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">i = f2(i)</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">f3()</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"># j não mudou, mas i mudou</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">print(</span><span style="color:#a31515">f&quot;</span><span style="font-weight:bold;color:#a31515">[i,j]</span><span style="color:#a31515">=</span><span style="font-weight:bold;color:#a31515">[{i},{j}]</span><span style="color:#a31515">&quot;</span><span style="color:#000000">)</span></span></span>
+</code></pre></div>
+
+<p><strong>Comentários</strong>:</p>
+<ul>
+<li>linhas 2, 12: em vez de ser declarada como global, a variável <strong>[i]</strong> é passada como parâmetro às funções f1 e f2;</li>
+<li>linhas 9, 19: as funções f1 e f2 devolvem a variável <strong>[i]</strong> alterada ao programa principal. Este recupera-a nas linhas 36 e 37;</li>
+</ul>
+<p><strong>Resultados</strong></p>
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-text">
+<span class="odt-code-line"><span class="odt-code-line-content">C:\Data\st-2020\dev\python\cours-2020\python3-flask-2020\venv\Scripts\python.exe C:/Data/st-2020/dev/python/cours-2020/python3-flask-2020/fonctions/fonc_02.py</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">f1<span style="font-weight:bold">[i,j]</span>=<span style="font-weight:bold">[1,10]</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">f2<span style="font-weight:bold">[i,j]</span>=<span style="font-weight:bold">[2,20]</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">f3<span style="font-weight:bold">[i,j]</span>=<span style="font-weight:bold">[1,30]</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="font-weight:bold">[i,j]</span>=<span style="font-weight:bold">[2,0]</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">Process finished with exit code 0</span></span>
+</code></pre></div>
+
+<p><span id="toc48548946" name="toc48548946" class="odt-bookmark-anchor"></span>
+<span id="refheadingtoc2521072924280206" name="refheadingtoc2521072924280206" class="odt-bookmark-anchor"></span></p>
+<h2 id="63-script-fonc_03-ambito-das-variaveis">6.3. <span style="color: #4f81bd"><strong>Script</strong> [fonc_03]<strong>: âmbito das variáveis</strong></span></h2>
+<p>O script <strong>[fonc_03]</strong> ilustra uma particularidade das variáveis utilizadas tanto numa função como no código que a chama, dependendo se, na função, essa variável é utilizada apenas em modo de <strong>leitura</strong> ou não.</p>
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">def</span> f1():</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    # aqui, a variável global i é conhecida</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    print(<span style="color:#a31515">f&quot;</span><span style="font-weight:bold;color:#a31515">[f1]</span><span style="color:#a31515"> i={i}&quot;</span>)</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    # aqui, a variável global j é conhecida</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    print(<span style="color:#a31515">f&quot;</span><span style="font-weight:bold;color:#a31515">[f1]</span><span style="color:#a31515"> j={j}&quot;</span>)</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">def</span> f2():</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    # aqui, a variável global i não é conhecida</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    # porque a função f2 define uma variável local com o mesmo nome</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    # é então esta que tem prioridade</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#0000ff">try</span>:</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        # tentativa de exibir a variável local i definida mais adiante</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        print(<span style="color:#a31515">f&quot;</span><span style="font-weight:bold;color:#a31515">[f2]</span><span style="color:#a31515"> i={i}&quot;</span>)</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        # a instrução seguinte torna i uma variável local da função f2</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        i = 7</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#0000ff">except</span> <span style="color:#2b91af">BaseException</span> <span style="color:#0000ff">as</span> erreur:</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        print(<span style="color:#a31515">f&quot;</span><span style="font-weight:bold;color:#a31515">[f2]</span><span style="color:#a31515"> erreur={erreur}&quot;</span>)</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">def</span> f3():</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    # aqui, a variável global i não é reconhecida</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    # uma vez que a função f3 define uma variável local com o mesmo nome</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    # é, portanto, esta que tem prioridade</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    # a instrução seguinte define i como uma variável local</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    i = 7</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    # exibição — aqui, i é conhecida</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    print(<span style="color:#a31515">f&quot;</span><span style="font-weight:bold;color:#a31515">[f3]</span><span style="color:#a31515"> i={i}&quot;</span>)</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"># main -----------</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"># variáveis globais das funções</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">i = 10</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">j = 20</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"># chamada à função f1</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">f1()</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">print(<span style="color:#a31515">f&quot;</span><span style="font-weight:bold;color:#a31515">[main]</span><span style="color:#a31515"> i={i}, j={j}&quot;</span>)</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"># chamada à f2</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">f2()</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">print(<span style="color:#a31515">f&quot;</span><span style="font-weight:bold;color:#a31515">[main]</span><span style="color:#a31515"> i={i}&quot;</span>)</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"># chamada à função f3</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">f3()</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">print(<span style="color:#a31515">f&quot;</span><span style="font-weight:bold;color:#a31515">[main]</span><span style="color:#a31515"> i={i}&quot;</span>)</span></span>
+</code></pre></div>
+
+<p><strong>Notas</strong></p>
+<ul>
+<li>linha 34: o código principal define uma variável <strong>[i]</strong>;</li>
+<li>linhas 1-5: a função f1 também utiliza uma variável <strong>[i]</strong> sem lhe atribuir um valor. Trata-se de uma <strong>leitura</strong> da variável <strong>[i]</strong>. Neste caso, a variável <strong>[i]</strong> utilizada é a do código chamador, linha 34;</li>
+<li>linhas 8-18: a função f2 também utiliza uma variável <strong>[i],</strong> mas atribui-lhe um valor na linha 16. O facto de atribuir um valor à variável <strong>[i]</strong> em f2 torna automaticamente a variável <strong>[i]</strong> numa variável local da função <strong>[f2]</strong>. Esta, por sua vez, «oculta» a variável <strong>[i]</strong> do código chamador;</li>
+<li>linha 14: a operação de gravação da variável local <strong>[i]</strong> irá falhar, uma vez que esta não tem valor quando se chega à linha 14. Ela obtém o seu valor na linha 16.  Irá ocorrer uma exceção. Por este motivo, inserimos a linha 14 num try/catch;</li>
+<li>linhas 21-29: a função f3 faz o mesmo que a função f2, mas define mais cedo a sua variável local <strong>[i]</strong>;</li>
+</ul>
+<p><strong>Resultados</strong></p>
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-text">
+<span class="odt-code-line"><span class="odt-code-line-content">C:\Data\st-2020\dev\python\cours-2020\python3-flask-2020\venv\Scripts\python.exe C:/Data/st-2020/dev/python/cours-2020/python3-flask-2020/fonctions/fonc_03.py</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="font-weight:bold">[f1]</span> i=10</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="font-weight:bold">[f1]</span> j=20</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="font-weight:bold">[main]</span> i=10, j=20</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="font-weight:bold">[f2]</span> erreur=local variable &#x27;i&#x27; referenced before assignment</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="font-weight:bold">[main]</span> i=10</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="font-weight:bold">[f3]</span> i=7</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="font-weight:bold">[main]</span> i=10</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">Process finished with exit code 0</span></span>
+</code></pre></div>
+
+<p><span id="toc48548947" name="toc48548947" class="odt-bookmark-anchor"></span>
+<span id="refheading382622423505" name="refheading382622423505" class="odt-bookmark-anchor"></span></p>
+<h2 id="64-script-fonc_04-modo-de-passagem-de-parametros">6.4. <span style="color: #4f81bd"><strong>Script</strong> [fonc_04]<strong>: modo de passagem de parâmetros</strong></span></h2>
+<p>O script é o seguinte:</p>
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
+<span class="odt-code-line"><span class="odt-code-line-content"># função f1</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">def</span><span style="color:#000000"> f1(</span><span style="color:#808080">a</span><span style="color:#000000">):</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="color:#808080">a</span><span style="color:#000000"> = 2</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"># função f2</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">def</span><span style="color:#000000"> f2(</span><span style="color:#808080">a</span><span style="color:#000000">, </span><span style="color:#808080">b</span><span style="color:#000000">):</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="color:#808080">a</span><span style="color:#000000"> = 2</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="color:#808080">b</span><span style="color:#000000"> = 3</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="color:#0000ff">return</span><span style="color:#000000"> </span><span style="color:#808080">a</span><span style="color:#000000">, </span><span style="color:#808080">b</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"># ------------------------ main</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">x = 1</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">f1(x)</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">print(</span><span style="color:#a31515">f&quot;x={x}&quot;</span><span style="color:#000000">)</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">(x, y) = (-1, -1)</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">(x, y) = f2(x, y)</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">print(</span><span style="color:#a31515">f&quot;x={x}, y={y}&quot;</span><span style="color:#000000">)</span></span></span>
+</code></pre></div>
+
+<p><strong>Resultados</strong></p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1">1</a></span>
+<span class="normal"><a href="#__codelineno-0-2">2</a></span>
+<span class="normal"><a href="#__codelineno-0-3">3</a></span>
+<span class="normal"><a href="#__codelineno-0-4">4</a></span>
+<span class="normal"><a href="#__codelineno-0-5">5</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a>C:\Data\st-2020\dev\python\cours-2020\python3-flask-2020\venv\Scripts\python.exe C:/Data/st-2020/dev/python/cours-2020/python3-flask-2020/fonctions/fonc_04.py
+<a id="__codelineno-0-2" name="__codelineno-0-2"></a>x=1
+<a id="__codelineno-0-3" name="__codelineno-0-3"></a>x=2, y=3
+<a id="__codelineno-0-4" name="__codelineno-0-4"></a>
+<a id="__codelineno-0-5" name="__codelineno-0-5"></a>Process finished with exit code 0
+</code></pre></div></td></tr></table></div>
+<p><strong>Notas</strong>:</p>
+<ul>
+<li>tudo é um objeto em Python. Alguns objetos são ditos «imutáveis» (em inglês): não é possível alterá-los. É o caso dos números, das cadeias de caracteres e das tuplas. Quando os objetos Python são passados como parâmetros para funções, são as suas referências que são passadas, a menos que esses objetos sejam «imutáveis»; nesse caso, é o valor do objeto que é passado;</li>
+<li>as funções <em>f1</em> (linha 2) e <em>f2</em> (linha 7) pretendem ilustrar a passagem de um parâmetro de saída. Pretende-se que o parâmetro efetivo de uma função seja alterado pela função;</li>
+<li>linhas 2-3: a função <em>f1</em> altera o seu parâmetro formal a. Pretende-se saber se o parâmetro efetivo também será alterado;</li>
+<li>linhas 14-15: o parâmetro efetivo é <em>x=1</em>. A linha 2 dos resultados mostra que o parâmetro efetivo não é alterado. Assim, o parâmetro efetivo <strong>x</strong> e o parâmetro formal <strong>a</strong> são <strong>dois objetos diferentes;</strong></li>
+<li>linhas 8-10: a função <em>f2</em> altera os seus parâmetros formais <strong>a</strong> e <strong>b</strong> e devolve-os como resultados;</li>
+<li>linhas 17-18: passam-se para <em>a função f2</em> os parâmetros efetivos (x, y) e o resultado da função <em>f2</em> é atribuído a (x, y). A linha 3 dos resultados mostra que os parâmetros efetivos (x, y) foram alterados.</li>
+</ul>
+<p>Conclui-se que, quando objetos «imutáveis» são parâmetros de saída, estes têm de fazer parte dos resultados devolvidos pela função.</p>
+<p><span id="toc48548948" name="toc48548948" class="odt-bookmark-anchor"></span>
+<span id="refheadingtoc2521092924280206" name="refheadingtoc2521092924280206" class="odt-bookmark-anchor"></span></p>
+<h2 id="65-script-fonc_05-ordem-de-escrita-das-funcoes-num-script">6.5. <span style="color: #4f81bd"><strong>Script</strong> [fonc_05]<strong>: ordem de escrita das funções num script</strong></span></h2>
+<p>O script <strong>[fonc_05]</strong> mostra que não é possível chamar uma função se esta não tiver sido encontrada anteriormente no código:</p>
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
+<span class="odt-code-line"><span class="odt-code-line-content"># ------------------------ main</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">print(f2(100, 200))</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"># função f1</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">def</span><span style="color:#000000"> f1(</span><span style="color:#808080">a</span><span style="color:#000000">):</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="color:#0000ff">return</span><span style="color:#000000"> </span><span style="color:#808080">a</span><span style="color:#000000"> + 10</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"># função f2</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">def</span><span style="color:#000000"> f2(</span><span style="color:#808080">a</span><span style="color:#000000">, </span><span style="color:#808080">b</span><span style="color:#000000">):</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="color:#0000ff">return</span><span style="color:#000000"> f1(</span><span style="color:#808080">a</span><span style="color:#000000"> + </span><span style="color:#808080">b</span><span style="color:#000000">)</span></span></span>
+</code></pre></div>
+
+<p><strong>Notas</strong></p>
+<ul>
+<li>a linha 2 irá provocar um erro porque utiliza a função f2, que ainda não foi definida no script;</li>
+</ul>
+<p><strong>Resultados</strong></p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1">1</a></span>
+<span class="normal"><a href="#__codelineno-1-2">2</a></span>
+<span class="normal"><a href="#__codelineno-1-3">3</a></span>
+<span class="normal"><a href="#__codelineno-1-4">4</a></span>
+<span class="normal"><a href="#__codelineno-1-5">5</a></span>
+<span class="normal"><a href="#__codelineno-1-6">6</a></span>
+<span class="normal"><a href="#__codelineno-1-7">7</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="n">C</span><span class="p">:</span>\<span class="n">Data</span>\<span class="n">st</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">dev</span>\<span class="n">python</span>\<span class="n">cours</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">python3</span><span class="o">-</span><span class="n">flask</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">venv</span>\<span class="n">Scripts</span>\<span class="n">python</span><span class="o">.</span><span class="n">exe</span> <span class="n">C</span><span class="p">:</span><span class="o">/</span><span class="n">Data</span><span class="o">/</span><span class="n">st</span><span class="o">-</span><span class="mi">2020</span><span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">python</span><span class="o">/</span><span class="n">cours</span><span class="o">-</span><span class="mi">2020</span><span class="o">/</span><span class="n">python3</span><span class="o">-</span><span class="n">flask</span><span class="o">-</span><span class="mi">2020</span><span class="o">/</span><span class="n">fonctions</span><span class="o">/</span><span class="n">fonc_05</span><span class="o">.</span><span class="n">py</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2"></a><span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">):</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3"></a>  <span class="n">File</span> <span class="s2">&quot;C:/Data/st-2020/dev/python/cours-2020/python3-flask-2020/fonctions/fonc_05.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">2</span><span class="p">,</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4"></a>    <span class="nb">print</span><span class="p">(</span><span class="n">f2</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">200</span><span class="p">))</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5"></a><span class="ne">NameError</span><span class="p">:</span> <span class="n">name</span> <span class="s1">&#39;f2&#39;</span> <span class="ow">is</span> <span class="ow">not</span> <span class="n">defined</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6"></a>
+<a id="__codelineno-1-7" name="__codelineno-1-7"></a><span class="n">Process</span> <span class="n">finished</span> <span class="k">with</span> <span class="n">exit</span> <span class="n">code</span> <span class="mi">1</span>
+</code></pre></div></td></tr></table></div>
+<p><span id="toc48548949" name="toc48548949" class="odt-bookmark-anchor"></span>
+<span id="refheadingtoc2521112924280206" name="refheadingtoc2521112924280206" class="odt-bookmark-anchor"></span></p>
+<h2 id="66-script-fonc_06-ordem-de-escrita-das-funcoes-num-script">6.6. <span style="color: #4f81bd"><strong>Script</strong> [fonc_06]<strong>: ordem de escrita das funções num script</strong></span></h2>
+<p>O script <strong>[fonc_06]</strong> mostra que o que se aplica ao código chamador não se aplica às funções:</p>
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
+<span class="odt-code-line"><span class="odt-code-line-content"># função f2</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">def</span><span style="color:#000000"> f2(</span><span style="color:#808080">a</span><span style="color:#000000">, </span><span style="color:#808080">b</span><span style="color:#000000">):</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="color:#0000ff">return</span><span style="color:#000000"> f1(</span><span style="color:#808080">a</span><span style="color:#000000"> + </span><span style="color:#808080">b</span><span style="color:#000000">)</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"># função f1</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">def</span><span style="color:#000000"> f1(</span><span style="color:#808080">a</span><span style="color:#000000">):</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="color:#0000ff">return</span><span style="color:#000000"> </span><span style="color:#808080">a</span><span style="color:#000000"> + 10</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"># ------------------------ main</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">print(f2(100, 200))</span></span>
+</code></pre></div>
+
+<p><strong>Notas</strong></p>
+<ul>
+<li>linha 3: a função <strong>[f2]</strong> utiliza a função <strong>[f1]</strong> definida mais adiante no script. No entanto, isso não provoca qualquer erro. Pode-se, portanto, concluir que a ordem de definição das funções num script Python não tem importância;</li>
+</ul>
+<p><strong>Resultados</strong></p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-2-1">1</a></span>
+<span class="normal"><a href="#__codelineno-2-2">2</a></span>
+<span class="normal"><a href="#__codelineno-2-3">3</a></span>
+<span class="normal"><a href="#__codelineno-2-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1"></a>C:\Data\st-2020\dev\python\cours-2020\python3-flask-2020\venv\Scripts\python.exe C:/Data/st-2020/dev/python/cours-2020/python3-flask-2020/fonctions/fonc_06.py
+<a id="__codelineno-2-2" name="__codelineno-2-2"></a>310
+<a id="__codelineno-2-3" name="__codelineno-2-3"></a>
+<a id="__codelineno-2-4" name="__codelineno-2-4"></a>Process finished with exit code 0
+</code></pre></div></td></tr></table></div>
+<p><span id="toc48548950" name="toc48548950" class="odt-bookmark-anchor"></span>
+<span id="refheadingtoc2521132924280206" name="refheadingtoc2521132924280206" class="odt-bookmark-anchor"></span></p>
+<h2 id="67-script-fonc_07-utilizacao-de-modulos">6.7. <span style="color: #4f81bd"><strong>Script</strong> [fonc_07]<strong>: utilização de módulos</strong></span></h2>
+<p>O script <strong>[fonc_07]</strong> mostra como isolar as funções num módulo.</p>
+<p><img src="images/10000000000001A2000001E95C62738A.png" width="182" height="213" style="width:4.821cm;height:5.639cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000001A2000001E95C62738A.png" /></p>
+<p>Isolamos as funções reutilizáveis num módulo. Em vez de as transportar de um script para outro:</p>
+<ul>
+<li>colocamo-las num ficheiro separado que declaramos de uma forma específica;</li>
+<li>os scripts que necessitam dessas funções «importam» o módulo que as contém;</li>
+</ul>
+<p>O script <strong>[fonctions_module_01]</strong> é o seguinte:</p>
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
+<span class="odt-code-line"><span class="odt-code-line-content"># função f2</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">def</span><span style="color:#000000"> f2(a, b):</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="color:#0000ff">return</span><span style="color:#000000"> f1(a + b)</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"># função f1</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">def</span><span style="color:#000000"> f1(a):</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="color:#0000ff">return</span><span style="color:#000000"> a + </span><span style="color:#098658">10</span></span></span>
+</code></pre></div>
+
+<p>Para que as funções do script <strong>[fonctions_module_01]</strong> possam ser referenciadas por outros scripts, existem várias formas de o fazer. Estas diferem consoante o script seja ou não executado no interior do <strong>[PyCharm]</strong>.</p>
+<p>No <strong>[PyCharm],</strong> os módulos importados são procurados em pastas específicas denominadas <strong>[Sources Root]</strong>. Existem duas formas de transformar uma pasta num <strong>[Sources Root]</strong>:</p>
+<p><img src="images/10000000000004060000030AD1D7093D.png" width="621" height="469" style="width:16.431cm;height:12.411cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000004060000030AD1D7093D.png" /></p>
+<ul>
+<li>no <strong>[4]</strong>, a pasta mudou de cor;</li>
+</ul>
+<p>Após esta operação, a pasta <strong>[fonctions/modules]</strong> é reconhecida como uma pasta de origem. Pode-se então escrever num script:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">fonctions_module_01</span><span class="w"> </span><span class="kn">import</span> <span class="n">f2</span>
+</code></pre></div>
+<p>Para importar/utilizar a função f2 definida no módulo <strong>[fonctions_module_01.py]</strong>.</p>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><img src="images/100000000000051C000002086882FC9E.png" width="571" height="227" style="display:inline-block; margin:4px;width:15.109cm;height:6.008cm;" class="odt-zoomable" data-zoom-src="images/100000000000051C000002086882FC9E.png" /></td></tr></table>
+
+<p>Outro método consiste em utilizar as propriedades do projeto:</p>
+<ul>
+<li>acima, a sequência <strong>[1-6]</strong> permite transformar a pasta <strong>[shared]</strong> numa pasta onde guardar os módulos a importar;</li>
+</ul>
+<p>Por enquanto, não vamos declarar nenhuma pasta como <strong>[Sources Root]</strong>, além da raiz do projeto:</p>
+<p><img src="images/1000000000000557000002557F6FC5D5.png" width="546" height="239" style="width:14.452cm;height:6.311cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/1000000000000557000002557F6FC5D5.png" /></p>
+<p>Feito isto, podemos escrever o seguinte script <strong>[fonc-07]</strong>:</p>
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
+<span class="odt-code-line"><span class="odt-code-line-content"># utilização de módulos</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">import<span style="color:#000000"> </span><span style="color:#6f008a">sys</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"># ------------------------ main</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">print(</span>f&quot;Python path={sys.path}&quot;<span style="color:#000000">)</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">from</span><span style="color:#000000"> </span>fonctions<span style="color:#000000">.</span>shared<span style="color:#000000">.</span>fonctions_module_01<span style="color:#000000"> </span><span style="color:#0000ff">import</span><span style="color:#000000"> f2</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">print(f2(100, 200))</span></span>
+</code></pre></div>
+
+<ul>
+<li>linha 2: importa-se o objeto <strong>[sys]</strong> para poder utilizar, na linha 5, o seu atributo <strong>[path]</strong>, que fornece o que se denomina <strong>[Python Path]</strong>: uma lista de pastas que serão exploradas na procura de módulos importados;</li>
+<li>linha 6: importa-se a função f2 do módulo <strong>[fonctions_module_01]</strong>. Para designar este módulo, utiliza-se o caminho que vai da raiz do projeto até ao módulo. Com o PyCharm, a raiz do projeto faz sempre parte das pastas exploradas quando se procura um módulo importado num script. Esta pasta faz, portanto, parte do <strong>[Python Path]</strong> do projeto. É isso que a linha 5 nos permitirá verificar;</li>
+<li>linha 6: se descrevêssemos o caminho que vai da raiz do projeto até à pasta <strong>[fonctions_module_01]</strong>, escreveríamos <strong>[fonctions/shared/fonctions_module_01]</strong>. No caminho de um módulo, o sinal / é substituído pelo ponto. Escrevemos, portanto, <strong>[fonctions.modules.fonctions_module_01]</strong>;</li>
+<li>após a linha 6, a função f2 é conhecida. Utiliza-se na linha 8;</li>
+</ul>
+<p><strong>Resultados</strong></p>
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-java">
+<span class="odt-code-line"><span class="odt-code-line-content">C:\Data\st-2020\dev\python\cours-2020\python3-flask-2020\venv\Scripts\python.exe C:/Data/st-2020/dev/python/cours-2020/python3-flask-2020/fonctions/fonc_07.py</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">Python path=<span style="font-weight:bold">[</span><span style="font-weight:bold;background-color:#fff2cc">&#x27;C:\\Data\\st-2020\\dev\\python\\cours-2020\\python3-flask-2020\\fonctions</span><span style="font-weight:bold">&#x27;, </span><span style="font-weight:bold;background-color:#e2efd9">&#x27;C:\\Data\\st-2020\\dev\\python\\cours-2020\\python3-flask-2020</span><span style="font-weight:bold">&#x27;, </span><span style="font-weight:bold;background-color:#deeaf6">&#x27;C:\\Data\\st-2020\\dev\\python\\cours-2020\\python3-flask-2020\\fonctions\\shared</span><span style="font-weight:bold">&#x27;, &#x27;C:\\myprograms\\Python38\\python38.zip&#x27;, &#x27;C:\\myprograms\\Python38\\DLLs&#x27;, &#x27;C:\\myprograms\\Python38\\lib&#x27;, &#x27;C:\\myprograms\\Python38&#x27;, &#x27;C:\\Data\\st-2020\\dev\\python\\cours-2020\\python3-flask-2020\\venv&#x27;, &#x27;C:\\Data\\st-2020\\dev\\python\\cours-2020\\python3-flask-2020\\venv\\lib\\site-packages&#x27;]</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">310</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">Process finished with exit code 0</span></span>
+</code></pre></div>
+
+<p>Acima:</p>
+<ul>
+<li>destacado a verde, vê-se que a raiz do projeto faz parte do <strong>[Python Path]</strong>;</li>
+<li>destacado a amarelo, vê-se que a pasta do script executado também faz parte do <strong>[Python Path]</strong>;</li>
+<li>os restantes elementos do <strong>[Python Path]</strong> provêm diretamente da pasta de instalação do Python;</li>
+</ul>
+<p>O que acontece quando não se utiliza o PyCharm para executar <strong>o [fonc-07]</strong>?</p>
+<p><img src="images/10000001000001A4000001F247934B80.png" width="268" height="318" style="width:7.093cm;height:8.408cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000001000001A4000001F247934B80.png" /></p>
+<p><img src="images/100000000000058400000154DD0D1166.png" width="616" height="148" style="width:16.311cm;height:3.928cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000058400000154DD0D1166.png" /></p>
+<ul>
+<li>no <strong>[1]</strong>, executa-se o script <strong>[fonc-07]</strong>. Estamos posicionados na pasta <strong>[fonctions]</strong>;</li>
+<li>no <strong>[2]</strong>, verifica-se que a pasta de execução faz parte do <strong>[Python Path]</strong>. É sempre assim. É possível verificar também que a pasta raiz <strong>[C:\\Data\\st-2020\\dev\\python\\cours-2020\\python3-flask-2020]</strong> não faz parte do <strong>[Python Path]</strong>;</li>
+<li>em <strong>[3]</strong>, o interpretador Python indica que não encontra o módulo <strong>[fonctions]</strong>;</li>
+</ul>
+<p>Para procurar o módulo importado <strong>[fonctions.shared.fonctions_module_01]</strong>, o interpretador Python procura nas pastas do <strong>[Python Path]</strong> uma subpasta chamada <strong>[fonctions]</strong>. Não o encontra em lado nenhum. Com efeito, a subpasta <strong>[fonctions]</strong> encontra-se na pasta <strong>[C:\Data\st-2020\dev\python\cours-2020\python3-flask-2020],</strong> que não faz parte do <strong>[Python Path]</strong>.</p>
+<p>O script <strong>[fonc-08]</strong> apresenta uma possível solução para este problema.</p>
+<p><span id="toc48548951" name="toc48548951" class="odt-bookmark-anchor"></span>
+<span id="refheadingtoc2521152924280206" name="refheadingtoc2521152924280206" class="odt-bookmark-anchor"></span></p>
+<h2 id="68-script-fonc_08-adicionar-pastas-ao-python-path">6.8. <span style="color: #4f81bd"><strong>Script</strong> [fonc_08]<strong>: adicionar pastas ao</strong> [Python Path]</span></h2>
+<p>É possível modificar o <strong>[Python Path]</strong> por programação, tal como mostra o script <strong>[fonc-08]</strong>:</p>
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
+<span class="odt-code-line"><span class="odt-code-line-content"># utilização de módulos</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">import</span><span style="color:#000000"> </span><span style="color:#6f008a">os</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">import</span><span style="color:#000000"> </span><span style="color:#6f008a">sys</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"># pasta do script</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">script_dir = </span><span style="color:#6f008a">os</span><span style="color:#000000">.</span><span style="color:#6f008a">path</span><span style="color:#000000">.dirname(</span><span style="color:#6f008a">os</span><span style="color:#000000">.</span><span style="color:#6f008a">path</span><span style="color:#000000">.abspath(__file__))</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"># Python Path antes da alteração</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">print(</span><span style="color:#a31515">f&quot;Python path avant={sys.path}&quot;</span><span style="color:#000000">)</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"># adiciona-se a pasta [shared] ao Python Path</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#6f008a">sys</span><span style="color:#000000">.path.append(</span><span style="color:#a31515">f&quot;{script_dir}/shared&quot;</span><span style="color:#000000">)</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"># Python Path após a alteração</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">print(</span><span style="color:#a31515">f&quot;Python path après={sys.path}&quot;</span><span style="color:#000000">)</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"># import f2</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">from</span><span style="color:#000000"> </span><span style="color:#6f008a">fonctions_module_01</span><span style="color:#000000"> </span><span style="color:#0000ff">import</span><span style="color:#000000"> f2</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"># ------------------------ main</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">print(f2(100, 200))</span></span>
+</code></pre></div>
+
+<p><strong>Notas</strong></p>
+<ul>
+<li>linha 4: a variável especial <strong>[__file__]</strong> é o nome do script que está a ser executado. Dependendo do contexto de execução, este nome pode ser absoluto (Pycharm) ou relativo (consola). A função <strong>[os.path.abspath]</strong> devolve o nome absoluto do ficheiro cujo nome lhe é passado. A função <strong>[os.path.dirname]</strong> devolve o nome absoluto da pasta que contém o ficheiro cujo nome lhe é passado;</li>
+<li>linha 10: <strong>[sys.path]</strong> é uma matriz que contém os nomes das pastas a explorar quando se procura um módulo. Adiciona-se a esta matriz a raiz do projeto definida na linha 4;</li>
+<li>exibe-se o <strong>[Python Path]</strong> antes (linha 8) e depois (linha 12) da modificação;</li>
+<li>linha 15: importa-se o módulo <strong>[fonctions_module_01],</strong> que contém a função f2;</li>
+</ul>
+<p>A execução no PyCharm produz os seguintes resultados:</p>
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-java">
+<span class="odt-code-line"><span class="odt-code-line-content">C:\Data\st-2020\dev\python\cours-2020\python3-flask-2020\venv\Scripts\python.exe C:/Data/st-2020/dev/python/cours-2020/python3-flask-2020/fonctions/fonc_08.py</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="background-color:#fff2cc">Python path avant</span>=<span style="font-weight:bold">[&#x27;C:\\Data\\st-2020\\dev\\python\\cours-2020\\python3-flask-2020\\fonctions&#x27;, &#x27;C:\\Data\\st-2020\\dev\\python\\cours-2020\\python3-flask-2020&#x27;, &#x27;C:\\Data\\st-2020\\dev\\python\\cours-2020\\python3-flask-2020\\fonctions\\shared&#x27;, &#x27;C:\\myprograms\\Python38\\python38.zip&#x27;, &#x27;C:\\myprograms\\Python38\\DLLs&#x27;, &#x27;C:\\myprograms\\Python38\\lib&#x27;, &#x27;C:\\myprograms\\Python38&#x27;, &#x27;C:\\Data\\st-2020\\dev\\python\\cours-2020\\python3-flask-2020\\venv&#x27;, &#x27;C:\\Data\\st-2020\\dev\\python\\cours-2020\\python3-flask-2020\\venv\\lib\\site-packages&#x27;]</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="background-color:#fff2cc">Python path après</span>=<span style="font-weight:bold">[&#x27;C:\\Data\\st-2020\\dev\\python\\cours-2020\\python3-flask-2020\\fonctions&#x27;, &#x27;C:\\Data\\st-2020\\dev\\python\\cours-2020\\python3-flask-2020&#x27;, &#x27;C:\\Data\\st-2020\\dev\\python\\cours-2020\\python3-flask-2020\\fonctions\\shared&#x27;, &#x27;C:\\myprograms\\Python38\\python38.zip&#x27;, &#x27;C:\\myprograms\\Python38\\DLLs&#x27;, &#x27;C:\\myprograms\\Python38\\lib&#x27;, &#x27;C:\\myprograms\\Python38&#x27;, &#x27;C:\\Data\\st-2020\\dev\\python\\cours-2020\\python3-flask-2020\\venv&#x27;, &#x27;C:\\Data\\st-2020\\dev\\python\\cours-2020\\python3-flask-2020\\venv\\lib\\site-packages&#x27;, &#x27;C:\\Data\\st-2020\\dev\\python\\cours-2020\\python3-flask-2020\\fonctions/shared&#x27;]</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">310</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">Process finished with exit code 0</span></span>
+</code></pre></div>
+
+<ul>
+<li>linha 3: verifica-se que a pasta <strong>[shared]</strong> aparece duas vezes na pasta <strong>[Python Path]</strong>. É possível evitar isso, mas, neste caso, não causa qualquer problema;</li>
+<li>linha 4: a função f2 foi executada corretamente;</li>
+</ul>
+<p>Agora, vamos executar <strong>o [fonc-08]</strong> num terminal:</p>
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-java">
+<span class="odt-code-line"><span class="odt-code-line-content">(venv) C:\Data\st-2020\dev\python\cours-2020\python3-flask-2020\fonctions&gt;python fonc_08.py</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="background-color:#fff2cc">Python path avant</span>=<span style="font-weight:bold">[&#x27;C:\\Data\\st-2020\\dev\\python\\cours-2020\\python3-flask-2020\\fonctions&#x27;, &#x27;C:\\myprograms\\Python38\\python38.zip&#x27;, &#x27;C:\\myprograms\\Python38\\DLLs&#x27;, &#x27;C:\\myprograms\\Python38\\lib&#x27;, &#x27;C:\\myprograms\\Python38&#x27;, &#x27;C:\\Data\\st-2020\\dev\\python\\cours-2020\\python3-flask-2020\\venv&#x27;, &#x27;C:\\Data\\st-2020\\dev\\python\\cours-2020\\python3-flask-2020\\venv\\lib\\site-packages&#x27;]</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="background-color:#fff2cc">Python path après</span>=<span style="font-weight:bold">[&#x27;C:\\Data\\st-2020\\dev\\python\\cours-2020\\python3-flask-2020\\fonctions&#x27;, &#x27;C:\\myprograms\\Python38\\python38.zip&#x27;, &#x27;C:\\myprograms\\Python38\\DLLs&#x27;, &#x27;C:\\myprograms\\Python38\\lib&#x27;, &#x27;C:\\myprograms\\Python38&#x27;, &#x27;C:\\Data\\st-2020\\dev\\python\\cours-2020\\python3-flask-2020\\venv&#x27;, &#x27;C:\\Data\\st-2020\\dev\\python\\cours-2020\\python3-flask-2020\\venv\\lib\\site-packages&#x27;, &#x27;C:\\Data\\st-2020\\dev\\python\\cours-2020\\python3-flask-2020\\fonctions/shared&#x27;]</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">310</span></span>
+</code></pre></div>
+
+<ul>
+<li>linha 2: tal como anteriormente, a pasta <strong>[shared]</strong> não se encontra no <strong>[Python Path]</strong>;</li>
+<li>linha 3: agora já lá está;</li>
+<li>linha 4: a função f2 foi encontrada;</li>
+</ul>
+<p><span id="toc48548952" name="toc48548952" class="odt-bookmark-anchor"></span>
+<span id="refheadingtoc2521172924280206" name="refheadingtoc2521172924280206" class="odt-bookmark-anchor"></span></p>
+<h2 id="69-script-fonc_09-declaracao-do-tipo-dos-parametros">6.9. <span style="color: #4f81bd"><strong>Script</strong> [fonc_09]<strong>: declaração do tipo dos parâmetros</strong></span></h2>
+<p>O script <strong>[fonc_09]</strong> mostra que é possível declarar o tipo dos parâmetros de uma função, bem como o do resultado. No entanto, esta declaração serve apenas para a documentação da função. O interpretador Python não verifica se os parâmetros efetivos da função têm, de facto, o tipo esperado. No entanto, o PyCharm assinala as inconsistências de tipos entre os parâmetros efetivos e os formais. Esta razão, por si só, é suficiente para tornar as declarações de tipo indispensáveis. </p>
+<p>O script é o seguinte:</p>
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
+<span class="odt-code-line"><span class="odt-code-line-content"># uma função com indicação do tipo dos parâmetros</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"># isto serve apenas como documentação, uma vez que o interpretador Python não tem isso em conta</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">def</span> show(<span style="color:#808080">param</span>: <span style="color:#2b91af">int</span>) -&gt; <span style="color:#2b91af">int</span>:</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    print(</span>f&quot;param={param}, type(param)={type(param)}&quot;<span style="color:#000000">)</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#0000ff">return</span> <span style="color:#808080">param</span> + 1</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"># main -------------------------</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">print(show(4))</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">show(<span style="color:#a31515">&quot;xyz&quot;</span>)</span></span>
+</code></pre></div>
+
+<p><strong>Notas</strong>:</p>
+<ul>
+<li>linha 5: declara-se que o parâmetro formal <strong>[param]</strong> é do tipo <strong>[int]</strong> e que o resultado da função é também do tipo <strong>[int]</strong>;</li>
+<li>linha 11: o parâmetro efetivo da função <strong>[show]</strong> tem o tipo correto;</li>
+<li>linha 12: o parâmetro efetivo da função <strong>[show]</strong> não tem o tipo correto;</li>
+</ul>
+<p><strong>Resultados</strong></p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-4-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-4-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-4-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-4-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-4-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-4-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-4-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-4-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-4-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-4-10">10</a></span>
+<span class="normal"><a href="#__codelineno-4-11">11</a></span>
+<span class="normal"><a href="#__codelineno-4-12">12</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1"></a>C:\Data\st-2020\dev\python\cours-2020\python3-flask-2020\venv\Scripts\python.exe C:/Data/st-2020/dev/python/cours-2020/python3-flask-2020/fonctions/fonc_09.py
+<a id="__codelineno-4-2" name="__codelineno-4-2"></a>param=4, type(param)=&lt;class &#39;int&#39;&gt;
+<a id="__codelineno-4-3" name="__codelineno-4-3"></a>5
+<a id="__codelineno-4-4" name="__codelineno-4-4"></a>param=xyz, type(param)=&lt;class &#39;str&#39;&gt;
+<a id="__codelineno-4-5" name="__codelineno-4-5"></a>Traceback (most recent call last):
+<a id="__codelineno-4-6" name="__codelineno-4-6"></a>  File &quot;C:/Data/st-2020/dev/python/cours-2020/python3-flask-2020/fonctions/fonc_09.py&quot;, line 11, in &lt;module&gt;
+<a id="__codelineno-4-7" name="__codelineno-4-7"></a>    show(&quot;xyz&quot;)
+<a id="__codelineno-4-8" name="__codelineno-4-8"></a>  File &quot;C:/Data/st-2020/dev/python/cours-2020/python3-flask-2020/fonctions/fonc_09.py&quot;, line 6, in show
+<a id="__codelineno-4-9" name="__codelineno-4-9"></a>    return param + 1
+<a id="__codelineno-4-10" name="__codelineno-4-10"></a>TypeError: can only concatenate str (not &quot;int&quot;) to str
+<a id="__codelineno-4-11" name="__codelineno-4-11"></a>
+<a id="__codelineno-4-12" name="__codelineno-4-12"></a>Process finished with exit code 1
+</code></pre></div></td></tr></table></div>
+<ul>
+<li>linha 10: o tipo do parâmetro <strong>[param]</strong> é do tipo <strong>[str]</strong>. Quando esta mensagem é apresentada, já se está no código da função <strong>[show]</strong>. O interpretador Python aceitou, portanto, que o parâmetro efetivo da função <strong>[show]</strong> fosse do tipo <strong>[str]</strong>;</li>
+<li>a linha 7 do código provoca a exceção refletida nas linhas 4 a 10 dos resultados;</li>
+</ul>
+<p>PyCharm indica, no entanto, que existe uma anomalia:</p>
+<p><img src="images/10000000000002D9000001945D4D8660.png" width="318" height="176" style="width:8.41cm;height:4.66cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000002D9000001945D4D8660.png" /></p>
+<p>Em <strong>[1]</strong>, PyCharm destacou a chamada incorreta.</p>
+<p><span id="toc48548953" name="toc48548953" class="odt-bookmark-anchor"></span>
+<span id="refheadingtoc2521192924280206" name="refheadingtoc2521192924280206" class="odt-bookmark-anchor"></span></p>
+<h2 id="610-script-fonc_10-parametros-nomeados">6.10. <span style="color: #4f81bd"><strong>Script</strong> [fonc_10]<strong>: parâmetros nomeados</strong></span></h2>
+<p>Para passar parâmetros a uma função, é possível utilizar os nomes dos parâmetros formais da mesma. Neste caso, não é obrigatório respeitar a ordem dos parâmetros formais:</p>
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
+<span class="odt-code-line"><span class="odt-code-line-content"># é possível referir-se aos parâmetros efetivos pelos seus nomes formais</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">def</span> f(<span style="color:#808080">x</span>, <span style="color:#808080">y</span>):</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#0000ff">return</span> <span style="color:#808080">x</span> + <span style="color:#808080">y</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"># main</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">print(f(y=10, x=3))</span></span>
+</code></pre></div>
+
+<p><strong>Notas</strong></p>
+<ul>
+<li>linha 2: a função f tem dois parâmetros formais, x e y;</li>
+<li>linha 7: ao chamar a função f, é possível utilizar os nomes dos parâmetros formais. Esta prática pode ser útil, pelo menos, em dois casos:<ul>
+<li>a função tem muitos parâmetros, a maioria dos quais com um valor por defeito. Ao chamá-la, a técnica anterior permite inicializar apenas os parâmetros cujo valor por defeito não se pretende utilizar;</li>
+<li>se os parâmetros formais tiverem um nome significativo, então a utilização de parâmetros nomeados na chamada da função melhora a legibilidade do código;</li>
+</ul>
+</li>
+</ul>
+<p><strong>Resultados</strong></p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-5-1">1</a></span>
+<span class="normal"><a href="#__codelineno-5-2">2</a></span>
+<span class="normal"><a href="#__codelineno-5-3">3</a></span>
+<span class="normal"><a href="#__codelineno-5-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1"></a>C:\Data\st-2020\dev\python\cours-2020\python3-flask-2020\venv\Scripts\python.exe C:/Data/st-2020/dev/python/cours-2020/python3-flask-2020/fonctions/fonc_10.py
+<a id="__codelineno-5-2" name="__codelineno-5-2"></a>13
+<a id="__codelineno-5-3" name="__codelineno-5-3"></a>
+<a id="__codelineno-5-4" name="__codelineno-5-4"></a>Process finished with exit code 0
+</code></pre></div></td></tr></table></div>
+<p><span id="toc48548954" name="toc48548954" class="odt-bookmark-anchor"></span></p>
+<h2 id="611-script-fonc_11-funcao-recursiva">6.11. <span style="color: #4f81bd"><strong>Script</strong> [fonc_11]<strong>: função recursiva</strong></span></h2>
+<p>O script <strong>[fonc_11]</strong> é um exemplo de função recursiva (que se chama a si própria):</p>
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
+<span class="odt-code-line"><span class="odt-code-line-content"># função recursiva</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">def</span> fact(<span style="color:#808080">i</span>: <span style="color:#2b91af">int</span>) -&gt; <span style="color:#2b91af">int</span>:</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#000000"># fatorial(1) é 1</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#000000"># uma função recursiva tem de terminar em determinado momento</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#0000ff">if</span> <span style="color:#808080">i</span> == 1:</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#0000ff">return</span> 1</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#0000ff">else</span>:</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#000000"># fatorial(i) = i * fatorial(i-1)</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#0000ff">return</span> <span style="color:#808080">i</span> * fact(<span style="color:#808080">i</span> - 1)</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"># ---------- main</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">print(</span>f&quot;fact(8)={fact(8)}&quot;<span style="color:#000000">)</span></span></span>
+</code></pre></div>
+
+<p><strong>Comentários</strong></p>
+<ul>
+<li>linhas 1-9: a função fatorial;</li>
+<li>linha 9: a função <strong>[factorielle]</strong> chama-se a si própria;</li>
+<li>linhas 5-6: uma função recursiva deve parar sempre que uma condição for satisfeita; caso contrário, ocorre uma recursão infinita;</li>
+</ul>
+<p><strong>Resultados</strong></p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-6-1">1</a></span>
+<span class="normal"><a href="#__codelineno-6-2">2</a></span>
+<span class="normal"><a href="#__codelineno-6-3">3</a></span>
+<span class="normal"><a href="#__codelineno-6-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1"></a>C:\Data\st-2020\dev\python\cours-2020\python3-flask-2020\venv\Scripts\python.exe C:/Data/st-2020/dev/python/cours-2020/python3-flask-2020/fonctions/fonc_11.py
+<a id="__codelineno-6-2" name="__codelineno-6-2"></a>fact(8)=40320
+<a id="__codelineno-6-3" name="__codelineno-6-3"></a>
+<a id="__codelineno-6-4" name="__codelineno-6-4"></a>Process finished with exit code 0
+</code></pre></div></td></tr></table></div>
+<p><span id="toc48548955" name="toc48548955" class="odt-bookmark-anchor"></span></p>
+<h2 id="612-script-fonc_12-funcao-recursiva">6.12. <span style="color: #4f81bd"><strong>Script</strong> [fonc_12]<strong>: função recursiva</strong></span></h2>
+<p>A função <strong>[fonc_12]</strong> fornece mais detalhes sobre o funcionamento da recursividade:</p>
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
+<span class="odt-code-line"><span class="odt-code-line-content"># função recursiva</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"># comportamento do parâmetro j</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000ff">def</span><span style="color:#000000"> fact(</span><span style="color:#808080">i</span><span style="color:#000000">: </span><span style="color:#2b91af">int</span><span style="color:#000000">, </span><span style="color:#808080">j</span><span style="color:#000000">: </span><span style="color:#2b91af">int</span><span style="color:#000000">) -&gt; </span><span style="color:#2b91af">int</span><span style="color:#000000">:</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#000000"># fim da função recursiva</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="color:#0000ff">if</span><span style="color:#000000"> </span><span style="color:#808080">i</span><span style="color:#000000"> == 1:</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        print(</span><span style="color:#a31515">f&quot;j={j}&quot;</span><span style="color:#000000">)</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        </span><span style="color:#0000ff">return</span><span style="color:#000000"> 1</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="color:#0000ff">else</span><span style="color:#000000">:</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#000000"># manipula-se j</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        </span><span style="color:#808080">j</span><span style="color:#000000"> += 1</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        print(</span><span style="color:#a31515">f&quot;avant fact j={j}&quot;</span><span style="color:#000000">)</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#000000"># recursividade</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        f = fact(</span><span style="color:#808080">i</span><span style="color:#000000"> - 1, </span><span style="color:#808080">j</span><span style="color:#000000">)</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        print(</span><span style="color:#a31515">f&quot;après fact j={j}&quot;</span><span style="color:#000000">)</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#000000"># resultado</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        </span><span style="color:#0000ff">return</span><span style="color:#000000"> </span><span style="color:#808080">i</span><span style="color:#000000"> * f</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"># ---------- main</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">print(</span><span style="color:#a31515">f&quot;fact(8)={fact(8, 0)}&quot;</span><span style="color:#000000">)</span></span></span>
+</code></pre></div>
+
+<p><strong>Comentários</strong></p>
+<ul>
+<li>linha 5: continuamos a centrar-nos na função fatorial. Adiciona-se-lhe o parâmetro <strong>[j]</strong>;</li>
+<li>linha 12: a variável j é incrementada regularmente a cada fatorial. Exibimos o seu valor antes (linha 12) e depois (linha 16) da recursão (linha 15);</li>
+</ul>
+<p><strong>Resultados</strong></p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-7-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-7-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-7-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-7-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-7-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-7-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-7-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-7-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-7-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-7-10">10</a></span>
+<span class="normal"><a href="#__codelineno-7-11">11</a></span>
+<span class="normal"><a href="#__codelineno-7-12">12</a></span>
+<span class="normal"><a href="#__codelineno-7-13">13</a></span>
+<span class="normal"><a href="#__codelineno-7-14">14</a></span>
+<span class="normal"><a href="#__codelineno-7-15">15</a></span>
+<span class="normal"><a href="#__codelineno-7-16">16</a></span>
+<span class="normal"><a href="#__codelineno-7-17">17</a></span>
+<span class="normal"><a href="#__codelineno-7-18">18</a></span>
+<span class="normal"><a href="#__codelineno-7-19">19</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1"></a>C:\Data\st-2020\dev\python\cours-2020\python3-flask-2020\venv\Scripts\python.exe C:/Data/st-2020/dev/python/cours-2020/python3-flask-2020/fonctions/fonc_12.py
+<a id="__codelineno-7-2" name="__codelineno-7-2"></a>avant fact j=1
+<a id="__codelineno-7-3" name="__codelineno-7-3"></a>avant fact j=2
+<a id="__codelineno-7-4" name="__codelineno-7-4"></a>avant fact j=3
+<a id="__codelineno-7-5" name="__codelineno-7-5"></a>avant fact j=4
+<a id="__codelineno-7-6" name="__codelineno-7-6"></a>avant fact j=5
+<a id="__codelineno-7-7" name="__codelineno-7-7"></a>avant fact j=6
+<a id="__codelineno-7-8" name="__codelineno-7-8"></a>avant fact j=7
+<a id="__codelineno-7-9" name="__codelineno-7-9"></a>j=7
+<a id="__codelineno-7-10" name="__codelineno-7-10"></a>après fact j=7
+<a id="__codelineno-7-11" name="__codelineno-7-11"></a>après fact j=6
+<a id="__codelineno-7-12" name="__codelineno-7-12"></a>après fact j=5
+<a id="__codelineno-7-13" name="__codelineno-7-13"></a>après fact j=4
+<a id="__codelineno-7-14" name="__codelineno-7-14"></a>après fact j=3
+<a id="__codelineno-7-15" name="__codelineno-7-15"></a>après fact j=2
+<a id="__codelineno-7-16" name="__codelineno-7-16"></a>après fact j=1
+<a id="__codelineno-7-17" name="__codelineno-7-17"></a>fact(8)=40320
+<a id="__codelineno-7-18" name="__codelineno-7-18"></a>
+<a id="__codelineno-7-19" name="__codelineno-7-19"></a>Process finished with exit code 0
+</code></pre></div></td></tr></table></div>
+<ul>
+<li>linhas 2-8: verifica-se que o valor de <strong>[j]</strong> aumenta enquanto a recursão continua, até se verificar a condição em que a recursão termina. A partir desse momento, o retorno das chamadas à função <strong>[fact]</strong> ocorre na ordem inversa às chamadas;</li>
+<li>linhas 10-16: estas exibições refletem os retornos sucessivos da chamada à função fatorial. A variável <strong>[j]</strong> volta aos seus valores até atingir o seu valor inicial 1;</li>
+</ul>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner">
+
+      <div>
+        <a href="https://stahe.github.io" target="_blank">
+          https://stahe.github.io
+        </a>
+        <br>
+        Este tutorial, escrito por <strong>Serge Tahé</strong>, é disponibilizado ao público sob os termos da
+<em>Creative Commons Atribuição – Não comercial –
+Partilha igual 3.0 Unported</em>.
+      </div>
+
+    </div>
+  </div>
+
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": ".", "features": ["navigation.sections", "navigation.indexes", "navigation.expand", "toc.integrate", "navigation.top"], "search": "assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="assets/javascripts/bundle.e71a0d61.min.js"></script>
+      
+        <script src="javascripts/focus.js"></script>
+      
+    
+  </body>
+</html>

@@ -2,162 +2,162 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://stahe.github.io/pt-python-flask-sept-2020/index.html</loc>
-         <lastmod>2026-05-07</lastmod>
+         <lastmod>2026-06-26</lastmod>
     </url>
     <url>
-         <loc>https://stahe.github.io/pt-python-flask-sept-2020/-exercicio-de-aplicacao-versao-8.html</loc>
-         <lastmod>2026-05-07</lastmod>
+         <loc>https://stahe.github.io/pt-python-flask-sept-2020/-exercicio-pratico-versao-8.html</loc>
+         <lastmod>2026-06-26</lastmod>
     </url>
     <url>
-         <loc>https://stahe.github.io/pt-python-flask-sept-2020/arquitetura-em-camadas-e-programacao-baseada-em-interfaces.html</loc>
-         <lastmod>2026-05-07</lastmod>
+         <loc>https://stahe.github.io/pt-python-flask-sept-2020/arquitetura-em-camadas-e-programacao-por-interfaces.html</loc>
+         <lastmod>2026-06-26</lastmod>
+    </url>
+    <url>
+         <loc>https://stahe.github.io/pt-python-flask-sept-2020/as-cadeias-de-caracteres.html</loc>
+         <lastmod>2026-06-26</lastmod>
+    </url>
+    <url>
+         <loc>https://stahe.github.io/pt-python-flask-sept-2020/as-classes-e-os-objetos.html</loc>
+         <lastmod>2026-06-26</lastmod>
     </url>
     <url>
          <loc>https://stahe.github.io/pt-python-flask-sept-2020/as-classes-genericas-baseentity-e-myexception.html</loc>
-         <lastmod>2026-05-07</lastmod>
+         <lastmod>2026-06-26</lastmod>
     </url>
     <url>
-         <loc>https://stahe.github.io/pt-python-flask-sept-2020/cadeias-de-caracteres.html</loc>
-         <lastmod>2026-05-07</lastmod>
+         <loc>https://stahe.github.io/pt-python-flask-sept-2020/as-excecoes.html</loc>
+         <lastmod>2026-06-26</lastmod>
     </url>
     <url>
-         <loc>https://stahe.github.io/pt-python-flask-sept-2020/classes-e-objetos.html</loc>
-         <lastmod>2026-05-07</lastmod>
+         <loc>https://stahe.github.io/pt-python-flask-sept-2020/as-funcoes.html</loc>
+         <lastmod>2026-06-26</lastmod>
+    </url>
+    <url>
+         <loc>https://stahe.github.io/pt-python-flask-sept-2020/as-importacoes.html</loc>
+         <lastmod>2026-06-26</lastmod>
     </url>
     <url>
          <loc>https://stahe.github.io/pt-python-flask-sept-2020/clientes-web-para-os-servicos-json-e-xml-da-versao-12.html</loc>
-         <lastmod>2026-05-07</lastmod>
+         <lastmod>2026-06-26</lastmod>
     </url>
     <url>
          <loc>https://stahe.github.io/pt-python-flask-sept-2020/conclusao.html</loc>
-         <lastmod>2026-05-07</lastmod>
-    </url>
-    <url>
-         <loc>https://stahe.github.io/pt-python-flask-sept-2020/configurar-um-ambiente-de-desenvolvimento.html</loc>
-         <lastmod>2026-05-07</lastmod>
+         <lastmod>2026-06-26</lastmod>
     </url>
     <url>
          <loc>https://stahe.github.io/pt-python-flask-sept-2020/do-dicionario-para-xml-e-vice-versa.html</loc>
-         <lastmod>2026-05-07</lastmod>
+         <lastmod>2026-06-26</lastmod>
     </url>
     <url>
          <loc>https://stahe.github.io/pt-python-flask-sept-2020/escrever-codigo-independente-do-sgbd.html</loc>
-         <lastmod>2026-05-07</lastmod>
-    </url>
-    <url>
-         <loc>https://stahe.github.io/pt-python-flask-sept-2020/excecoes.html</loc>
-         <lastmod>2026-05-07</lastmod>
-    </url>
-    <url>
-         <loc>https://stahe.github.io/pt-python-flask-sept-2020/exercicio-da-aplicacao-versao-10.html</loc>
-         <lastmod>2026-05-07</lastmod>
-    </url>
-    <url>
-         <loc>https://stahe.github.io/pt-python-flask-sept-2020/exercicio-da-aplicacao-versao-16.html</loc>
-         <lastmod>2026-05-07</lastmod>
-    </url>
-    <url>
-         <loc>https://stahe.github.io/pt-python-flask-sept-2020/exercicio-de-aplicacao---versao-4.html</loc>
-         <lastmod>2026-05-07</lastmod>
-    </url>
-    <url>
-         <loc>https://stahe.github.io/pt-python-flask-sept-2020/exercicio-de-aplicacao-versao-5.html</loc>
-         <lastmod>2026-05-07</lastmod>
-    </url>
-    <url>
-         <loc>https://stahe.github.io/pt-python-flask-sept-2020/exercicio-de-aplicacao-versao-9.html</loc>
-         <lastmod>2026-05-07</lastmod>
+         <lastmod>2026-06-26</lastmod>
     </url>
     <url>
          <loc>https://stahe.github.io/pt-python-flask-sept-2020/exercicio-pratico---versao-1.html</loc>
-         <lastmod>2026-05-07</lastmod>
+         <lastmod>2026-06-26</lastmod>
+    </url>
+    <url>
+         <loc>https://stahe.github.io/pt-python-flask-sept-2020/exercicio-pratico---versao-4.html</loc>
+         <lastmod>2026-06-26</lastmod>
+    </url>
+    <url>
+         <loc>https://stahe.github.io/pt-python-flask-sept-2020/exercicio-pratico-versao-10.html</loc>
+         <lastmod>2026-06-26</lastmod>
     </url>
     <url>
          <loc>https://stahe.github.io/pt-python-flask-sept-2020/exercicio-pratico-versao-11.html</loc>
-         <lastmod>2026-05-07</lastmod>
+         <lastmod>2026-06-26</lastmod>
     </url>
     <url>
          <loc>https://stahe.github.io/pt-python-flask-sept-2020/exercicio-pratico-versao-12.html</loc>
-         <lastmod>2026-05-07</lastmod>
+         <lastmod>2026-06-26</lastmod>
     </url>
     <url>
          <loc>https://stahe.github.io/pt-python-flask-sept-2020/exercicio-pratico-versao-13.html</loc>
-         <lastmod>2026-05-07</lastmod>
+         <lastmod>2026-06-26</lastmod>
     </url>
     <url>
          <loc>https://stahe.github.io/pt-python-flask-sept-2020/exercicio-pratico-versao-14.html</loc>
-         <lastmod>2026-05-07</lastmod>
+         <lastmod>2026-06-26</lastmod>
     </url>
     <url>
          <loc>https://stahe.github.io/pt-python-flask-sept-2020/exercicio-pratico-versao-15.html</loc>
-         <lastmod>2026-05-07</lastmod>
+         <lastmod>2026-06-26</lastmod>
+    </url>
+    <url>
+         <loc>https://stahe.github.io/pt-python-flask-sept-2020/exercicio-pratico-versao-16.html</loc>
+         <lastmod>2026-06-26</lastmod>
     </url>
     <url>
          <loc>https://stahe.github.io/pt-python-flask-sept-2020/exercicio-pratico-versao-17.html</loc>
-         <lastmod>2026-05-07</lastmod>
+         <lastmod>2026-06-26</lastmod>
     </url>
     <url>
          <loc>https://stahe.github.io/pt-python-flask-sept-2020/exercicio-pratico-versao-18-.html</loc>
-         <lastmod>2026-05-07</lastmod>
+         <lastmod>2026-06-26</lastmod>
     </url>
     <url>
          <loc>https://stahe.github.io/pt-python-flask-sept-2020/exercicio-pratico-versao-2.html</loc>
-         <lastmod>2026-05-07</lastmod>
+         <lastmod>2026-06-26</lastmod>
     </url>
     <url>
          <loc>https://stahe.github.io/pt-python-flask-sept-2020/exercicio-pratico-versao-3.html</loc>
-         <lastmod>2026-05-07</lastmod>
+         <lastmod>2026-06-26</lastmod>
+    </url>
+    <url>
+         <loc>https://stahe.github.io/pt-python-flask-sept-2020/exercicio-pratico-versao-5.html</loc>
+         <lastmod>2026-06-26</lastmod>
     </url>
     <url>
          <loc>https://stahe.github.io/pt-python-flask-sept-2020/exercicio-pratico-versao-6.html</loc>
-         <lastmod>2026-05-07</lastmod>
+         <lastmod>2026-06-26</lastmod>
     </url>
     <url>
          <loc>https://stahe.github.io/pt-python-flask-sept-2020/exercicio-pratico-versao-7.html</loc>
-         <lastmod>2026-05-07</lastmod>
+         <lastmod>2026-06-26</lastmod>
     </url>
     <url>
-         <loc>https://stahe.github.io/pt-python-flask-sept-2020/ficheiros-de-texto.html</loc>
-         <lastmod>2026-05-07</lastmod>
+         <loc>https://stahe.github.io/pt-python-flask-sept-2020/exercicio-pratico-versao-9.html</loc>
+         <lastmod>2026-06-26</lastmod>
     </url>
     <url>
          <loc>https://stahe.github.io/pt-python-flask-sept-2020/funcoes-de-internet.html</loc>
-         <lastmod>2026-05-07</lastmod>
+         <lastmod>2026-06-26</lastmod>
     </url>
     <url>
-         <loc>https://stahe.github.io/pt-python-flask-sept-2020/funcoes.html</loc>
-         <lastmod>2026-05-07</lastmod>
-    </url>
-    <url>
-         <loc>https://stahe.github.io/pt-python-flask-sept-2020/importacoes.html</loc>
-         <lastmod>2026-05-07</lastmod>
-    </url>
-    <url>
-         <loc>https://stahe.github.io/pt-python-flask-sept-2020/modo-html-na-versao-12.html</loc>
-         <lastmod>2026-05-07</lastmod>
+         <loc>https://stahe.github.io/pt-python-flask-sept-2020/instalacao-de-um-ambiente-de-trabalho.html</loc>
+         <lastmod>2026-06-26</lastmod>
     </url>
     <url>
          <loc>https://stahe.github.io/pt-python-flask-sept-2020/nocoes-basicas-de-python.html</loc>
-         <lastmod>2026-05-07</lastmod>
+         <lastmod>2026-06-26</lastmod>
+    </url>
+    <url>
+         <loc>https://stahe.github.io/pt-python-flask-sept-2020/o-modo-html-da-versao-12.html</loc>
+         <lastmod>2026-06-26</lastmod>
+    </url>
+    <url>
+         <loc>https://stahe.github.io/pt-python-flask-sept-2020/os-ficheiros-de-texto.html</loc>
+         <lastmod>2026-06-26</lastmod>
     </url>
     <url>
          <loc>https://stahe.github.io/pt-python-flask-sept-2020/prefacio.html</loc>
-         <lastmod>2026-05-07</lastmod>
+         <lastmod>2026-06-26</lastmod>
     </url>
     <url>
          <loc>https://stahe.github.io/pt-python-flask-sept-2020/servicos-web-com-o-framework-flask.html</loc>
-         <lastmod>2026-05-07</lastmod>
+         <lastmod>2026-06-26</lastmod>
     </url>
     <url>
          <loc>https://stahe.github.io/pt-python-flask-sept-2020/utilizacao-do-orm-sqlalchemy.html</loc>
-         <lastmod>2026-05-07</lastmod>
+         <lastmod>2026-06-26</lastmod>
+    </url>
+    <url>
+         <loc>https://stahe.github.io/pt-python-flask-sept-2020/utilizacao-do-sgbd-mysql.html</loc>
+         <lastmod>2026-06-26</lastmod>
     </url>
     <url>
          <loc>https://stahe.github.io/pt-python-flask-sept-2020/utilizacao-do-sgbd-postgresql.html</loc>
-         <lastmod>2026-05-07</lastmod>
-    </url>
-    <url>
-         <loc>https://stahe.github.io/pt-python-flask-sept-2020/utilizando-o-sgbd-mysql.html</loc>
-         <lastmod>2026-05-07</lastmod>
+         <lastmod>2026-06-26</lastmod>
     </url>
 </urlset>
